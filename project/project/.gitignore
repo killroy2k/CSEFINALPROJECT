@@ -1,0 +1,10 @@
+# API and Email secrets
+protected_info.py
+
+# DB not needed
+*.db
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
