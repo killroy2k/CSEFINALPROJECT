@@ -1,7 +1,10 @@
-When 
+Vynze's noobie github info stuff
 
-1. git fetch to grab stuff from repo
-2. git pull to update vscode
+When you wanna  
+
+1. git fetch to grab the changes from repo
+2. git log to see changes
+3. git pull to update vscode
 
 
 
