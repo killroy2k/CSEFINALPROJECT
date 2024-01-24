@@ -9,6 +9,7 @@ from protected_info import *
 
 threat_count = 0
 
+
 class CVE:
     def __init__(self, id, description, severity, attackVector, attackComplexity, privilegesRequired, userInteraction, confidentialityImpact, integrityImpact, availabilityImpact):
         self.id = id
@@ -24,6 +25,7 @@ class CVE:
 
     def __str__(self):
         return "CVE(ID: {self.id}, Severity: {self.severity}, Description: {self.description})"
+
     
 def setup_db():
     db_exists = os.path.exists('project.db')
