@@ -159,14 +159,16 @@ def check_if_threat(cve):
     # Return the openai response
     return openai_analysis
 
+#cisa = checking tweets from @cisaCatalogBot
 def check_cisa(db, day_diff):
     # Authenticate with the Twitter API
     client = tweepy.Client(bearer_token=API_KEYS._TWITTER_KEY)
 
     # Calculate the time range for the previous full day
-    end_time = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+    end_time = datetime.utcnow()
+    end_time = end_time - timedelta(minutes = 1)
     start_time = end_time - timedelta(days=day_diff)
-
+    start_time = start_time - timedelta(minutes = -1)
     # Fetch tweets from the previous full day from CISA Bot
     cisa_tweets = client.search_recent_tweets(query="from:cisaCatalogBot -is:retweet",
                                               start_time=start_time,
@@ -182,6 +184,7 @@ def check_cisa(db, day_diff):
     if cisa_tweets.data:
         # Check if each CVE mentioned in CISA tweets exists in the database
         for tweet in cisa_tweets.data:
+            print(tweet)
             cve_id = tweet.text.split()[0]  # Assuming the CVE ID is the first word in the tweet
             cursor.execute("SELECT count(1) FROM cves WHERE id = ?", (cve_id,))
             exists = cursor.fetchone()[0]

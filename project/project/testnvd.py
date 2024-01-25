@@ -1,11 +1,14 @@
+from requests.auth import HTTPBasicAuth
 import requests, openai, csv, tweepy, sqlite3, os, smtplib
 from datetime import datetime, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
+import json
 
 from protected_info import *
+from project import *
 
 class CVE:
     def __init__(self, id, description, severity, attackVector, attackComplexity, privilegesRequired, userInteraction, confidentialityImpact, integrityImpact, availabilityImpact):
@@ -23,6 +26,8 @@ class CVE:
     def __str__(self):
         return "CVE(ID: {self.id}, Severity: {self.severity}, Description: {self.description})"
 
+
+#hour diff is used to request entries between current time and (current time - hour_diff)
 def check_nvd(hour_diff):
     # Ensure that hourdiff is a positive integer
     if not isinstance(hour_diff, int) or hour_diff < 0:
@@ -31,21 +36,33 @@ def check_nvd(hour_diff):
     # Format the current time and one hour ago in ISO8601 format
     time_now = datetime.utcnow()
     time_diff = time_now - timedelta(hours=hour_diff)
-    start = time_diff.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
-    end = time_now.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
+    start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
+    end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
 
-    # URL for the NVD API
-    url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?pubStartDate={start}&pubEndDate={end}&resultsPerPage=2000"
+    #incorrect time format for NVD api 2.0
+    # start = time_diff.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
+    # end = time_now.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
+    
+
+    # URL for the NVD API, resultsPerPage modified by the source documentation(max= 1000)
+    url = f"https://services.nvd.nist.gov/rest/json/cvehistory/2.0/?changeStartDate={start}&changeEndDate={end}"
+    print(url)
+    
+    #old url
+    #url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?pubStartDate={start}&pubEndDate={end}&resultsPerPage=2000"
 
     # Make the API call
     headers = {'apiKey': API_KEYS._NVD_KEY}
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
         raise Exception(f"Failed to fetch data from NVD: {response.status_code} - {response.text}")
+    print(response.text)
 
     # Parse the response and create CVE objects
     cve_list = []
     data = response.json()
+    with open('test.json', 'w') as f:
+        json.dump(data, f)
     for item in data.get('result', {}).get('CVE_Items', []):
         cve_id = item['cve']['CVE_data_meta']['ID']
         description = item['cve']['description']['description_data'][0]['value']
@@ -65,5 +82,6 @@ def check_nvd(hour_diff):
 
     return cve_list
 
-cveList = check_nvd(1)
+
+cveList = check_nvd(2)
 print(len(cveList))

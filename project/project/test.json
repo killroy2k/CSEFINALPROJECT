@@ -1,0 +1,441 @@
+{
+    "resultsPerPage": 33,
+    "startIndex": 0, 
+    "totalResults": 33, 
+    "format": "NVD_CVEHistory", 
+    "version": "2.0", 
+    "timestamp": "2024-01-25T03:39:45.843", 
+    "cveChanges": [
+        {
+            "change": {
+                "cveId": "CVE-2024-23525", 
+                "eventName": "Initial Analysis", 
+                "cveChangeId": "63CB79D2-61A4-4B32-B494-6B633ABF1CA3", 
+                "sourceIdentifier": "nvd@nist.gov", 
+                "created": "2024-01-25T01:42:24.057", 
+                "details": [
+                    {
+                        "action": "Added", 
+                        "type": "CVSS V3.1", 
+                        "newValue": "NIST AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "http://www.openwall.com/lists/oss-security/2024/01/18/4 No Types Assigned", "newValue": "http://www.openwall.com/lists/oss-security/2024/01/18/4 Exploit, Mailing List, Third Party Advisory"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://gist.github.com/phvietan/d1c95a88ab6e17047b0248d6bf9eac4a No Types Assigned", 
+                        "newValue": "https://gist.github.com/phvietan/d1c95a88ab6e17047b0248d6bf9eac4a Exploit, Third Party Advisory"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://github.com/MichaelDaum/spreadsheet-parsexlsx/issues/10 No Types Assigned", 
+                        "newValue": "https://github.com/MichaelDaum/spreadsheet-parsexlsx/issues/10 Issue Tracking"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://metacpan.org/release/NUDDLEGG/Spreadsheet-ParseXLSX-0.30/changes No Types Assigned", 
+                        "newValue": "https://metacpan.org/release/NUDDLEGG/Spreadsheet-ParseXLSX-0.30/changes Release Notes"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CWE", 
+                        "newValue": "NIST CWE-611"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CPE Configuration", 
+                        "newValue": "OR\n     *cpe:2.3:a:tozt:spreadsheet\\:\\:parsexlsx:*:*:*:*:*:perl:*:* versions up to (excluding) 0.30"
+                    }
+                ]
+            }
+        }, 
+                    
+        {
+            "change": {
+                "cveId": "CVE-2023-51258", 
+                "eventName": "Initial Analysis", 
+                "cveChangeId": "A4840FA3-8204-4ECE-9A5A-DF8FB92B3140", 
+                "sourceIdentifier": "nvd@nist.gov", 
+                "created": "2024-01-25T01:58:44.807", 
+                "details": [
+                    {
+                        "action": "Added", 
+                        "type": "CVSS V3.1", 
+                        "newValue": "NIST AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://github.com/hanxuer/crashes/blob/main/yasm/04/readme.md No Types Assigned", 
+                        "newValue": "https://github.com/hanxuer/crashes/blob/main/yasm/04/readme.md Exploit"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CWE", 
+                        "newValue": "NIST CWE-401"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CPE Configuration", 
+                        "newValue": "OR\n     *cpe:2.3:a:tortall:yasm:1.3.0:*:*:*:*:*:*:*"
+                    }
+                ]
+            }
+        }, 
+        {
+            "change": {
+                "cveId": "CVE-2023-22527", 
+                "eventName": "CVE CISA KEV Update", 
+                "cveChangeId": "AD06BE7A-DAB1-46D6-A57B-993C429F051A", 
+                "sourceIdentifier": "9119a7d8-5eab-497f-8521-727c672e3725", 
+                "created": "2024-01-25T02:00:01.500", 
+                "details": [
+                    {
+                        "action": "Added", 
+                        "type": "Vulnerability Name", 
+                        "newValue": "Atlassian Confluence Data Center and Server Template Injection Vulnerability"
+                    }, 
+                    
+                    {
+                        "action": "Added", 
+                        "type": "Required Action", 
+                        "newValue": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable."
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "Due Date", 
+                        "newValue": "2024-02-14"
+                    },
+                    {
+                        "action": "Added", 
+                        "type": "Date Added", 
+                        "newValue": "2024-01-24"
+                    }
+                ]
+            }
+        }, 
+        {
+            "change": {
+                "cveId": "CVE-2024-23387", 
+                "eventName": "Initial Analysis", 
+                "cveChangeId": "307A8F55-4853-4191-819D-B5684FA7411E", 
+                "sourceIdentifier": "nvd@nist.gov", 
+                "created": "2024-01-25T02:00:29.220", 
+                "details": [
+                    {
+                        "action": "Added", 
+                        "type": "CVSS V3.1", 
+                        "newValue": "NIST AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://github.com/fusionpbx/fusionpbx/ No Types Assigned", 
+                        "newValue": "https://github.com/fusionpbx/fusionpbx/ Product"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://jvn.jp/en/jp/JVN67215338/ No Types Assigned", 
+                        "newValue": "https://jvn.jp/en/jp/JVN67215338/ Third Party Advisory"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://www.fusionpbx.com/ No Types Assigned", 
+                        "newValue": "https://www.fusionpbx.com/ Product"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CWE", 
+                        "newValue": "NIST CWE-79"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CPE Configuration", 
+                        "newValue": "OR\n     *cpe:2.3:a:fusionpbx:fusionpbx:*:*:*:*:*:*:*:* versions up to (excluding) 5.1.0"
+                    }
+                ]
+            }
+        }, 
+        {
+            "change": {
+                "cveId": "CVE-2023-47141", 
+                "eventName": "Initial Analysis", 
+                "cveChangeId": "F8761D5D-434F-489F-8702-721E5AEE46C9", 
+                "sourceIdentifier": "nvd@nist.gov", 
+                "created": "2024-01-25T02:01:48.160", 
+                "details": [
+                    {
+                        "action": "Added", 
+                        "type": "CVSS V3.1", 
+                        "newValue": "NIST AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/270264 No Types Assigned", 
+                        "newValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/270264 VDB Entry, Vendor Advisory"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://www.ibm.com/support/pages/node/7105497 No Types Assigned", 
+                        "newValue": "https://www.ibm.com/support/pages/node/7105497 Patch, Vendor Advisory"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CWE", 
+                        "newValue": "NIST NVD-CWE-noinfo"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CPE Configuration", 
+                        "newValue": "AND\n     OR\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions up to (excluding) 11.5.9\n     OR\n          cpe:2.3:o:ibm:aix:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:linux_on_ibm_z:-:*:*:*:*:*:*:*\n          cpe:2.3:o:linux:linux_kernel:-:*:*:*:*:*:*:*\n          cpe:2.3:o:microsoft:windows:-:*:*:*:*:*:*:*"
+                    }
+                ]
+            }
+        }, 
+        {
+            "change": {
+                "cveId": "CVE-2023-7194", 
+                "eventName": "Initial Analysis", 
+                "cveChangeId": "3ED6AF74-CE15-4F83-8E52-134F75FCAFDC", 
+                "sourceIdentifier": "nvd@nist.gov", 
+                "created": "2024-01-25T02:02:01.620", 
+                "details": [
+                    {
+                        "action": "Added", 
+                        "type": "CVSS V3.1", 
+                        "newValue": "NIST AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://wpscan.com/vulnerability/e20292af-939a-4cb1-91e4-5ff6aa0c7fbe No Types Assigned", 
+                        "newValue": "https://wpscan.com/vulnerability/e20292af-939a-4cb1-91e4-5ff6aa0c7fbe Third Party Advisory"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CWE", 
+                        "newValue": "NIST CWE-79"}, 
+                    {
+                        "action": "Added", 
+                        "type": "CPE Configuration", 
+                        "newValue": "OR\n     *cpe:2.3:a:meris_wp_theme_project:meris_wp_theme:*:*:*:*:*:wordpress:*:* versions up to (including) 1.1.2"
+                    }
+                ]
+            }
+        }, 
+        {"change": {
+                "cveId": "CVE-2023-6456", 
+                "eventName": "Initial Analysis", 
+                "cveChangeId": "415F62CC-B247-49A2-9167-B43583BDBD19", 
+                "sourceIdentifier": "nvd@nist.gov", 
+                "created": "2024-01-25T02:02:23.770", 
+                "details": [
+                    {
+                        "action": "Added", 
+                        "type": "CVSS V3.1", 
+                        "newValue": "NIST AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://wpscan.com/vulnerability/30f31412-8f94-4d5e-a080-3f6f669703cd/ No Types Assigned", 
+                        "newValue": "https://wpscan.com/vulnerability/30f31412-8f94-4d5e-a080-3f6f669703cd/ Third Party Advisory"}, 
+                    {
+                        "action": "Added", 
+                        "type": "CWE", 
+                        "newValue": "NIST CWE-79"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CPE Configuration", 
+                        "newValue": "OR\n     *cpe:2.3:a:ljapps:wp_review_slider:*:*:*:*:*:wordpress:*:* versions up to (excluding) 13.0"
+                    }
+                ]
+            }
+        }, 
+        {"change": {
+            "cveId": "CVE-2023-47747", 
+            "eventName": "Initial Analysis", 
+            "cveChangeId": "29629148-DDA6-40B6-978C-DEA172B1DD29", 
+            "sourceIdentifier": "nvd@nist.gov", 
+            "created": "2024-01-25T02:02:36.867", 
+            "details": [
+                {
+                    "action": "Added", 
+                    "type": "CVSS V3.1", 
+                    "newValue": "NIST AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                }, 
+                {
+                    "action": "Changed", 
+                    "type": "Reference Type", 
+                    "oldValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/272646 No Types Assigned", 
+                    "newValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/272646 VDB Entry, Vendor Advisory"
+                }, 
+                {
+                    "action": "Changed", 
+                    "type": "Reference Type", 
+                    "oldValue": "https://www.ibm.com/support/pages/node/7105502 No Types Assigned", 
+                    "newValue": "https://www.ibm.com/support/pages/node/7105502 Patch, Vendor Advisory"
+                }, 
+                
+                {
+                    "action": "Added", 
+                    "type": "CWE", 
+                    "newValue": "NIST NVD-CWE-noinfo"
+                }, 
+                {
+                    "action": "Added", 
+                    "type": "CPE Configuration", 
+                    "newValue": "AND\n     OR\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 10.5.0.0 up to (including) 10.5.0.11\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 11.1.0.0 up to (including) 11.1.4.7\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 11.5 up to (including) 11.5.9\n     OR\n          cpe:2.3:o:hp:hp-ux:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:aix:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:linux_on_ibm_z:-:*:*:*:*:*:*:*\n          cpe:2.3:o:linux:linux_kernel:-:*:*:*:*:*:*:*\n          cpe:2.3:o:microsoft:windows:-:*:*:*:*:*:*:*\n          cpe:2.3:o:oracle:solaris:-:*:*:*:*:*:*:*"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2023-47158", 
+                "eventName": "Initial Analysis", 
+                "cveChangeId": "22F03952-5086-41DB-AADB-F3ECA80E8B70", 
+                "sourceIdentifier": "nvd@nist.gov", 
+                "created": "2024-01-25T02:02:44.547", 
+                "details": [
+                    {
+                        "action": "Added", 
+                        "type": "CVSS V3.1", 
+                        "newValue": "NIST AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/270750 No Types Assigned", 
+                        "newValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/270750 VDB Entry, Vendor Advisory"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://www.ibm.com/support/pages/node/7105496 No Types Assigned", 
+                        "newValue": "https://www.ibm.com/support/pages/node/7105496 Patch, Vendor Advisory"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CWE", 
+                        "newValue": "NIST NVD-CWE-noinfo"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CPE Configuration", 
+                        "newValue": "AND\n     OR\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 10.5.0.0 up to (including) 10.5.0.11\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 11.1.0.0 up to (including) 11.1.4.7\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 11.5 up to (including) 11.5.9\n     OR\n          cpe:2.3:o:hp:hp-ux:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:aix:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:linux_on_ibm_z:-:*:*:*:*:*:*:*\n          cpe:2.3:o:linux:linux_kernel:-:*:*:*:*:*:*:*\n          cpe:2.3:o:microsoft:windows:-:*:*:*:*:*:*:*\n          cpe:2.3:o:oracle:solaris:-:*:*:*:*:*:*:*"
+                    }
+                ]
+            }
+        }, 
+        {
+            "change": {
+                "cveId": "CVE-2023-47152", 
+                "eventName": "Initial Analysis", 
+                "cveChangeId": "9933D4E3-4380-4D49-940D-2811D3005075", 
+                "sourceIdentifier": "nvd@nist.gov", 
+                "created": "2024-01-25T02:03:02.840", 
+                "details": [
+                    {
+                        "action": "Added", 
+                        "type": "CVSS V3.1", 
+                        "newValue": "NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                    }, 
+                    {
+                        "action": "Changed", 
+                        "type": "Reference Type", 
+                        "oldValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/270730 No Types Assigned", 
+                        "newValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/270730 VDB Entry, Vendor Advisory"
+                    }, 
+                    {
+                        "action": "Changed",
+                        "type": "Reference Type", 
+                        "oldValue": "https://www.ibm.com/support/pages/node/7105605 No Types Assigned", 
+                        "newValue": "https://www.ibm.com/support/pages/node/7105605 Patch, Vendor Advisory"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CWE", 
+                        "newValue": "NIST NVD-CWE-noinfo"
+                    }, 
+                    {
+                        "action": "Added", 
+                        "type": "CPE Configuration", 
+                        "newValue": "AND\n     OR\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions up to (excluding) 11.5.9\n     OR\n          cpe:2.3:o:ibm:aix:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:linux_on_ibm_z:-:*:*:*:*:*:*:*\n          cpe:2.3:o:linux:linux_kernel:-:*:*:*:*:*:*:*\n          cpe:2.3:o:microsoft:windows:-:*:*:*:*:*:*:*"
+                    }
+                ]
+            }
+        }, 
+        {
+            "change": {
+                "cveId": "CVE-2023-27859", 
+                "eventName": "Initial Analysis", 
+                "cveChangeId": "5C7A6C8E-8C3D-4F8A-A304-BEACDEFAE51E", 
+                "sourceIdentifier": "nvd@nist.gov", 
+                "created": "2024-01-25T02:03:31.240", 
+                "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/249205 No Types Assigned", "newValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/249205 VDB Entry, Vendor Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://www.ibm.com/support/pages/node/7105503 No Types Assigned", "newValue": "https://www.ibm.com/support/pages/node/7105503 Patch, Vendor Advisory"}, {"action": "Added", "type": "CWE", "newValue": "NIST NVD-CWE-noinfo"}, {"action": "Added", "type": "CPE Configuration", "newValue": "AND\n     OR\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 10.5.0.0 up to (including) 10.5.0.11\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 11.1.0.0 up to (including) 11.1.4.7\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 11.5 up to (including) 11.5.9\n     OR\n          cpe:2.3:o:hp:hp-ux:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:aix:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:linux_on_ibm_z:-:*:*:*:*:*:*:*\n          cpe:2.3:o:linux:linux_kernel:-:*:*:*:*:*:*:*\n          cpe:2.3:o:microsoft:windows:-:*:*:*:*:*:*:*\n          cpe:2.3:o:oracle:solaris:-:*:*:*:*:*:*:*"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2023-5131", "eventName": "Initial Analysis", "cveChangeId": "B536CE0C-F98B-4A17-BBD2-DC41F5EE663B", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:03:48.960", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://blog.exodusintel.com/2024/01/18/delta-electronics-ispsoft-heap-buffer-overflow/ No Types Assigned", "newValue": "https://blog.exodusintel.com/2024/01/18/delta-electronics-ispsoft-heap-buffer-overflow/ Third Party Advisory"}, {"action": "Added", "type": "CWE", "newValue": "NIST CWE-787"}, {"action": "Added", "type": "CPE Configuration", "newValue": "OR\n     *cpe:2.3:a:deltaww:ispsoft:3.02.11:*:*:*:*:*:*:*"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2023-50308", "eventName": "Initial Analysis", "cveChangeId": "FDF97BEB-5153-4698-B6FE-297174A60750", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:03:50.003", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/273393 No Types Assigned", "newValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/273393 VDB Entry, Vendor Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://www.ibm.com/support/pages/node/7105506 No Types Assigned", "newValue": "https://www.ibm.com/support/pages/node/7105506 Patch, Vendor Advisory"}, {"action": "Added", "type": "CWE", "newValue": "NIST NVD-CWE-noinfo"}, {"action": "Added", "type": "CPE Configuration", "newValue": "AND\n     OR\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions up to (excluding) 11.5.9\n     OR\n          cpe:2.3:o:ibm:aix:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:linux_on_ibm_z:-:*:*:*:*:*:*:*\n          cpe:2.3:o:linux:linux_kernel:-:*:*:*:*:*:*:*\n          cpe:2.3:o:microsoft:windows:-:*:*:*:*:*:*:*"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2023-47746", "eventName": "Initial Analysis", "cveChangeId": "3C94334C-951B-4798-A033-A48E03C68C9F", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:04:12.963", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/272644 No Types Assigned", "newValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/272644 VDB Entry, Vendor Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://www.ibm.com/support/pages/node/7105505 No Types Assigned", "newValue": "https://www.ibm.com/support/pages/node/7105505 Patch, Vendor Advisory"}, {"action": "Added", "type": "CWE", "newValue": "NIST NVD-CWE-noinfo"}, {"action": "Added", "type": "CPE Configuration", "newValue": "AND\n     OR\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 10.5.0.0 up to (including) 10.5.0.11\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 11.1.0.0 up to (including) 11.1.4.7\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions from (including) 11.5 up to (including) 11.5.9\n     OR\n          cpe:2.3:o:hp:hp-ux:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:aix:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:linux_on_ibm_z:-:*:*:*:*:*:*:*\n          cpe:2.3:o:linux:linux_kernel:-:*:*:*:*:*:*:*\n          cpe:2.3:o:microsoft:windows:-:*:*:*:*:*:*:*\n          cpe:2.3:o:oracle:solaris:-:*:*:*:*:*:*:*"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2023-45193", "eventName": "Initial Analysis", "cveChangeId": "7F110D5D-A3F9-4F95-842A-C186CF1C1FFB", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:04:23.557", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/268759 No Types Assigned", "newValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/268759 VDB Entry, Vendor Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://www.ibm.com/support/pages/node/7105501 No Types Assigned", "newValue": "https://www.ibm.com/support/pages/node/7105501 Patch, Vendor Advisory"}, {"action": "Added", "type": "CWE", "newValue": "NIST NVD-CWE-noinfo"}, {"action": "Added", "type": "CPE Configuration", "newValue": "AND\n     OR\n          *cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:* versions up to (excluding) 11.5.9\n     OR\n          cpe:2.3:o:ibm:aix:-:*:*:*:*:*:*:*\n          cpe:2.3:o:ibm:linux_on_ibm_z:-:*:*:*:*:*:*:*\n          cpe:2.3:o:linux:linux_kernel:-:*:*:*:*:*:*:*\n          cpe:2.3:o:microsoft:windows:-:*:*:*:*:*:*:*"}]}}, 
+            
+        {
+            "change": {
+                "cveId": "CVE-2023-5130", "eventName": "Initial Analysis", "cveChangeId": "26BA6CFA-EAFA-40D4-A5C3-18F8E7CE4941", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:04:43.797", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://blog.exodusintel.com/2024/01/18/delta-electronics-wplsoft-buffer-overflow/ No Types Assigned", "newValue": "https://blog.exodusintel.com/2024/01/18/delta-electronics-wplsoft-buffer-overflow/ Third Party Advisory"}, {"action": "Added", "type": "CWE", "newValue": "NIST CWE-120"}, {"action": "Added", "type": "CPE Configuration", "newValue": "OR\n     *cpe:2.3:a:deltaww:wplsoft:2.42.11:*:*:*:*:*:*:*"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2024-0655", "eventName": "Initial Analysis", "cveChangeId": "B9F73FBE-6E50-483A-9B3A-803D46EF177D", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:08:15.757", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://github.com/red0-ZhaoSi/CVE/blob/main/novel-plus/sql/sql_1.md No Types Assigned", "newValue": "https://github.com/red0-ZhaoSi/CVE/blob/main/novel-plus/sql/sql_1.md Exploit, Third Party Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://vuldb.com/?ctiid.251383 No Types Assigned", "newValue": "https://vuldb.com/?ctiid.251383 Permissions Required, Third Party Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://vuldb.com/?id.251383 No Types Assigned", "newValue": "https://vuldb.com/?id.251383 Permissions Required, Third Party Advisory"}, {"action": "Added", "type": "CPE Configuration", "newValue": "OR\n     *cpe:2.3:a:xxyopen:novel-plus:4.3.0:rc1:*:*:*:*:*:*"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2023-48352", "eventName": "Initial Analysis", "cveChangeId": "E44C7425-3D24-4428-A4D6-17C0DEE0D7B4", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:10:52.557", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://www.unisoc.com/en_us/secy/announcementDetail/1745735200442220545 No Types Assigned", "newValue": "https://www.unisoc.com/en_us/secy/announcementDetail/1745735200442220545 Vendor Advisory"}, {"action": "Added", "type": "CWE", "newValue": "NIST CWE-787"}, {"action": "Added", "type": "CPE Configuration", "newValue": "AND\n     OR\n          *cpe:2.3:o:google:android:11.0:*:*:*:*:*:*:*\n          *cpe:2.3:o:google:android:12.0:*:*:*:*:*:*:*\n          *cpe:2.3:o:google:android:13.0:*:*:*:*:*:*:*\n     OR\n          cpe:2.3:h:unisoc:s8000:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:sc7731e:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:sc9832e:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:sc9863a:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t310:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t606:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t610:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t612:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t616:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t618:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t760:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t770:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t820:-:*:*:*:*:*:*:*"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2023-48339", "eventName": "Initial Analysis", "cveChangeId": "58CE5E0C-B5D2-4B49-8429-2DB159328CB2", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:12:20.050", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://www.unisoc.com/en_us/secy/announcementDetail/1745735200442220545 No Types Assigned", "newValue": "https://www.unisoc.com/en_us/secy/announcementDetail/1745735200442220545 Vendor Advisory"}, {"action": "Added", "type": "CWE", "newValue": "NIST CWE-862"}, {"action": "Added", "type": "CPE Configuration", "newValue": "AND\n     OR\n          *cpe:2.3:o:google:android:11.0:*:*:*:*:*:*:*\n          *cpe:2.3:o:google:android:12.0:*:*:*:*:*:*:*\n          *cpe:2.3:o:google:android:13.0:*:*:*:*:*:*:*\n     OR\n          cpe:2.3:h:unisoc:s8000:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:sc7731e:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:sc9832e:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:sc9863a:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t310:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t606:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t610:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t612:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t616:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t618:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t760:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t770:-:*:*:*:*:*:*:*\n          cpe:2.3:h:unisoc:t820:-:*:*:*:*:*:*:*"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2012-4406", "eventName": "Modified Analysis", "cveChangeId": "72A9E90D-9AC6-41A2-93BA-6AB9F26986E9", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:13:29.097", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://lists.fedoraproject.org/pipermail/package-announce/2012-October/089472.html No Types Assigned", "newValue": "http://lists.fedoraproject.org/pipermail/package-announce/2012-October/089472.html Mailing List"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://rhn.redhat.com/errata/RHSA-2012-1379.html No Types Assigned", "newValue": "http://rhn.redhat.com/errata/RHSA-2012-1379.html Third Party Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://rhn.redhat.com/errata/RHSA-2013-0691.html No Types Assigned", "newValue": "http://rhn.redhat.com/errata/RHSA-2013-0691.html Not Applicable"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://www.openwall.com/lists/oss-security/2012/09/05/16 No Types Assigned", "newValue": "http://www.openwall.com/lists/oss-security/2012/09/05/16 Mailing List"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://www.openwall.com/lists/oss-security/2012/09/05/4 No Types Assigned", "newValue": "http://www.openwall.com/lists/oss-security/2012/09/05/4 Mailing List"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://www.securityfocus.com/bid/55420 No Types Assigned", "newValue": "http://www.securityfocus.com/bid/55420 Broken Link"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://bugs.launchpad.net/swift/+bug/1006414 No Types Assigned", "newValue": "https://bugs.launchpad.net/swift/+bug/1006414 Issue Tracking, Patch"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://bugzilla.redhat.com/show_bug.cgi?id=854757 No Types Assigned", "newValue": "https://bugzilla.redhat.com/show_bug.cgi?id=854757 Issue Tracking, Patch"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/79140 No Types Assigned", "newValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/79140 Third Party Advisory, VDB Entry"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://github.com/openstack/swift/commit/e1ff51c04554d51616d2845f92ab726cb0e5831a No Types Assigned", "newValue": "https://github.com/openstack/swift/commit/e1ff51c04554d51616d2845f92ab726cb0e5831a Patch"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://launchpad.net/swift/+milestone/1.7.0 No Types Assigned", "newValue": "https://launchpad.net/swift/+milestone/1.7.0 Release Notes"}, {"action": "Removed", "type": "CWE", "oldValue": "NIST CWE-94"}, {"action": "Added", "type": "CWE", "newValue": "NIST CWE-502"}, {"action": "Changed", "type": "CPE Configuration", "oldValue": "OR\n     *cpe:2.3:a:openstack:swift:1.0.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.1.0:rc1:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.1.0:rc2:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.2.0:gamma1:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.2.0:rc1:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.3.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.3.0:gamma1:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.3.0:rc1:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.4.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.4.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.4.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.4.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.4.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.4.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.4.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.4.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:1.5.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:openstack:swift:*:*:*:*:*:*:*:* versions up to (including) 1.6.0", "newValue": "OR\n     *cpe:2.3:a:openstack:swift:*:*:*:*:*:*:*:* versions up to (excluding) 1.7.0"}, {"action": "Added", "type": "CPE Configuration", "newValue": "OR\n     *cpe:2.3:o:fedoraproject:fedora:16:*:*:*:*:*:*:*"}, {"action": "Added", "type": "CPE Configuration", "newValue": "OR\n     *cpe:2.3:a:redhat:gluster_storage_management_console:2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:redhat:gluster_storage_server_for_on-premise:2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:redhat:storage:2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:redhat:storage_for_public_cloud:2.0:*:*:*:*:*:*:*\n     *cpe:2.3:o:redhat:enterprise_linux_server:5.0:*:*:*:*:*:*:*\n     *cpe:2.3:o:redhat:enterprise_linux_server:6.0:*:*:*:*:*:*:*"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2003-0791", "eventName": "Reanalysis", "cveChangeId": "BE8C48F0-0C38-41F9-BC05-54DC2156A5BE", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:14:14.520", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://secunia.com/advisories/11103/ Patch, Vendor Advisory", "newValue": "http://secunia.com/advisories/11103/ URL Repurposed"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://www.mandriva.com/security/advisories?name=MDKSA-2004:021 No Types Assigned", "newValue": "http://www.mandriva.com/security/advisories?name=MDKSA-2004:021 Broken Link"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://www.osvdb.org/8390 Patch, Vendor Advisory", "newValue": "http://www.osvdb.org/8390 Broken Link, Patch, Vendor Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://www.securityfocus.com/advisories/6979 Patch, Vendor Advisory", "newValue": "http://www.securityfocus.com/advisories/6979 Broken Link, Patch, Third Party Advisory, VDB Entry, Vendor Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://www.securityfocus.com/bid/9322 Patch, Vendor Advisory", "newValue": "http://www.securityfocus.com/bid/9322 Broken Link, Patch, Third Party Advisory, VDB Entry, Vendor Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://bugzilla.mozilla.org/show_bug.cgi?id=221526 Patch, Vendor Advisory", "newValue": "https://bugzilla.mozilla.org/show_bug.cgi?id=221526 Issue Tracking, Patch, Vendor Advisory"}, {"action": "Removed", "type": "CWE", "oldValue": "NIST NVD-CWE-Other"}, {"action": "Added", "type": "CWE", "newValue": "NIST CWE-502"}, {"action": "Changed", "type": "CPE Configuration", "oldValue": "OR\n     *cpe:2.3:a:mozilla:mozilla:0.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.35:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:0.9.48:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.0:rc1:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.0:rc2:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.1:alpha:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.1:beta:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.2:alpha:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.2:beta:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.4:alpha:*:*:*:*:*:*\n     *cpe:2.3:a:mozilla:mozilla:1.4:beta:*:*:*:*:*:*", "newValue": "OR\n     *cpe:2.3:a:mozilla:mozilla:*:*:*:*:*:*:*:* versions up to (including) 1.4"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2023-45139", "eventName": "CVE Modified", "cveChangeId": "D1ABD52C-FAB9-4F25-A4AF-5A3C245BB213", "sourceIdentifier": "security-advisories@github.com", "created": "2024-01-25T02:15:52.937", "details": [{"action": "Added", "type": "Reference", "newValue": "GitHub, Inc. https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/VY63B4SGY4QOQGUXMECRGD6K3YT3GJ75/ [No types assigned]"}]}}, 
+        {
+            "change": {
+                "cveId": "CVE-2024-0617", "eventName": "CVE Received", "cveChangeId": "D259B1D0-139C-4325-94F5-7E6F199E470D", "sourceIdentifier": "security@wordfence.com", "created": "2024-01-25T02:15:53.067", "details": [{"action": "Added", "type": "Description", "newValue": "The Category Discount Woocommerce plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the wpcd_save_discount() function in all versions up to, and including, 4.12. This makes it possible for unauthenticated attackers to modify product category discounts that could lead to loss of revenue."}, {"action": "Added", "type": "Reference", "newValue": "Wordfence https://www.wordfence.com/threat-intel/vulnerabilities/id/996b44bb-d1e0-4f82-b8ee-a98b0ae994f9?source=cve [No types assigned]"}, {"action": "Added", "type": "Reference", "newValue": "Wordfence https://plugins.trac.wordpress.org/browser/woo-product-category-discount/trunk/cd-admin.php#L171 [No types assigned]"}, {"action": "Added", "type": "Reference", "newValue": "Wordfence https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&old=3026242%40woo-product-category-discount&new=3026242%40woo-product-category-discount&sfp_email=&sfph_mail= [No types assigned]"}, {"action": "Added", "type": "CVSS V3.1", "newValue": "Wordfence AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"}]}}, 
+        {
+            "change": {"cveId": "CVE-2024-0624", "eventName": "CVE Received", "cveChangeId": "4B69C60A-8D37-4765-A824-AC40FB0DBFD8", "sourceIdentifier": "security@wordfence.com", "created": "2024-01-25T02:15:53.243", "details": [{"action": "Added", "type": "Description", "newValue": "The Paid Memberships Pro \u2013 Content Restriction, User Registration, & Paid Subscriptions plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 2.12.7. This is due to missing or incorrect nonce validation on the pmpro_update_level_order() function. This makes it possible for unauthenticated attackers to update the order of levels via a forged request granted they can trick a site administrator into performing an action such as clicking on a link."}, {"action": "Added", "type": "Reference", "newValue": "Wordfence https://www.wordfence.com/threat-intel/vulnerabilities/id/ae68d083-b6e2-409b-8c91-d4eb7e62dba9?source=cve [No types assigned]"}, {"action": "Added", "type": "Reference", "newValue": "Wordfence https://plugins.trac.wordpress.org/browser/paid-memberships-pro/trunk/includes/services.php#L139 [No types assigned]"}, {"action": "Added", "type": "Reference", "newValue": "Wordfence https://plugins.trac.wordpress.org/changeset/3025164/paid-memberships-pro/tags/2.12.8/includes/services.php [No types assigned]"}, {"action": "Added", "type": "CVSS V3.1", "newValue": "Wordfence AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"}]}}, 
+        {
+            "change": {"cveId": "CVE-2024-0688", "eventName": "CVE Received", "cveChangeId": "FFCB2082-2B8A-4410-910A-84C3DF08329C", "sourceIdentifier": "security@wordfence.com", "created": "2024-01-25T02:15:53.417", "details": [{"action": "Added", "type": "Description", "newValue": "The \"WebSub (FKA. PubSubHubbub)\" plugin for WordPress is vulnerable to Stored Cross-Site Scripting via plugin settings in all versions up to, and including, 3.1.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page."}, {"action": "Added", "type": "Reference", "newValue": "Wordfence https://www.wordfence.com/threat-intel/vulnerabilities/id/f07b166b-3436-4797-a2df-096ff7c27a09?source=cve [No types assigned]"}, {"action": "Added", "type": "Reference", "newValue": "Wordfence https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&old=3024228%40pubsubhubbub&new=3024228%40pubsubhubbub&sfp_email=&sfph_mail= [No types assigned]"}, {"action": "Added", "type": "CVSS V3.1", "newValue": "Wordfence AV:N/AC:H/PR:H/UI:N/S:C/C:L/I:L/A:N"}]}}, 
+        {
+            "change": {"cveId": "CVE-2024-22195", "eventName": "CVE Modified", "cveChangeId": "B43A2CF7-9267-45B1-B521-D10AB3D39FFF", "sourceIdentifier": "security-advisories@github.com", "created": "2024-01-25T02:15:53.583", "details": [{"action": "Added", "type": "Reference", "newValue": "GitHub, Inc. https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/O7YWRBX6JQCWC2XXCTZ55C7DPMGICCN3/ [No types assigned]"}]}},
+            
+        {
+            "change": {"cveId": "CVE-2018-1000613", "eventName": "Modified Analysis", "cveChangeId": "2685488F-B9CF-421A-A5CF-E68CAA5810DB", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:15:58.333", "details": [{"action": "Changed", "type": "Reference Type", "oldValue": "https://github.com/bcgit/bc-java/commit/4092ede58da51af9a21e4825fbad0d9a3ef5a223#diff-2c06e2edef41db889ee14899e12bd574 Patch, Third Party Advisory", "newValue": "https://github.com/bcgit/bc-java/commit/4092ede58da51af9a21e4825fbad0d9a3ef5a223#diff-2c06e2edef41db889ee14899e12bd574 Patch"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://github.com/bcgit/bc-java/commit/cd98322b171b15b3f88c5ec871175147893c31e6#diff-148a6c098af0199192d6aede960f45dc Patch, Third Party Advisory", "newValue": "https://github.com/bcgit/bc-java/commit/cd98322b171b15b3f88c5ec871175147893c31e6#diff-148a6c098af0199192d6aede960f45dc Patch"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://lists.apache.org/thread.html/rf1bbc0ea4a9f014cf94df9a12a6477d24a27f52741dbc87f2fd52ff2%40%3Cissues.geode.apache.org%3E No Types Assigned", "newValue": "https://lists.apache.org/thread.html/rf1bbc0ea4a9f014cf94df9a12a6477d24a27f52741dbc87f2fd52ff2%40%3Cissues.geode.apache.org%3E Mailing List"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://www.oracle.com/security-alerts/cpuapr2020.html Third Party Advisory", "newValue": "https://www.oracle.com/security-alerts/cpuapr2020.html Patch, Third Party Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://www.oracle.com/security-alerts/cpuApr2021.html Third Party Advisory", "newValue": "https://www.oracle.com/security-alerts/cpuApr2021.html Patch, Third Party Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://www.oracle.com/security-alerts/cpuoct2020.html Third Party Advisory", "newValue": "https://www.oracle.com/security-alerts/cpuoct2020.html Patch, Third Party Advisory"}, {"action": "Removed", "type": "CWE", "oldValue": "NIST CWE-502"}]}}, 
+        {
+            "change": {"cveId": "CVE-2004-2331", "eventName": "Modified Analysis", "cveChangeId": "D3CF4F76-FCA2-4886-8302-1CF261C622EE", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:16:43.570", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://secunia.com/advisories/10743/ Patch, Vendor Advisory", "newValue": "http://secunia.com/advisories/10743/ URL Repurposed"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://www.securityfocus.com/bid/9521 Patch", "newValue": "http://www.securityfocus.com/bid/9521 Broken Link, Patch, Third Party Advisory, VDB Entry"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/14984 No Types Assigned", "newValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/14984 Third Party Advisory, VDB Entry"}, {"action": "Removed", "type": "CWE", "oldValue": "NIST NVD-CWE-Other"}, {"action": "Added", "type": "CWE", "newValue": "NIST CWE-470"}]}}, 
+        {
+            "change": {"cveId": "CVE-2021-36539", "eventName": "Reanalysis", "cveChangeId": "840DD014-C0D1-4F93-B346-9DDA75589E76", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:19:33.900", "details": [{"action": "Changed", "type": "Reference Type", "oldValue": "https://github.com/instructure/canvas-lms/issues/1905 Exploit, Issue Tracking, Third Party Advisory", "newValue": "https://github.com/instructure/canvas-lms/issues/1905 Exploit, Third Party Advisory"}]}}, 
+        {
+            "change": {"cveId": "CVE-2006-6679", "eventName": "Modified Analysis", "cveChangeId": "4BE3CE2E-70A0-4042-8FB2-6784DBA62FC7", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:20:15.370", "details": [{"action": "Added", "type": "CVSS V3.1", "newValue": "NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=394454 Third Party Advisory", "newValue": "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=394454 Mailing List, Third Party Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://secunia.com/advisories/22967 Permissions Required, Third Party Advisory", "newValue": "http://secunia.com/advisories/22967 Broken Link, Permissions Required, Third Party Advisory"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://sourceforge.net/project/shownotes.php?group_id=68912&release_id=466649 Patch", "newValue": "http://sourceforge.net/project/shownotes.php?group_id=68912&release_id=466649 Product"}, {"action": "Changed", "type": "Reference Type", "oldValue": "http://www.securityfocus.com/bid/21102 Third Party Advisory, VDB Entry", "newValue": "http://www.securityfocus.com/bid/21102 Broken Link, Third Party Advisory, VDB Entry"}, {"action": "Changed", "type": "Reference Type", "oldValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/30451 No Types Assigned", "newValue": "https://exchange.xforce.ibmcloud.com/vulnerabilities/30451 Third Party Advisory, VDB Entry"}, {"action": "Removed", "type": "CWE", "oldValue": "NIST CWE-264"}, {"action": "Added", "type": "CWE", "newValue": "NIST CWE-863"}, {"action": "Changed", "type": "CPE Configuration", "oldValue": "OR\n     *cpe:2.3:a:pedro_lineu_orso:chetcpasswd:1.12:*:*:*:*:*:*:*\n     *cpe:2.3:a:pedro_lineu_orso:chetcpasswd:2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:pedro_lineu_orso:chetcpasswd:2.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:pedro_lineu_orso:chetcpasswd:2.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:pedro_lineu_orso:chetcpasswd:*:*:*:*:*:*:*:* versions up to (including) 2.3.3", "newValue": "OR\n     *cpe:2.3:a:chetcpasswd_project:chetcpasswd:*:*:*:*:*:*:*:* versions up to (excluding) 2.4"}]}}, 
+        {
+            "change": {"cveId": "CVE-2023-38074", "eventName": "Modified Analysis", "cveChangeId": "B0547159-7F31-4E88-BE88-9D382FFEB21D", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:21:12.240", "details": [{"action": "Changed", "type": "Reference Type", "oldValue": "https://cert-portal.siemens.com/productcert/pdf/ssa-478780.pdf No Types Assigned", "newValue": "https://cert-portal.siemens.com/productcert/pdf/ssa-478780.pdf Vendor Advisory"}, {"action": "Changed", "type": "CPE Configuration", "oldValue": "OR\n     *cpe:2.3:a:siemens:jt2go:*:*:*:*:*:*:*:* versions up to (excluding) 14.3.0.1\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 13.3.0 up to (excluding) 13.4.0.12\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.0 up to (excluding) 14.1.0.11\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.2 up to (excluding) 14.2.0.6\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.3 up to (excluding) 14.3.0.1", "newValue": "OR\n     *cpe:2.3:a:siemens:jt2go:*:*:*:*:*:*:*:* versions up to (excluding) 14.3.0.1\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 13.3.0 up to (excluding) 13.4.0.12\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.0 up to (excluding) 14.1.0.11\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.2 up to (excluding) 14.2.0.6\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.3 up to (excluding) 14.3.0.1\n     *cpe:2.3:a:siemens:tecnomatix_plant_simulation:*:*:*:*:*:*:*:* versions from (including) 2201.0 up to (excluding) 2201.0010\n     *cpe:2.3:a:siemens:tecnomatix_plant_simulation:*:*:*:*:*:*:*:* versions from (including) 2302.0 up to (excluding) 2302.0004"}]}}, 
+        {
+            "change": {"cveId": "CVE-2023-38075", "eventName": "Modified Analysis", "cveChangeId": "3931E780-BA20-46C4-AFBC-3FCEBCB7B286", "sourceIdentifier": "nvd@nist.gov", "created": "2024-01-25T02:23:00.540", "details": [{"action": "Changed", "type": "Reference Type", "oldValue": "https://cert-portal.siemens.com/productcert/pdf/ssa-478780.pdf No Types Assigned", "newValue": "https://cert-portal.siemens.com/productcert/pdf/ssa-478780.pdf Vendor Advisory"}, {"action": "Changed", "type": "CPE Configuration", "oldValue": "OR\n     *cpe:2.3:a:siemens:jt2go:*:*:*:*:*:*:*:* versions up to (excluding) 14.3.0.1\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 13.3.0 up to (excluding) 13.4.0.12\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.0 up to (excluding) 14.1.0.11\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.2 up to (excluding) 14.2.0.6\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.3 up to (excluding) 14.3.0.1", "newValue": "OR\n     *cpe:2.3:a:siemens:jt2go:*:*:*:*:*:*:*:* versions up to (excluding) 14.3.0.1\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 13.3.0 up to (excluding) 13.4.0.12\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.0 up to (excluding) 14.1.0.11\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.2 up to (excluding) 14.2.0.6\n     *cpe:2.3:a:siemens:teamcenter_visualization:*:*:*:*:*:*:*:* versions from (including) 14.3 up to (excluding) 14.3.0.1\n     *cpe:2.3:a:siemens:tecnomatix_plant_simulation:*:*:*:*:*:*:*:* versions from (including) 2201.0 up to (excluding) 2201.0010\n     *cpe:2.3:a:siemens:tecnomatix_plant_simulation:*:*:*:*:*:*:*:* versions from (including) 2302.0 up to (excluding) 2302.0004"}]}}, 
+        {
+            "change": {"cveId": "CVE-2024-0625", "eventName": "CVE Received", "cveChangeId": "53E3ADD0-6DE6-4CB7-AFB4-1F80BA0C8D39", "sourceIdentifier": "security@wordfence.com", "created": "2024-01-25T03:15:07.753", "details": [{"action": "Added", "type": "Description", "newValue": "The WPFront Notification Bar plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018wpfront-notification-bar-options[custom_class]\u2019 parameter in all versions up to, and including, 3.3.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level access, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled."}, {"action": "Added", "type": "Reference", "newValue": "Wordfence https://www.wordfence.com/threat-intel/vulnerabilities/id/19a5a9f3-637c-42af-9775-5651a14cf516?source=cve [No types assigned]"}, {"action": "Added", "type": "Reference", "newValue": "Wordfence https://plugins.trac.wordpress.org/browser/wpfront-notification-bar/trunk/templates/template-wpfront-notification-bar.php#L94 [No types assigned]"}, {"action": "Added", "type": "Reference", "newValue": "Wordfence https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&old=3025472%40wpfront-notification-bar&new=3025472%40wpfront-notification-bar&sfp_email=&sfph_mail= [No types assigned]"}, {"action": "Added", "type": "CVSS V3.1", "newValue": "Wordfence AV:N/AC:H/PR:H/UI:N/S:C/C:L/I:L/A:N"}]}}]}
