@@ -186,7 +186,7 @@ def check_cisa(db, day_diff):
     if cisa_tweets.data:
         # Check if each CVE mentioned in CISA tweets exists in the database
         for tweet in cisa_tweets.data:
-            print(str(tweet) + "\n")
+            # print(str(tweet) + "\n")
             cve_id = tweet.text.split()[0]  # Assuming the CVE ID is the first word in the tweet
             cursor.execute("SELECT count(1) FROM cves WHERE id = ?", (cve_id,))
             exists = cursor.fetchone()[0]
