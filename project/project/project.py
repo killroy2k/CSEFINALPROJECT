@@ -1,4 +1,4 @@
-import requests, openai, csv, tweepy, sqlite3, os, smtplib
+import requests, openai, csv, tweepy, sqlite3, os, smtplib, json
 from datetime import datetime, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -67,11 +67,11 @@ def check_nvd(hour_diff):
     # Format the current time and one hour ago in ISO8601 format
     time_now = datetime.utcnow()
     time_diff = time_now - timedelta(hours=hour_diff)
-    start = time_diff.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
-    end = time_now.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
+    start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
+    end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
 
     # URL for the NVD API
-    url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?pubStartDate={start}&pubEndDate={end}&resultsPerPage=2000"
+    url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?lastModStartDate={start}&lastModEndDate={end}"
 
     # Make the API call
     headers = {'apiKey': API_KEYS._NVD_KEY}
@@ -82,6 +82,9 @@ def check_nvd(hour_diff):
     # Parse the response and create CVE objects
     cve_list = []
     data = response.json()
+    with open('test.json', 'w') as f:
+        json.dump(data, f, sort_keys= True, indent=4)
+
     for item in data.get('result', {}).get('CVE_Items', []):
         cve_id = item['cve']['CVE_data_meta']['ID']
         description = item['cve']['description']['description_data'][0]['value']
