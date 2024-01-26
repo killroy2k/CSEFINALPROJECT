@@ -162,8 +162,12 @@ def check_cisa(db, day_diff):
     client = tweepy.Client(bearer_token=API_KEYS._TWITTER_KEY)
 
     # Calculate the time range for the previous full day
-    end_time = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+    end_time = datetime.utcnow()
+    end_time = end_time - timedelta(minutes = 1)
+    #.replace(hour=0, minute=0, second=0, microsecond=0)
+
     start_time = end_time - timedelta(days=day_diff)
+    start_time = start_time - timedelta(minutes = -1)
 
     # Fetch tweets from the previous full day from CISA Bot
     cisa_tweets = client.search_recent_tweets(query="from:cisaCatalogBot -is:retweet",
