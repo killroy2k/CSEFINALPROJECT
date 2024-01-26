@@ -45,7 +45,7 @@ def check_nvd(hour_diff):
     
 
     # URL for the NVD API, resultsPerPage modified by the source documentation(max= 1000)
-    url = f"https://services.nvd.nist.gov/rest/json/cvehistory/2.0/?changeStartDate={start}&changeEndDate={end}"
+    url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?lastModStartDate={start}&lastModEndDate={end}"
     print(url)
     
     #old url
@@ -56,32 +56,39 @@ def check_nvd(hour_diff):
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
         raise Exception(f"Failed to fetch data from NVD: {response.status_code} - {response.text}")
-    print(response.text)
+    # print(response.text)
 
     # Parse the response and create CVE objects
     cve_list = []
     data = response.json()
     with open('test.json', 'w') as f:
-        json.dump(data, f)
-    for item in data.get('result', {}).get('CVE_Items', []):
-        cve_id = item['cve']['CVE_data_meta']['ID']
-        description = item['cve']['description']['description_data'][0]['value']
-        severity = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('baseSeverity', 'UNKNOWN')
-        vector_string = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('attackVector', 'UNKNOWN')
-        complexity = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('attackComplexity', 'UNKNOWN')
-        privileges_required = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('privilegesRequired', 'UNKNOWN')
-        user_interaction = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('userInteraction', 'UNKNOWN')
-        confidentiality_impact = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('confidentialityImpact', 'UNKNOWN')
-        integrity_impact = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('integrityImpact', 'UNKNOWN')
-        availability_impact = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('availabilityImpact', 'UNKNOWN')
+        json.dump(data, f, indent =4, sort_keys =True)
+    json_list = [data.get("vulnerabilities",{})]
+    
+    for cve in json_list[0]:
+        # print(cve)
+        cve_id = cve['cve']['id']
+        print(cve_id)
+        description = cve['cve']['descriptions'][0]['value']
+        #have to create a separate section for cvssMetricV2
+        severity = cve['cve']['metrics']['cvssMetricV31'][0]['cvssData'].get('baseSeverity', 'UNKNOWN')
+        base_score = cve['cve']['metrics']['cvssMetricV31'][0]['cvssData'].get('baseScore', 'UNKNOWN')
+        vector_string = cve['cve']['metrics']['cvssMetricV31'][0]['cvssData'].get('vectorString', 'UNKNOWN')
+        complexity = cve['cve']['metrics']['cvssMetricV31'][0]['cvssData'].get('attackComplexity', 'UNKNOWN')
+        privileges_required = cve['cve']['metrics']['cvssMetricV31'][0]['cvssData'].get('privilegesRequired', 'UNKNOWN')
+        user_interaction = cve['cve']['metrics']['cvssMetricV31'][0]['cvssData'].get('userInteraction', 'UNKNOWN')
+        confidentiality_impact = cve['cve']['metrics']['cvssMetricV31'][0]['cvssData'].get('confidentialityImpact', 'UNKNOWN')
+        integrity_impact = cve['cve']['metrics']['cvssMetricV31'][0]['cvssData'].get('integrityImpact', 'UNKNOWN')
+        availability_impact = cve['cve']['metrics']['cvssMetricV31'][0]['cvssData'].get('availabilityImpact', 'UNKNOWN')
 
         # Initialize the CVE object with the new attributes
         cve_obj = CVE(cve_id, description, severity, vector_string, complexity, privileges_required, 
                       user_interaction, confidentiality_impact, integrity_impact, availability_impact)
+        print(cve_obj)
         cve_list.append(cve_obj)
 
     return cve_list
 
 
 cveList = check_nvd(2)
-print(len(cveList))
+# print(len(cveList))

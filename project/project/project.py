@@ -169,8 +169,8 @@ def check_cisa(db, day_diff):
     end_time = end_time - timedelta(minutes = 1)
     start_time = end_time - timedelta(days=day_diff)
     start_time = start_time - timedelta(minutes = -1)
-    # Fetch tweets from the previous full day from CISA Bot
-    cisa_tweets = client.search_recent_tweets(query="from:cisaCatalogBot -is:retweet",
+    # Fetch tweets from the previous full day from CISA Bot ==cisaCatalogBot
+    cisa_tweets = client.search_recent_tweets(query="from:CVEnew -is:retweet",
                                               start_time=start_time,
                                               end_time=end_time,
                                               tweet_fields=['created_at'],
@@ -185,6 +185,7 @@ def check_cisa(db, day_diff):
         # Check if each CVE mentioned in CISA tweets exists in the database
         for tweet in cisa_tweets.data:
             print(tweet)
+            print("\n")
             cve_id = tweet.text.split()[0]  # Assuming the CVE ID is the first word in the tweet
             cursor.execute("SELECT count(1) FROM cves WHERE id = ?", (cve_id,))
             exists = cursor.fetchone()[0]
