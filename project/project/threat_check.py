@@ -1,8 +1,8 @@
 from project import *
 
 db = setup_db()
-new_cves = check_nvd(1)
+new_cves = check_nvd(8)
 print(f"Number of new cves captured: {len(new_cves)}")
 update_cves_table(new_cves, db)
-print_table(db, 'cves')
+# print_table(db, 'cves')
 db.close()

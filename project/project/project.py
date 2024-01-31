@@ -4,6 +4,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
+import json
 
 from protected_info import *
 
@@ -28,6 +29,7 @@ class CVE:
 
     
 def setup_db():
+    print("setting up")
     db_exists = os.path.exists('project.db')
     db = sqlite3.connect('project.db')
     cursor = db.cursor()
@@ -61,7 +63,9 @@ def setup_db():
     
     return db
 
+#hour diff is used to request entries between current time and (current time - hour_diff)
 def check_nvd(hour_diff):
+    print("checking")
     # Ensure that hourdiff is a positive integer
     if not isinstance(hour_diff, int) or hour_diff < 0:
         raise ValueError("hourdiff must be a non-negative integer")
@@ -69,32 +73,72 @@ def check_nvd(hour_diff):
     # Format the current time and one hour ago in ISO8601 format
     time_now = datetime.utcnow()
     time_diff = time_now - timedelta(hours=hour_diff)
-    start = time_diff.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
-    end = time_now.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
+    start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
+    end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
 
-    # URL for the NVD API
-    url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?pubStartDate={start}&pubEndDate={end}&resultsPerPage=2000"
+    #incorrect time format for NVD api 2.0
+    # start = time_diff.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
+    # end = time_now.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
+    
+
+    # URL for the NVD API, resultsPerPage modified by the source documentation(max= 1000)
+    url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?lastModStartDate={start}&lastModEndDate={end}"
+    
+    #old url
+    #url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?pubStartDate={start}&pubEndDate={end}&resultsPerPage=2000"
 
     # Make the API call
     headers = {'apiKey': API_KEYS._NVD_KEY}
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
         raise Exception(f"Failed to fetch data from NVD: {response.status_code} - {response.text}")
+    # print(response.text)
 
     # Parse the response and create CVE objects
     cve_list = []
     data = response.json()
-    for item in data.get('result', {}).get('CVE_Items', []):
-        cve_id = item['cve']['CVE_data_meta']['ID']
-        description = item['cve']['description']['description_data'][0]['value']
-        severity = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('baseSeverity', 'UNKNOWN')
-        vector_string = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('attackVector', 'UNKNOWN')
-        complexity = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('attackComplexity', 'UNKNOWN')
-        privileges_required = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('privilegesRequired', 'UNKNOWN')
-        user_interaction = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('userInteraction', 'UNKNOWN')
-        confidentiality_impact = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('confidentialityImpact', 'UNKNOWN')
-        integrity_impact = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('integrityImpact', 'UNKNOWN')
-        availability_impact = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('availabilityImpact', 'UNKNOWN')
+    with open('test.json', 'w') as f:
+        json.dump(data, f, indent =4, sort_keys =True)
+    json_list = [data.get("vulnerabilities",{})]
+    
+    for cve in json_list[0]:
+        # print(cve)
+        cve_id = cve['cve']['id']
+        print(cve_id)
+        description = cve['cve']['descriptions'][0]['value']
+
+
+        #if statement is used to determine which version the cve is graded on (cvssMetricV31 is preferred)
+        checkMetric = cve['cve'].get('metrics')
+        if checkMetric == {}:
+            print("continuing")
+            severity = 'UNKNOWN'
+            base_score = 'UNKNOWN'
+            vector_string = 'UNKNOWN'
+            complexity = 'UNKNOWN'
+            privileges_required = 'UNKNOWN'
+            user_interaction = 'UNKNOWN'
+            confidentiality_impact = 'UNKNOWN'
+            integrity_impact = 'UNKNOWN'
+            availability_impact = 'UNKNOWN'
+        else:
+            for metricVersion in checkMetric:
+                if metricVersion == "cvssMetricV31":
+                    metric = 'cvssMetricV31'
+                elif metricVersion == "cvssMetricV30":
+                    metric = 'cvssMetricV30'
+                elif metricVersion == "cvssMetricV2":
+                    metric = 'cvssMetricV2'
+
+                severity = cve['cve']['metrics'][metric][0]['cvssData'].get('baseSeverity', 'UNKNOWN')
+                base_score = cve['cve']['metrics'][metric][0]['cvssData'].get('baseScore', 'UNKNOWN')
+                vector_string = cve['cve']['metrics'][metric][0]['cvssData'].get('vectorString', 'UNKNOWN')
+                complexity = cve['cve']['metrics'][metric][0]['cvssData'].get('attackComplexity', 'UNKNOWN')
+                privileges_required = cve['cve']['metrics'][metric][0]['cvssData'].get('privilegesRequired', 'UNKNOWN')
+                user_interaction = cve['cve']['metrics'][metric][0]['cvssData'].get('userInteraction', 'UNKNOWN')
+                confidentiality_impact = cve['cve']['metrics'][metric][0]['cvssData'].get('confidentialityImpact', 'UNKNOWN')
+                integrity_impact = cve['cve']['metrics'][metric][0]['cvssData'].get('integrityImpact', 'UNKNOWN')
+                availability_impact = cve['cve']['metrics'][metric][0]['cvssData'].get('availabilityImpact', 'UNKNOWN')
 
         # Initialize the CVE object with the new attributes
         cve_obj = CVE(cve_id, description, severity, vector_string, complexity, privileges_required, 
@@ -104,6 +148,7 @@ def check_nvd(hour_diff):
     return cve_list
 
 def update_cves_table(new_cves, db):
+    print("updoot")
     cursor = db.cursor()
     
     for cve in new_cves:
@@ -135,6 +180,7 @@ def update_cves_table(new_cves, db):
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
 
 def check_if_threat(cve):
+    print("threat to humanity")
     global threat_count
 
     # Analyze with OpenAI
@@ -161,6 +207,7 @@ def check_if_threat(cve):
 
 #cisa = checking tweets from @cisaCatalogBot
 def check_cisa(db, day_diff):
+    print("totally the cisa acct")
     # Authenticate with the Twitter API
     client = tweepy.Client(bearer_token=API_KEYS._TWITTER_KEY)
 
@@ -184,8 +231,8 @@ def check_cisa(db, day_diff):
     if cisa_tweets.data:
         # Check if each CVE mentioned in CISA tweets exists in the database
         for tweet in cisa_tweets.data:
-            print(tweet)
-            print("\n")
+            # print(tweet)
+            # print("\n")
             cve_id = tweet.text.split()[0]  # Assuming the CVE ID is the first word in the tweet
             cursor.execute("SELECT count(1) FROM cves WHERE id = ?", (cve_id,))
             exists = cursor.fetchone()[0]
@@ -204,16 +251,18 @@ def check_cisa(db, day_diff):
     return db_response
 
 def update_cisa_accuracy(pass_count, fail_count, db):
+    print("acc updoot")
     try:
         # Update pass and fail counts in your 'cisa_accuracy' table
         cursor = db.cursor()
-        cursor.execute("UPDATE cisa_accuracy SET pass = pass + ?, fail = fail + ?", (pass_count, fail_count))
+        cursor.execute("UPDATE accuracy SET pass = pass + ?, fail = fail + ?", (pass_count, fail_count))
         db.commit()
         return f"Database updated successfully with {pass_count} passes and {fail_count} fails."
     except Exception as e:
         return f"An error occurred: {e}"
     
 def get_cisa_accuracy(db):
+    print("fetch acc")
     cursor = db.cursor()
     cursor.execute("SELECT pass, fail FROM accuracy WHERE source = 'cisa'")
     row = cursor.fetchone()
@@ -229,6 +278,7 @@ def get_cisa_accuracy(db):
         raise ValueError("CISA accuracy record not found.")
 
 def send_threat_mail(cve):
+    print("sending threat email")
     try:
         # Setup email server connection
         server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -274,6 +324,7 @@ def send_threat_mail(cve):
         return f"Failed to send email: {e}"
 
 def send_report_mail(db):
+    print("sending report email")
     try:
         # Get the CISA accuracy percentage
         cisa_accuracy_percent = get_cisa_accuracy(db)
