@@ -183,19 +183,21 @@ def check_if_threat(cve):
     print("threat to humanity")
     global threat_count
 
-    # Analyze with OpenAI
-    openai.api_key = API_KEYS._OPENAI_KEY
-    completion = openai.ChatCompletion.create(
-        model="ft:gpt-3.5-turbo-1106:personal::8MNmGPWm",
-        messages=[
-            {"role": "system", "content": "You are a helpful AI assistant. Given the text input, determine the following about the text: \
-                Does this represents a cyber security threat? Reply only with 'yes', 'no', or 'unknown'. \
-            "},
-            {"role": "user", "content": cve.description}
-        ],
-        temperature=1
-    )
-    openai_analysis = completion.choices[0].message['content'].lower()
+    # # Analyze with OpenAI
+    # openai.api_key = API_KEYS._OPENAI_KEY
+    # completion = openai.chat.completions.create(
+    #     model="gpt-3.5-turbo",
+    #     messages=[
+    #         {"role": "system", "content": "You are a helpful AI assistant. Given the text input, determine the following about the text: \
+    #             Does this represents a cyber security threat? Reply only with 'yes', 'no', or 'unknown'. \
+    #         "},
+    #         {"role": "user", "content": cve.description}
+    #     ],
+    #     temperature=1
+    # )
+    # openai_analysis = completion.choices[0].message.content.lower()
+ 
+    openai_analysis = 'yes'
 
     # Check if the severity is high enough or OpenAI analysis is 'yes'
     if cve.severity in ["MEDIUM", "HIGH", "CRITICAL"] and openai_analysis == "yes":
