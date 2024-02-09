@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from time import sleep
 
 load_dotenv()
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = os.getenv('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')
 
 res = openai.File.create(
   file=open("./dataset/mydata_4.jsonl", "rb"),

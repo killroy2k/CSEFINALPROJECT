@@ -2,7 +2,7 @@ import os
 import openai
 from dotenv import load_dotenv
 load_dotenv()
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = os.getenv('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')
 
 completion = openai.ChatCompletion.create(
   model="ft:gpt-3.5-turbo-0613:personal::85Joy8Y6",
