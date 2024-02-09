@@ -2,11 +2,13 @@ import os
 import openai
 from dotenv import load_dotenv
 from time import sleep
+# import client
 
 load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 res = openai.File.create(
+# res = client.file.create(
   file=open("./dataset/mydata_4.jsonl", "rb"),
   purpose='fine-tune'
 )
