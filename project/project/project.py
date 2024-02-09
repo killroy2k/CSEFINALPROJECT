@@ -82,7 +82,7 @@ def check_nvd(hour_diff):
     
 
     # URL for the NVD API, resultsPerPage modified by the source documentation(max= 1000)
-    url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?lastModStartDate={start}&lastModEndDate={end}"
+    url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate={start}&pubEndDate={end}"
     
     #old url
     #url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?pubStartDate={start}&pubEndDate={end}&resultsPerPage=2000"
@@ -200,7 +200,7 @@ def check_if_threat(cve):
     openai_analysis = 'yes'
 
     # Check if the severity is high enough or OpenAI analysis is 'yes'
-    if cve.severity in ["MEDIUM", "HIGH", "CRITICAL"] and openai_analysis == "yes":
+    if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"] and openai_analysis == "yes":
         threat_count += 1
         print(send_threat_mail(cve))
 
