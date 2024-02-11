@@ -29,7 +29,6 @@ class CVE:
 
     
 def setup_db():
-    print("setting up")
     db_exists = os.path.exists('project.db')
     db = sqlite3.connect('project.db')
     cursor = db.cursor()
@@ -65,7 +64,6 @@ def setup_db():
 
 #hour diff is used to request entries between current time and (current time - hour_diff)
 def check_nvd(hour_diff):
-    print("checking")
     # Ensure that hourdiff is a positive integer
     if not isinstance(hour_diff, int) or hour_diff < 0:
         raise ValueError("hourdiff must be a non-negative integer")
@@ -148,7 +146,6 @@ def check_nvd(hour_diff):
     return cve_list
 
 def update_cves_table(new_cves, db):
-    print("updoot")
     cursor = db.cursor()
     
     for cve in new_cves:
@@ -180,7 +177,6 @@ def update_cves_table(new_cves, db):
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
 
 def check_if_threat(cve):
-    print("threat to humanity")
     global threat_count
 
     # # Analyze with OpenAI
@@ -207,9 +203,8 @@ def check_if_threat(cve):
     # Return the openai response
     return openai_analysis
 
-#cisa = checking tweets from @cisaCatalogBot
+#cisa = checking tweets from @cisaCatalogBot previously from 
 def check_cisa(db, day_diff):
-    print("totally the cisa acct")
     # Authenticate with the Twitter API
     client = tweepy.Client(bearer_token=API_KEYS._TWITTER_KEY)
 
@@ -233,8 +228,6 @@ def check_cisa(db, day_diff):
     if cisa_tweets.data:
         # Check if each CVE mentioned in CISA tweets exists in the database
         for tweet in cisa_tweets.data:
-            # print(tweet)
-            # print("\n")
             cve_id = tweet.text.split()[0]  # Assuming the CVE ID is the first word in the tweet
             cursor.execute("SELECT count(1) FROM cves WHERE id = ?", (cve_id,))
             exists = cursor.fetchone()[0]
@@ -253,7 +246,6 @@ def check_cisa(db, day_diff):
     return db_response
 
 def update_cisa_accuracy(pass_count, fail_count, db):
-    print("acc updoot")
     try:
         # Update pass and fail counts in your 'cisa_accuracy' table
         cursor = db.cursor()
@@ -264,7 +256,6 @@ def update_cisa_accuracy(pass_count, fail_count, db):
         return f"An error occurred: {e}"
     
 def get_cisa_accuracy(db):
-    print("fetch acc")
     cursor = db.cursor()
     cursor.execute("SELECT pass, fail FROM accuracy WHERE source = 'cisa'")
     row = cursor.fetchone()
@@ -280,7 +271,6 @@ def get_cisa_accuracy(db):
         raise ValueError("CISA accuracy record not found.")
 
 def send_threat_mail(cve):
-    print("sending threat email")
     try:
         # Setup email server connection
         server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -326,7 +316,6 @@ def send_threat_mail(cve):
         return f"Failed to send email: {e}"
 
 def send_report_mail(db):
-    print("sending report email")
     try:
         # Get the CISA accuracy percentage
         cisa_accuracy_percent = get_cisa_accuracy(db)
