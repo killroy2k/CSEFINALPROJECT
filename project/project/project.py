@@ -148,7 +148,7 @@ def check_nvd(hour_diff):
     return cve_list
 
 def update_cves_table(new_cves, db):
-    print("updoot")
+    print("updating cves table")
     cursor = db.cursor()
     
     for cve in new_cves:
@@ -183,20 +183,22 @@ def check_if_threat(cve):
     print("threat to humanity")
     global threat_count
 
-    # # Analyze with OpenAI
-    # openai.api_key = API_KEYS._OPENAI_KEY
-    # completion = openai.chat.completions.create(
-    #     model="gpt-3.5-turbo",
-    #     messages=[
-    #         {"role": "system", "content": "You are a helpful AI assistant. Given the text input, determine the following about the text: \
-    #             Does this represents a cyber security threat? Reply only with 'yes', 'no', or 'unknown'. \
-    #         "},
-    #         {"role": "user", "content": cve.description}
-    #     ],
-    #     temperature=1
-    # )
+    # Analyze with OpenAI
+    openai.api_key = API_KEYS._OPENAI_KEY
+    completion = openai.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful AI assistant. Given the text input, determine the following about the text: \
+                Does this represents a cyber security threat? Reply only with 'yes', 'no', or 'unknown'. \
+            "},
+            {"role": "user", "content": cve.description}
+        ],
+        temperature=1
+    )
     # openai_analysis = completion.choices[0].message.content.lower()
- 
+    gpt_reponse = completion.choices[0].message.content.lower()
+    print(gpt_reponse)
+
     openai_analysis = 'yes'
 
     # Check if the severity is high enough or OpenAI analysis is 'yes'
@@ -218,7 +220,7 @@ def check_cisa(db, day_diff):
     end_time = end_time - timedelta(minutes = 1)
     start_time = end_time - timedelta(days=day_diff)
     start_time = start_time - timedelta(minutes = -1)
-    # Fetch tweets from the previous full day from CISA Bot ==cisaCatalogBot
+    # Fetch tweets from the previous full day from CVEnew account
     cisa_tweets = client.search_recent_tweets(query="from:CVEnew -is:retweet",
                                               start_time=start_time,
                                               end_time=end_time,
