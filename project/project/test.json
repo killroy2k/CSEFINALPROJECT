@@ -1,9 +1,9 @@
 {
     "format": "NVD_CVE",
-    "resultsPerPage": 33,
+    "resultsPerPage": 22,
     "startIndex": 0,
-    "timestamp": "2024-02-12T23:03:26.250",
-    "totalResults": 33,
+    "timestamp": "2024-02-09T20:27:29.077",
+    "totalResults": 22,
     "version": "2.0",
     "vulnerabilities": [
         {
@@ -11,62 +11,54 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "IBM CICS TX Standard and Advanced 11.1 uses weaker than expected cryptographic algorithms that could allow an attacker to decrypt highly sensitive information.  IBM X-Force ID:  229441."
+                        "value": "Mattermost Jira Plugin fails to protect against logout CSRF allowing an attacker to post a specially crafted message that would disconnect a user's\u00a0Jira connection in Mattermost only by viewing the message."
                     }
                 ],
-                "id": "CVE-2022-34310",
-                "lastModified": "2024-02-12T20:39:15.693",
+                "id": "CVE-2024-23319",
+                "lastModified": "2024-02-09T17:31:15.470",
                 "metrics": {
                     "cvssMetricV31": [
                         {
                             "cvssData": {
-                                "attackComplexity": "HIGH",
+                                "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 5.9,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "HIGH",
+                                "availabilityImpact": "LOW",
+                                "baseScore": 3.5,
+                                "baseSeverity": "LOW",
+                                "confidentialityImpact": "NONE",
                                 "integrityImpact": "NONE",
-                                "privilegesRequired": "NONE",
+                                "privilegesRequired": "LOW",
                                 "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:L",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.2,
-                            "impactScore": 3.6,
-                            "source": "psirt@us.ibm.com",
+                            "exploitabilityScore": 2.1,
+                            "impactScore": 1.4,
+                            "source": "responsibledisclosure@mattermost.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-12T18:15:07.830",
+                "published": "2024-02-09T15:15:08.133",
                 "references": [
                     {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://exchange.xforce.ibmcloud.com/vulnerabilities/229441"
-                    },
-                    {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://www.ibm.com/support/pages/node/6832922"
-                    },
-                    {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://www.ibm.com/support/pages/node/6832924"
+                        "source": "responsibledisclosure@mattermost.com",
+                        "url": "https://mattermost.com/security-updates"
                     }
                 ],
-                "sourceIdentifier": "psirt@us.ibm.com",
+                "sourceIdentifier": "responsibledisclosure@mattermost.com",
                 "vulnStatus": "Awaiting Analysis",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-327"
+                                "value": "CWE-352"
                             }
                         ],
-                        "source": "psirt@us.ibm.com",
-                        "type": "Primary"
+                        "source": "responsibledisclosure@mattermost.com",
+                        "type": "Secondary"
                     }
                 ]
             }
@@ -76,11 +68,11 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "IBM DataStage on Cloud Pak for Data 4.0.6 to 4.5.2 stores sensitive credential information that can be read by a privileged user.  IBM X-Force ID:  235060."
+                        "value": "Mattermost Jira Plugin handling subscriptions fails to check the security level of an incoming issue or limit it based on the user who created the subscription resulting in\u00a0registered users on Jira being able to create webhooks that give them access to all Jira issues.\n\n"
                     }
                 ],
-                "id": "CVE-2022-38714",
-                "lastModified": "2024-02-12T20:39:15.693",
+                "id": "CVE-2024-24774",
+                "lastModified": "2024-02-09T17:31:15.470",
                 "metrics": {
                     "cvssMetricV31": [
                         {
@@ -88,35 +80,122 @@
                                 "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "NONE",
-                                "baseScore": 4.9,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "HIGH",
+                                "baseScore": 3.4,
+                                "baseSeverity": "LOW",
+                                "confidentialityImpact": "LOW",
                                 "integrityImpact": "NONE",
                                 "privilegesRequired": "HIGH",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N",
+                                "scope": "CHANGED",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:N/A:N",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 1.2,
-                            "impactScore": 3.6,
-                            "source": "psirt@us.ibm.com",
+                            "exploitabilityScore": 1.7,
+                            "impactScore": 1.4,
+                            "source": "responsibledisclosure@mattermost.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-12T18:15:08.057",
+                "published": "2024-02-09T15:15:08.343",
                 "references": [
                     {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://exchange.xforce.ibmcloud.com/vulnerabilities/235060"
-                    },
-                    {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://www.ibm.com/support/pages/node/6618039"
+                        "source": "responsibledisclosure@mattermost.com",
+                        "url": "https://mattermost.com/security-updates"
                     }
                 ],
-                "sourceIdentifier": "psirt@us.ibm.com",
+                "sourceIdentifier": "responsibledisclosure@mattermost.com",
+                "vulnStatus": "Awaiting Analysis",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-863"
+                            }
+                        ],
+                        "source": "responsibledisclosure@mattermost.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Mattermost fails to check the required permissions in the\u00a0POST /api/v4/channels/stats/member_count API resulting in\u00a0channel member counts being leaked to a user without permissions.\n\n"
+                    }
+                ],
+                "id": "CVE-2024-24776",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "HIGH",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 3.1,
+                                "baseSeverity": "LOW",
+                                "confidentialityImpact": "LOW",
+                                "integrityImpact": "NONE",
+                                "privilegesRequired": "LOW",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 1.6,
+                            "impactScore": 1.4,
+                            "source": "responsibledisclosure@mattermost.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-09T15:15:08.547",
+                "references": [
+                    {
+                        "source": "responsibledisclosure@mattermost.com",
+                        "url": "https://mattermost.com/security-updates"
+                    }
+                ],
+                "sourceIdentifier": "responsibledisclosure@mattermost.com",
+                "vulnStatus": "Awaiting Analysis",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-284"
+                            }
+                        ],
+                        "source": "responsibledisclosure@mattermost.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "An issue in the HuginBase::PanoramaMemento::loadPTScript function of Hugin v2022.0.0 allows attackers to cause a heap buffer overflow via parsing a crafted image."
+                    }
+                ],
+                "id": "CVE-2024-25442",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {},
+                "published": "2024-02-09T15:15:08.763",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://bugs.launchpad.net/hugin/+bug/2025032"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
                 "vulnStatus": "Awaiting Analysis"
             }
         },
@@ -125,62 +204,290 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "IBM CICS TX Standard and Advanced 11.1 uses weaker than expected cryptographic algorithms that could allow an attacker to decrypt highly sensitive information.  IBM X-Force ID:  229440."
+                        "value": "An issue in the HuginBase::ImageVariable<double>::linkWith function of Hugin v2022.0.0 allows attackers to cause a heap-use-after-free via parsing a crafted image."
                     }
                 ],
-                "id": "CVE-2022-34309",
-                "lastModified": "2024-02-12T20:39:15.693",
+                "id": "CVE-2024-25443",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {},
+                "published": "2024-02-09T15:15:08.817",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://bugs.launchpad.net/hugin/+bug/2025035"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Improper handling of values in HuginBase::PTools::Transform::transform of Hugin 2022.0.0 leads to an assertion failure."
+                    }
+                ],
+                "id": "CVE-2024-25445",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {},
+                "published": "2024-02-09T15:15:08.860",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://bugs.launchpad.net/hugin/+bug/2025038"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "An issue in the HuginBase::PTools::setDestImage function of Hugin v2022.0.0 allows attackers to cause a heap buffer overflow via parsing a crafted image."
+                    }
+                ],
+                "id": "CVE-2024-25446",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {},
+                "published": "2024-02-09T15:15:08.910",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://bugs.launchpad.net/hugin/+bug/2025037"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "An issue in the imlib_load_image_with_error_return function of imlib2 v1.9.1 allows attackers to cause a heap buffer overflow via parsing a crafted image."
+                    }
+                ],
+                "id": "CVE-2024-25447",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {},
+                "published": "2024-02-09T15:15:08.967",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://git.enlightenment.org/old/legacy-imlib2/issues/20"
+                    },
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/derf/feh/issues/709"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "An issue in the imlib_free_image_and_decache function of imlib2 v1.9.1 allows attackers to cause a heap buffer overflow via parsing a crafted image."
+                    }
+                ],
+                "id": "CVE-2024-25448",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {},
+                "published": "2024-02-09T15:15:09.027",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://git.enlightenment.org/old/legacy-imlib2/issues/20"
+                    },
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/derf/feh/issues/711"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "imlib2 v1.9.1 was discovered to mishandle memory allocation in the function init_imlib_fonts()."
+                    }
+                ],
+                "id": "CVE-2024-25450",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {},
+                "published": "2024-02-09T15:15:09.087",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://git.enlightenment.org/old/legacy-imlib2/issues/20"
+                    },
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/derf/feh/issues/712"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Bento4 v1.6.0-640 was discovered to contain an out-of-memory bug via the AP4_DataBuffer::ReallocateBuffer() function."
+                    }
+                ],
+                "id": "CVE-2024-25451",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {},
+                "published": "2024-02-09T15:15:09.143",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/axiomatic-systems/Bento4/issues/872"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Bento4 v1.6.0-640 was discovered to contain an out-of-memory bug via the AP4_UrlAtom::AP4_UrlAtom() function."
+                    }
+                ],
+                "id": "CVE-2024-25452",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {},
+                "published": "2024-02-09T15:15:09.193",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/axiomatic-systems/Bento4/issues/873"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Bento4 v1.6.0-640 was discovered to contain a NULL pointer dereference via the AP4_StszAtom::GetSampleSize() function."
+                    }
+                ],
+                "id": "CVE-2024-25453",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {},
+                "published": "2024-02-09T15:15:09.240",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/axiomatic-systems/Bento4/issues/204"
+                    },
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/axiomatic-systems/Bento4/issues/874"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Bento4 v1.6.0-640 was discovered to contain a NULL pointer dereference via the AP4_DescriptorFinder::Test() function."
+                    }
+                ],
+                "id": "CVE-2024-25454",
+                "lastModified": "2024-02-09T17:31:15.470",
+                "metrics": {},
+                "published": "2024-02-09T15:15:09.293",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/axiomatic-systems/Bento4/issues/875"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Mattermost fails to check if a custom emoji reaction exists when sending it to a post and to limit the amount of custom emojis allowed to be added in a post, allowing an attacker sending a huge amount of non-existent custom emojis in a post to crash the mobile app of a user seeing the post.\u00a0\n\n"
+                    }
+                ],
+                "id": "CVE-2024-1402",
+                "lastModified": "2024-02-09T17:31:15.470",
                 "metrics": {
                     "cvssMetricV31": [
                         {
                             "cvssData": {
-                                "attackComplexity": "HIGH",
+                                "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 5.9,
+                                "availabilityImpact": "LOW",
+                                "baseScore": 4.3,
                                 "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "HIGH",
+                                "confidentialityImpact": "NONE",
                                 "integrityImpact": "NONE",
-                                "privilegesRequired": "NONE",
+                                "privilegesRequired": "LOW",
                                 "scope": "UNCHANGED",
                                 "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.2,
-                            "impactScore": 3.6,
-                            "source": "psirt@us.ibm.com",
+                            "exploitabilityScore": 2.8,
+                            "impactScore": 1.4,
+                            "source": "responsibledisclosure@mattermost.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-12T19:15:08.837",
+                "published": "2024-02-09T16:15:07.880",
                 "references": [
                     {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://exchange.xforce.ibmcloud.com/vulnerabilities/229440"
-                    },
-                    {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://www.ibm.com/support/pages/node/6832814"
-                    },
-                    {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://www.ibm.com/support/pages/node/6832918"
+                        "source": "responsibledisclosure@mattermost.com",
+                        "url": "https://mattermost.com/security-updates"
                     }
                 ],
-                "sourceIdentifier": "psirt@us.ibm.com",
+                "sourceIdentifier": "responsibledisclosure@mattermost.com",
                 "vulnStatus": "Awaiting Analysis",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-327"
+                                "value": "CWE-400"
                             }
                         ],
-                        "source": "psirt@us.ibm.com",
-                        "type": "Primary"
+                        "source": "responsibledisclosure@mattermost.com",
+                        "type": "Secondary"
                     }
                 ]
             }
@@ -190,52 +497,25 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "IBM CICS TX Standard and Advanced 11.1 could allow a user with physical access to the web browser to gain access to the user's session due to insufficiently protected credentials.  IBM X-Force ID:  229446."
+                        "value": "Insufficiently Protected Credentials vulnerability in Apache Solr.\n\nThis issue affects Apache Solr: from 6.0.0 through 8.11.2, from 9.0.0 before 9.3.0.\nOne of the two endpoints that publishes the Solr process' Java system properties, /admin/info/properties, was only setup to hide system properties that had \"password\" contained in the name.\nThere are a number of sensitive system properties, such as \"basicauth\" and \"aws.secretKey\" do not contain \"password\", thus their values were published via the \"/admin/info/properties\" endpoint.\nThis endpoint populates the list of System Properties on the home screen of the Solr Admin page, making the exposed credentials visible in the UI.\n\nThis /admin/info/properties endpoint is protected under the \"config-read\" permission.\nTherefore, Solr Clouds with Authorization enabled will only be vulnerable through logged-in users that have the \"config-read\" permission.\nUsers are recommended to upgrade to version 9.3.0 or 8.11.3, which fixes the issue.\nA single option now controls hiding Java system property for all endpoints, \"-Dsolr.hiddenSysProps\".\nBy default all known sensitive properties are hidden (including \"-Dbasicauth\"), as well as any property with a name containing \"secret\" or \"password\".\n\nUsers who cannot upgrade can also use the following Java system property to fix the issue:\n\u00a0 '-Dsolr.redaction.system.pattern=.*(password|secret|basicauth).*'\n\n"
                     }
                 ],
-                "id": "CVE-2022-34311",
-                "lastModified": "2024-02-12T20:39:15.693",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "PHYSICAL",
-                                "availabilityImpact": "LOW",
-                                "baseScore": 4.3,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "LOW",
-                                "integrityImpact": "LOW",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 0.9,
-                            "impactScore": 3.4,
-                            "source": "psirt@us.ibm.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:09.080",
+                "id": "CVE-2023-50291",
+                "lastModified": "2024-02-09T19:15:11.070",
+                "metrics": {},
+                "published": "2024-02-09T18:15:08.240",
                 "references": [
                     {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://exchange.xforce.ibmcloud.com/vulnerabilities/229446"
+                        "source": "security@apache.org",
+                        "url": "http://www.openwall.com/lists/oss-security/2024/02/09/4"
                     },
                     {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://www.ibm.com/support/pages/node/6832928"
-                    },
-                    {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://www.ibm.com/support/pages/node/6832930"
+                        "source": "security@apache.org",
+                        "url": "https://solr.apache.org/security.html#cve-2023-50291-apache-solr-can-leak-certain-passwords-due-to-system-property-redaction-logic-inconsistencies"
                     }
                 ],
-                "sourceIdentifier": "psirt@us.ibm.com",
-                "vulnStatus": "Awaiting Analysis",
+                "sourceIdentifier": "security@apache.org",
+                "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
@@ -244,7 +524,7 @@
                                 "value": "CWE-522"
                             }
                         ],
-                        "source": "psirt@us.ibm.com",
+                        "source": "security@apache.org",
                         "type": "Primary"
                     }
                 ]
@@ -255,994 +535,34 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contain an OS Command Injection Vulnerability in its svc_topstats utility. An authenticated attacker could potentially exploit this vulnerability, leading to the execution of arbitrary commands with elevated privileges.\n\n"
+                        "value": "Incorrect Permission Assignment for Critical Resource, Improper Control of Dynamically-Managed Code Resources vulnerability in Apache Solr.\n\nThis issue affects Apache Solr: from 8.10.0 through 8.11.2, from 9.0.0 before 9.3.0.\n\nThe Schema Designer was introduced to allow users to more easily configure and test new Schemas and configSets.\nHowever, when the feature was created, the \"trust\" (authentication) of these configSets was not considered.\nExternal library loading is only available to configSets that are \"trusted\" (created by authenticated users), thus non-authenticated users are unable to perform Remote Code Execution.\nSince the Schema Designer loaded configSets without taking their \"trust\" into account, configSets that were created by unauthenticated users were allowed to load external libraries when used in the Schema Designer.\n\nUsers are recommended to upgrade to version 9.3.0, which fixes the issue.\n\n"
                     }
                 ],
-                "id": "CVE-2024-0164",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:09.473",
+                "id": "CVE-2023-50292",
+                "lastModified": "2024-02-09T19:15:11.147",
+                "metrics": {},
+                "published": "2024-02-09T18:15:08.363",
                 "references": [
                     {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-78"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains an OS Command Injection Vulnerability in its svc_acldb_dump utility. An authenticated attacker could potentially exploit this vulnerability, leading to execution of arbitrary operating system commands with root privileges.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-0165",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:09.700",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-78"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains an OS Command Injection Vulnerability in its svc_tcpdump utility. An authenticated attacker could potentially exploit this vulnerability, leading to the execution of arbitrary OS commands with elevated privileges.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-0166",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:09.960",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains an OS Command Injection Vulnerability in the svc_topstats utility. An authenticated attacker could potentially exploit this vulnerability, leading to the ability to overwrite arbitrary files on the file system with root privileges.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-0167",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:10.133",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-78"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains a Command Injection Vulnerability in svc_oscheck utility. An authenticated attacker could potentially exploit this vulnerability, leading to the ability to inject arbitrary operating system commands. This vulnerability allows an authenticated attacker to execute commands with root privileges.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-0168",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:10.330",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-78"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains a cross-site scripting (XSS) vulnerability. An authenticated attacker could potentially exploit this vulnerability, leading users to download and execute malicious software crafted by this product's feature to compromise their systems.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-0169",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 5.7,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "NONE",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:N/A:N",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 2.1,
-                            "impactScore": 3.6,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:10.543",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-20"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains an OS Command Injection Vulnerability in its svc_cava utility. An authenticated attacker could potentially exploit this vulnerability, escaping the restricted shell and execute arbitrary operating system commands with root privileges.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-0170",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:10.800",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-78"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains SQL Injection vulnerability. An authenticated attacker could potentially exploit this vulnerability, leading to exposure of sensitive information.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-22221",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 4.5,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "NONE",
-                                "privilegesRequired": "HIGH",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:H/I:N/A:N",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 0.9,
-                            "impactScore": 3.6,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:11.043",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-89"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains an OS Command Injection Vulnerability within its svc_udoctor utility. An authenticated malicious user with local access could potentially exploit this vulnerability, leading to the execution of arbitrary OS commands on the application's underlying OS, with the privileges of the vulnerable application.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-22222",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:11.283",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-78"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains an OS Command Injection Vulnerability within its svc_cbr utility. An authenticated malicious user with local access could potentially exploit this vulnerability, leading to the execution of arbitrary OS commands on the application's underlying OS, with the privileges of the vulnerable application.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-22223",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:11.497",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-78"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains an OS Command Injection Vulnerability in its svc_nas utility. An authenticated attacker could potentially exploit this vulnerability, escaping the restricted shell and execute arbitrary operating system commands with root privileges.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-22224",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:11.713",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-78"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains an OS Command Injection Vulnerability in its svc_supportassist utility. An authenticated attacker could potentially exploit this vulnerability, leading to execution of arbitrary operating system commands with root privileges.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-22225",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:11.927",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-78"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contain a path traversal vulnerability in its svc_supportassist utility. An authenticated attacker could potentially exploit this vulnerability, to gain unauthorized write access to the files stored on the server filesystem, with elevated privileges.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-22226",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 3.3,
-                                "baseSeverity": "LOW",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "LOW",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 1.4,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:12.130",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-23"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains an OS Command Injection Vulnerability in its svc_dc utility. An authenticated attacker could potentially exploit this vulnerability, leading to the ability execute commands with root privileges.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-22227",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:12.333",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-78"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains an OS Command Injection Vulnerability in its svc_cifssupport utility. An authenticated attacker could potentially exploit this vulnerability, escaping the restricted shell and execute arbitrary operating system commands with root privileges.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-22228",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:12.527",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-78"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "\nDell Unity, versions prior to 5.4, contains a Cross-site scripting vulnerability. An authenticated attacker could potentially exploit this vulnerability, stealing session information, masquerading as the affected user or carry out any actions that this user could perform, or to generally control the victim's browser.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-22230",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 6.4,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "LOW",
-                                "integrityImpact": "LOW",
-                                "privilegesRequired": "LOW",
-                                "scope": "CHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 3.1,
-                            "impactScore": 2.7,
-                            "source": "security_alert@emc.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T19:15:12.717",
-                "references": [
-                    {
-                        "source": "security_alert@emc.com",
-                        "url": "https://www.dell.com/support/kbdoc/en-us/000222010/dsa-2024-042-dell-unity-dell-unity-vsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities"
-                    }
-                ],
-                "sourceIdentifier": "security_alert@emc.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-79"
-                            }
-                        ],
-                        "source": "security_alert@emc.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "A vulnerability, which was classified as problematic, has been found in dbartholomae lambda-middleware frameguard up to 1.0.4. Affected by this issue is some unknown functionality of the file packages/json-deserializer/src/JsonDeserializer.ts of the component JSON Mime-Type Handler. The manipulation leads to inefficient regular expression complexity. Upgrading to version 1.1.0 is able to address this issue. The patch is identified as f689404d830cbc1edd6a1018d3334ff5f44dc6a6. It is recommended to upgrade the affected component. VDB-253406 is the identifier assigned to this vulnerability."
-                    }
-                ],
-                "id": "CVE-2021-4437",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV2": [
-                        {
-                            "acInsufInfo": false,
-                            "baseSeverity": "LOW",
-                            "cvssData": {
-                                "accessComplexity": "LOW",
-                                "accessVector": "ADJACENT_NETWORK",
-                                "authentication": "SINGLE",
-                                "availabilityImpact": "PARTIAL",
-                                "baseScore": 2.7,
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "NONE",
-                                "vectorString": "AV:A/AC:L/Au:S/C:N/I:N/A:P",
-                                "version": "2.0"
-                            },
-                            "exploitabilityScore": 5.1,
-                            "impactScore": 2.9,
-                            "obtainAllPrivilege": false,
-                            "obtainOtherPrivilege": false,
-                            "obtainUserPrivilege": false,
-                            "source": "cna@vuldb.com",
-                            "type": "Secondary",
-                            "userInteractionRequired": false
-                        }
-                    ],
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "ADJACENT_NETWORK",
-                                "availabilityImpact": "LOW",
-                                "baseScore": 3.5,
-                                "baseSeverity": "LOW",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "NONE",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 2.1,
-                            "impactScore": 1.4,
-                            "source": "cna@vuldb.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T20:15:07.993",
-                "references": [
-                    {
-                        "source": "cna@vuldb.com",
-                        "url": "https://github.com/dbartholomae/lambda-middleware/commit/f689404d830cbc1edd6a1018d3334ff5f44dc6a6"
+                        "source": "security@apache.org",
+                        "url": "http://www.openwall.com/lists/oss-security/2024/02/09/3"
                     },
                     {
-                        "source": "cna@vuldb.com",
-                        "url": "https://github.com/dbartholomae/lambda-middleware/pull/57"
-                    },
-                    {
-                        "source": "cna@vuldb.com",
-                        "url": "https://github.com/dbartholomae/lambda-middleware/releases/tag/%40lambda-middleware%2Fframeguard_v1.1.0"
-                    },
-                    {
-                        "source": "cna@vuldb.com",
-                        "url": "https://vuldb.com/?ctiid.253406"
-                    },
-                    {
-                        "source": "cna@vuldb.com",
-                        "url": "https://vuldb.com/?id.253406"
+                        "source": "security@apache.org",
+                        "url": "https://solr.apache.org/security.html#cve-2023-50298-apache-solr-can-expose-zookeeper-credentials-via-streaming-expressions"
                     }
                 ],
-                "sourceIdentifier": "cna@vuldb.com",
-                "vulnStatus": "Awaiting Analysis",
+                "sourceIdentifier": "security@apache.org",
+                "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-1333"
+                                "value": "CWE-732"
                             }
                         ],
-                        "source": "cna@vuldb.com",
+                        "source": "security@apache.org",
                         "type": "Primary"
                     }
                 ]
@@ -1253,48 +573,29 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "IBM Robotic Process Automation 21.0.2 contains a vulnerability that could allow user ids may be exposed across tenants.  IBM X-Force ID:  227293."
+                        "value": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Apache Solr.This issue affects Apache Solr: from 6.0.0 through 8.11.2, from 9.0.0 before 9.4.1.\n\nSolr Streaming Expressions allows users to extract data from other Solr Clouds, using a \"zkHost\" parameter.\nWhen original SolrCloud is setup to use ZooKeeper credentials and ACLs, they will be sent to whatever \"zkHost\" the user provides.\nAn attacker could setup a server to mock ZooKeeper, that accepts ZooKeeper requests with credentials and ACLs and extracts the sensitive information,\nthen send a streaming expression using the mock server's address in \"zkHost\".\nStreaming Expressions are exposed via the \"/streaming\" handler, with \"read\" permissions.\n\nUsers are recommended to upgrade to version 8.11.3 or 9.4.1, which fix the issue.\nFrom these versions on, only zkHost values that have the same server address (regardless of chroot), will use the given ZooKeeper credentials and ACLs when connecting.\n\n"
                     }
                 ],
-                "id": "CVE-2022-22506",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "PHYSICAL",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 4.6,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "NONE",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 0.9,
-                            "impactScore": 3.6,
-                            "source": "psirt@us.ibm.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T20:15:08.320",
+                "id": "CVE-2023-50298",
+                "lastModified": "2024-02-09T19:15:11.210",
+                "metrics": {},
+                "published": "2024-02-09T18:15:08.457",
                 "references": [
                     {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://exchange.xforce.ibmcloud.com/vulnerabilities/227293"
+                        "source": "security@apache.org",
+                        "url": "http://www.openwall.com/lists/oss-security/2024/02/09/2"
                     },
                     {
-                        "source": "psirt@us.ibm.com",
-                        "url": "https://www.ibm.com/support/pages/node/6591237"
+                        "source": "security@apache.org",
+                        "url": "http://www.openwall.com/lists/oss-security/2024/02/09/3"
+                    },
+                    {
+                        "source": "security@apache.org",
+                        "url": "https://solr.apache.org/security.html#cve-2023-50298-apache-solr-can-expose-zookeeper-credentials-via-streaming-expressions"
                     }
                 ],
-                "sourceIdentifier": "psirt@us.ibm.com",
-                "vulnStatus": "Awaiting Analysis",
+                "sourceIdentifier": "security@apache.org",
+                "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
@@ -1303,137 +604,7 @@
                                 "value": "CWE-200"
                             }
                         ],
-                        "source": "psirt@us.ibm.com",
-                        "type": "Primary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Pixelfed is an open source photo sharing platform. When processing requests authorization was improperly and insufficiently checked, allowing attackers to access far more functionality than users intended, including to the administrative and moderator functionality of the Pixelfed server. This vulnerability affects every version of Pixelfed between v0.10.4 and v0.11.9, inclusive. A proof of concept of this vulnerability exists. This vulnerability affects every local user of a Pixelfed server, and can potentially affect the servers' ability to federate. Some user interaction is required to setup the conditions to be able to exercise the vulnerability, but the attacker could conduct this attack time-delayed manner, where user interaction is not actively required. This vulnerability has been addressed in version 0.11.11. Users are advised to upgrade. There are no known workarounds for this vulnerability."
-                    }
-                ],
-                "id": "CVE-2024-25108",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "LOW",
-                                "baseScore": 9.9,
-                                "baseSeverity": "CRITICAL",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "LOW",
-                                "privilegesRequired": "NONE",
-                                "scope": "CHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:L",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 3.9,
-                            "impactScore": 5.3,
-                            "source": "security-advisories@github.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T20:15:08.590",
-                "references": [
-                    {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/pixelfed/pixelfed/commit/7e47d6dccb0393a2e95c42813c562c854882b037"
-                    },
-                    {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/pixelfed/pixelfed/security/advisories/GHSA-gccq-h3xj-jgvf"
-                    }
-                ],
-                "sourceIdentifier": "security-advisories@github.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-280"
-                            },
-                            {
-                                "lang": "en",
-                                "value": "CWE-285"
-                            },
-                            {
-                                "lang": "en",
-                                "value": "CWE-863"
-                            }
-                        ],
-                        "source": "security-advisories@github.com",
-                        "type": "Primary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "The UAMQP is a general purpose C library for AMQP 1.0. During a call to open_get_offered_capabilities, a memory allocation may fail causing a use-after-free issue and if a client called it during connection communication it may cause a remote code execution. Users are advised to update the submodule with commit `30865c9c`. There are no known workarounds for this vulnerability."
-                    }
-                ],
-                "id": "CVE-2024-25110",
-                "lastModified": "2024-02-12T20:39:09.773",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 9.8,
-                                "baseSeverity": "CRITICAL",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 3.9,
-                            "impactScore": 5.9,
-                            "source": "security-advisories@github.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-12T20:15:08.803",
-                "references": [
-                    {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/Azure/azure-uamqp-c/commit/30865c9ccedaa32ddb036e87a8ebb52c3f18f695"
-                    },
-                    {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/Azure/azure-uamqp-c/security/advisories/GHSA-c646-4whf-r67v"
-                    }
-                ],
-                "sourceIdentifier": "security-advisories@github.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-94"
-                            }
-                        ],
-                        "source": "security-advisories@github.com",
+                        "source": "security@apache.org",
                         "type": "Secondary"
                     }
                 ]
@@ -1444,53 +615,99 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "An issue has been discovered in GitLab EE affecting all versions starting from 16.8 before 16.8.2. When a user is assigned a custom role with manage_group_access_tokens permission, they may be able to create group access tokens with Owner privileges, which may lead to privilege escalation."
+                        "value": "Improper Control of Dynamically-Managed Code Resources, Unrestricted Upload of File with Dangerous Type, Inclusion of Functionality from Untrusted Control Sphere vulnerability in Apache Solr.This issue affects Apache Solr: from 6.0.0 through 8.11.2, from 9.0.0 before 9.4.1.\n\nIn the affected versions, Solr ConfigSets accepted Java jar and class files to be uploaded through the ConfigSets API.\nWhen backing up Solr Collections, these configSet files would be saved to disk when using the LocalFileSystemRepository (the default for backups).\nIf the backup was saved to a directory that Solr uses in its ClassPath/ClassLoaders, then the jar and class files would be available to use with any ConfigSet, trusted or untrusted.\n\nWhen Solr is run in a secure way (Authorization enabled), as is strongly suggested, this vulnerability is limited to extending the Backup permissions with the ability to add libraries.\nUsers are recommended to upgrade to version 8.11.3 or 9.4.1, which fix the issue.\nIn these versions, the following protections have been added:\n\n  *  Users are no longer able to upload files to a configSet that could be executed via a Java ClassLoader.\n  *  The Backup API restricts saving backups to directories that are used in the ClassLoader.\n\n"
                     }
                 ],
-                "id": "CVE-2024-1250",
-                "lastModified": "2024-02-12T21:15:08.313",
+                "id": "CVE-2023-50386",
+                "lastModified": "2024-02-09T19:15:11.277",
+                "metrics": {},
+                "published": "2024-02-09T18:15:08.540",
+                "references": [
+                    {
+                        "source": "security@apache.org",
+                        "url": "http://www.openwall.com/lists/oss-security/2024/02/09/1"
+                    },
+                    {
+                        "source": "security@apache.org",
+                        "url": "https://solr.apache.org/security.html#cve-2023-50386-apache-solr-backuprestore-apis-allow-for-deployment-of-executables-in-malicious-configsets"
+                    }
+                ],
+                "sourceIdentifier": "security@apache.org",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-434"
+                            },
+                            {
+                                "lang": "en",
+                                "value": "CWE-913"
+                            }
+                        ],
+                        "source": "security@apache.org",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Concrete CMS version 9 before 9.2.5 is vulnerable to\u00a0\u00a0stored XSS via the Role Name field since there is insufficient validation of administrator provided data for that field.\u00a0A rogue administrator could inject malicious code into the Role Name field which might be executed when users visit the affected page. The Concrete CMS Security team scored this 2 with CVSS v3 vector  AV:N/AC:H/PR:H/UI:R/S:U/C:N/I:L/A:N https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator . Concrete versions below 9 do not include group types so they are not affected by this vulnerability. \n"
+                    }
+                ],
+                "id": "CVE-2024-1247",
+                "lastModified": "2024-02-09T20:15:54.770",
                 "metrics": {
                     "cvssMetricV31": [
                         {
                             "cvssData": {
-                                "attackComplexity": "LOW",
+                                "attackComplexity": "HIGH",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "NONE",
-                                "baseScore": 6.5,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
+                                "baseScore": 2.0,
+                                "baseSeverity": "LOW",
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "LOW",
                                 "privilegesRequired": "HIGH",
                                 "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:N",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:N/I:L/A:N",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 1.2,
-                            "impactScore": 5.2,
-                            "source": "cve@gitlab.com",
+                            "exploitabilityScore": 0.5,
+                            "impactScore": 1.4,
+                            "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-12T21:15:08.313",
+                "published": "2024-02-09T19:15:24.183",
                 "references": [
                     {
-                        "source": "cve@gitlab.com",
-                        "url": "https://gitlab.com/gitlab-org/gitlab/-/issues/439175"
+                        "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
+                        "url": "https://documentation.concretecms.org/9-x/developers/introduction/version-history/925-release-notes"
+                    },
+                    {
+                        "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
+                        "url": "https://www.concretecms.org/about/project-news/security/2024-02-04-security-advisory"
                     }
                 ],
-                "sourceIdentifier": "cve@gitlab.com",
+                "sourceIdentifier": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
                 "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-269"
+                                "value": "CWE-20"
                             }
                         ],
-                        "source": "cve@gitlab.com",
+                        "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
                         "type": "Secondary"
                     }
                 ]
@@ -1501,11 +718,11 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "A path traversal vulnerability was found in Undertow. This issue may allow a remote attacker to append a specially-crafted sequence to an HTTP request for an application deployed to JBoss EAP, which may permit access to privileged or restricted files and directories."
+                        "value": "Concrete CMS\u00a0version 9 before 9.2.5 is vulnerable to stored XSS in file tags and description attributes since administrator entered file attributes are not sufficiently sanitized in the Edit Attributes page. A rogue administrator could put malicious code into the file tags or description attributes and, when another administrator opens the same file for editing, the malicious code could execute. The Concrete CMS Security team scored this 2.4 with CVSS v3 vector  AV:N/AC:L/PR:H/UI:R/S:U/C:L/I:N/A:N https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator . \n"
                     }
                 ],
-                "id": "CVE-2024-1459",
-                "lastModified": "2024-02-12T21:15:08.533",
+                "id": "CVE-2024-1245",
+                "lastModified": "2024-02-09T20:15:54.370",
                 "metrics": {
                     "cvssMetricV31": [
                         {
@@ -1513,46 +730,46 @@
                                 "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "NONE",
-                                "baseScore": 5.3,
-                                "baseSeverity": "MEDIUM",
+                                "baseScore": 2.4,
+                                "baseSeverity": "LOW",
                                 "confidentialityImpact": "LOW",
                                 "integrityImpact": "NONE",
-                                "privilegesRequired": "NONE",
+                                "privilegesRequired": "HIGH",
                                 "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:L/I:N/A:N",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 3.9,
+                            "exploitabilityScore": 0.9,
                             "impactScore": 1.4,
-                            "source": "secalert@redhat.com",
+                            "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-12T21:15:08.533",
+                "published": "2024-02-09T20:15:54.370",
                 "references": [
                     {
-                        "source": "secalert@redhat.com",
-                        "url": "https://access.redhat.com/security/cve/CVE-2024-1459"
+                        "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
+                        "url": "https://documentation.concretecms.org/9-x/developers/introduction/version-history/925-release-notes"
                     },
                     {
-                        "source": "secalert@redhat.com",
-                        "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2259475"
+                        "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
+                        "url": "https://www.concretecms.org/about/project-news/security/2024-02-04-security-advisory"
                     }
                 ],
-                "sourceIdentifier": "secalert@redhat.com",
+                "sourceIdentifier": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
                 "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-24"
+                                "value": "CWE-20"
                             }
                         ],
-                        "source": "secalert@redhat.com",
-                        "type": "Primary"
+                        "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
+                        "type": "Secondary"
                     }
                 ]
             }
@@ -1562,192 +779,60 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "OpenRefine is a free, open source power tool for working with messy data and improving it. A jdbc attack vulnerability exists in OpenRefine(version<=3.7.7) where an attacker may construct a JDBC query which may read files on the host filesystem. Due to the newer MySQL driver library in the latest version of OpenRefine (8.0.30), there is no associated deserialization utilization point, so original code execution cannot be achieved, but attackers can use this vulnerability to read sensitive files on the target server. This issue has been addressed in version 3.7.8. Users are advised to upgrade. There are no known workarounds for this vulnerability."
+                        "value": "Concrete CMS\u00a0in version 9 before 9.2.5\u00a0is vulnerable to reflected XSS via the Image URL Import Feature due to\u00a0insufficient validation of administrator provided data. A rogue administrator could inject malicious code when importing images, leading to the execution of the malicious code on the website user\u2019s browser. The Concrete CMS Security team scored this 2 with CVSS v3 vector  AV:N/AC:H/PR:H/UI:R/S:U/C:L/I:N/A:N https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator . This does not affect Concrete versions prior to version 9.\n"
                     }
                 ],
-                "id": "CVE-2024-23833",
-                "lastModified": "2024-02-12T21:15:08.760",
+                "id": "CVE-2024-1246",
+                "lastModified": "2024-02-09T20:15:54.573",
                 "metrics": {
                     "cvssMetricV31": [
                         {
                             "cvssData": {
-                                "attackComplexity": "LOW",
+                                "attackComplexity": "HIGH",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "NONE",
-                                "baseScore": 7.5,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
+                                "baseScore": 2.0,
+                                "baseSeverity": "LOW",
+                                "confidentialityImpact": "LOW",
                                 "integrityImpact": "NONE",
-                                "privilegesRequired": "NONE",
+                                "privilegesRequired": "HIGH",
                                 "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:L/I:N/A:N",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 3.9,
-                            "impactScore": 3.6,
-                            "source": "security-advisories@github.com",
+                            "exploitabilityScore": 0.5,
+                            "impactScore": 1.4,
+                            "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-12T21:15:08.760",
+                "published": "2024-02-09T20:15:54.573",
                 "references": [
                     {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/OpenRefine/OpenRefine/commit/41ccf574847d856e22488a7c0987ad8efa12a84a"
+                        "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
+                        "url": "https://documentation.concretecms.org/9-x/developers/introduction/version-history/925-release-notes"
                     },
                     {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/OpenRefine/OpenRefine/security/advisories/GHSA-6p92-qfqf-qwx4"
+                        "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
+                        "url": "https://www.concretecms.org/about/project-news/security/2024-02-04-security-advisory"
                     }
                 ],
-                "sourceIdentifier": "security-advisories@github.com",
+                "sourceIdentifier": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
                 "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-22"
+                                "value": "CWE-20"
                             }
                         ],
-                        "source": "security-advisories@github.com",
-                        "type": "Primary"
+                        "source": "ff5b8ace-8b95-4078-9743-eac1ca5451de",
+                        "type": "Secondary"
                     }
                 ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Deserialization of Untrusted Data in Gambio through 4.9.2.0 allows attackers to run arbitrary code via \"search\" parameter of the Parcelshopfinder/AddAddressBookEntry\" function."
-                    }
-                ],
-                "id": "CVE-2024-23759",
-                "lastModified": "2024-02-12T22:15:08.087",
-                "metrics": {},
-                "published": "2024-02-12T22:15:08.087",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://herolab.usd.de/security-advisories/usd-2023-0046/"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Cleartext Storage of Sensitive Information in Gambio 4.9.2.0 allows attackers to obtain sensitive information via error-handler.log.json and legacy-error-handler.log.txt under the webroot."
-                    }
-                ],
-                "id": "CVE-2024-23760",
-                "lastModified": "2024-02-12T22:15:08.193",
-                "metrics": {},
-                "published": "2024-02-12T22:15:08.193",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://herolab.usd.de/security-advisories/usd-2023-0050/"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Server Side Template Injection in Gambio 4.9.2.0 allows attackers to run arbitrary code via crafted smarty email template."
-                    }
-                ],
-                "id": "CVE-2024-23761",
-                "lastModified": "2024-02-12T22:15:08.247",
-                "metrics": {},
-                "published": "2024-02-12T22:15:08.247",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://herolab.usd.de/security-advisories/usd-2023-0048/"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Unrestricted File Upload vulnerability in Content Manager feature in Gambio 4.9.2.0 allows attackers to execute arbitrary code via upload of crafted PHP file."
-                    }
-                ],
-                "id": "CVE-2024-23762",
-                "lastModified": "2024-02-12T22:15:08.307",
-                "metrics": {},
-                "published": "2024-02-12T22:15:08.307",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://herolab.usd.de/security-advisories/usd-2023-0049/"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "SQL Injection vulnerability in Gambio through 4.9.2.0 allows attackers to run arbitrary SQL commands via crafted GET request using modifiers[attribute][] parameter."
-                    }
-                ],
-                "id": "CVE-2024-23763",
-                "lastModified": "2024-02-12T22:15:08.367",
-                "metrics": {},
-                "published": "2024-02-12T22:15:08.367",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://herolab.usd.de/security-advisories/usd-2023-0047/"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "CSV Injection vulnerability in '/members/moremember.pl' and '/admin/aqbudgets.pl' endpoints in Koha Library Management System version 23.05.05 and earlier allows attackers to to inject DDE commands into csv exports via the 'Budget' and 'Patrons Member' components."
-                    }
-                ],
-                "id": "CVE-2024-24337",
-                "lastModified": "2024-02-12T22:15:08.430",
-                "metrics": {},
-                "published": "2024-02-12T22:15:08.430",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://nitipoom-jar.github.io/CVE-2024-24337/"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
             }
         }
     ]
