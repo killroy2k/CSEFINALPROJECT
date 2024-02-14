@@ -196,10 +196,10 @@ def check_if_threat(cve):
         temperature=1
     )
     # openai_analysis = completion.choices[0].message.content.lower()
-    gpt_reponse = completion.choices[0].message.content.lower()
-    print(gpt_reponse)
+    openai_analysis = completion.choices[0].message.content.lower()
+    print(openai_analysis)
 
-    openai_analysis = 'yes'
+    # openai_analysis = 'yes'
 
     # Check if the severity is high enough or OpenAI analysis is 'yes'
     if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"] and openai_analysis == "yes":

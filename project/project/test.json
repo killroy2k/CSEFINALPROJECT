@@ -1,9 +1,9 @@
 {
     "format": "NVD_CVE",
-    "resultsPerPage": 5,
+    "resultsPerPage": 3,
     "startIndex": 0,
-    "timestamp": "2024-02-14T19:05:45.180",
-    "totalResults": 5,
+    "timestamp": "2024-02-14T19:53:29.353",
+    "totalResults": 3,
     "version": "2.0",
     "vulnerabilities": [
         {
@@ -11,168 +11,58 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "A cross-site scripting (XSS) vulnerability in Palo Alto Networks PAN-OS software enables a malicious authenticated read-write administrator to store a JavaScript payload using the web interface on Panorama appliances. This enables the impersonation of another authenticated administrator."
+                        "value": "Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An out-of-bounds write exists in the driver for IEEE 802.15.4 radios on nRF platforms in the Contiki-NG operating system. The problem is triggered when parsing radio frames in the `read_frame` function in the `arch/cpu/nrf/net/nrf-ieee-driver-arch.c` module. More specifically, the `read_frame` function performs an incomplete validation of the payload length of the packet, which is a value that can be set by an external party that sends radio packets to a Contiki-NG system. Although the value is validated to be in the range of the MTU length, it is not validated to fit into the given buffer into which the packet will be copied. The problem has been patched in the \"develop\" branch of Contiki-NG and is expected to be included in subsequent releases. Users are advised to update their develop branch or to update to a subsequent release when available. Users unable to upgrade should consider manually applying the changes in PR #2741."
                     }
                 ],
-                "id": "CVE-2024-0007",
-                "lastModified": "2024-02-14T18:15:47.110",
+                "id": "CVE-2023-48229",
+                "lastModified": "2024-02-14T19:15:08.893",
                 "metrics": {
                     "cvssMetricV31": [
                         {
                             "cvssData": {
-                                "attackComplexity": "LOW",
+                                "attackComplexity": "HIGH",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "HIGH",
-                                "baseScore": 6.8,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "HIGH",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 0.9,
-                            "impactScore": 5.9,
-                            "source": "psirt@paloaltonetworks.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-14T18:15:47.110",
-                "references": [
-                    {
-                        "source": "psirt@paloaltonetworks.com",
-                        "url": "https://security.paloaltonetworks.com/CVE-2024-0007"
-                    }
-                ],
-                "sourceIdentifier": "psirt@paloaltonetworks.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-79"
-                            }
-                        ],
-                        "source": "psirt@paloaltonetworks.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Web sessions in the management interface in Palo Alto Networks PAN-OS software do not expire in certain situations, making it susceptible to unauthorized access."
-                    }
-                ],
-                "id": "CVE-2024-0008",
-                "lastModified": "2024-02-14T18:15:47.310",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "PHYSICAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 6.6,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:P/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 0.7,
-                            "impactScore": 5.9,
-                            "source": "psirt@paloaltonetworks.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-14T18:15:47.310",
-                "references": [
-                    {
-                        "source": "psirt@paloaltonetworks.com",
-                        "url": "https://security.paloaltonetworks.com/CVE-2024-0008"
-                    }
-                ],
-                "sourceIdentifier": "psirt@paloaltonetworks.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-613"
-                            }
-                        ],
-                        "source": "psirt@paloaltonetworks.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "An improper verification vulnerability in the GlobalProtect gateway feature of Palo Alto Networks PAN-OS software enables a malicious user with stolen credentials to establish a VPN connection from an unauthorized IP address."
-                    }
-                ],
-                "id": "CVE-2024-0009",
-                "lastModified": "2024-02-14T18:15:47.503",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "LOW",
-                                "baseScore": 6.3,
-                                "baseSeverity": "MEDIUM",
+                                "baseScore": 7.0,
+                                "baseSeverity": "HIGH",
                                 "confidentialityImpact": "LOW",
                                 "integrityImpact": "LOW",
-                                "privilegesRequired": "LOW",
+                                "privilegesRequired": "NONE",
                                 "scope": "UNCHANGED",
                                 "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+                                "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:H",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 3.4,
-                            "source": "psirt@paloaltonetworks.com",
+                            "exploitabilityScore": 2.2,
+                            "impactScore": 4.7,
+                            "source": "security-advisories@github.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-14T18:15:47.503",
+                "published": "2024-02-14T19:15:08.893",
                 "references": [
                     {
-                        "source": "psirt@paloaltonetworks.com",
-                        "url": "https://security.paloaltonetworks.com/CVE-2024-0009"
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/contiki-ng/contiki-ng/pull/2741"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/contiki-ng/contiki-ng/security/advisories/GHSA-rcwv-xwc9-5hp2"
                     }
                 ],
-                "sourceIdentifier": "psirt@paloaltonetworks.com",
+                "sourceIdentifier": "security-advisories@github.com",
                 "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-940"
+                                "value": "CWE-787"
                             }
                         ],
-                        "source": "psirt@paloaltonetworks.com",
-                        "type": "Secondary"
+                        "source": "security-advisories@github.com",
+                        "type": "Primary"
                     }
                 ]
             }
@@ -182,56 +72,21 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "A reflected cross-site scripting (XSS) vulnerability in the GlobalProtect portal feature of Palo Alto Networks PAN-OS software enables execution of malicious JavaScript (in the context of a user\u2019s browser) if a user clicks on a malicious link, allowing phishing attacks that could lead to credential theft."
+                        "value": "A cross-site scripting (XSS) vulnerability in Redaxo v5.15.1 allows attackers to execute arbitrary web scripts or HTML via a crafted payload injected into the Name parameter in the Template section."
                     }
                 ],
-                "id": "CVE-2024-0010",
-                "lastModified": "2024-02-14T18:15:47.703",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 4.3,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "LOW",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 1.4,
-                            "source": "psirt@paloaltonetworks.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-14T18:15:47.703",
+                "id": "CVE-2024-25300",
+                "lastModified": "2024-02-14T19:15:10.213",
+                "metrics": {},
+                "published": "2024-02-14T19:15:10.213",
                 "references": [
                     {
-                        "source": "psirt@paloaltonetworks.com",
-                        "url": "https://security.paloaltonetworks.com/CVE-2024-0010"
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/WoodManGitHub/MyCVEs/blob/main/2024-REDAXO/XSS.md"
                     }
                 ],
-                "sourceIdentifier": "psirt@paloaltonetworks.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-79"
-                            }
-                        ],
-                        "source": "psirt@paloaltonetworks.com",
-                        "type": "Secondary"
-                    }
-                ]
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Received"
             }
         },
         {
@@ -239,56 +94,25 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "A reflected cross-site scripting (XSS) vulnerability in the Captive Portal feature of Palo Alto Networks PAN-OS software enables execution of malicious JavaScript (in the context of an authenticated Captive Portal user\u2019s browser) if a user clicks on a malicious link, allowing phishing attacks that could lead to credential theft."
+                        "value": "Redaxo v5.15.1 was discovered to contain a remote code execution (RCE) vulnerability via the component /pages/templates.php."
                     }
                 ],
-                "id": "CVE-2024-0011",
-                "lastModified": "2024-02-14T18:15:47.897",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 4.3,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "LOW",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 1.4,
-                            "source": "psirt@paloaltonetworks.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-14T18:15:47.897",
+                "id": "CVE-2024-25301",
+                "lastModified": "2024-02-14T19:15:10.277",
+                "metrics": {},
+                "published": "2024-02-14T19:15:10.277",
                 "references": [
                     {
-                        "source": "psirt@paloaltonetworks.com",
-                        "url": "https://security.paloaltonetworks.com/CVE-2024-0011"
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/WoodManGitHub/MyCVEs/blob/main/2024-REDAXO/RCE.md"
+                    },
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/evildrummer/MyOwnCVEs/tree/main/CVE-2021-39459"
                     }
                 ],
-                "sourceIdentifier": "psirt@paloaltonetworks.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-79"
-                            }
-                        ],
-                        "source": "psirt@paloaltonetworks.com",
-                        "type": "Secondary"
-                    }
-                ]
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Received"
             }
         }
     ]
