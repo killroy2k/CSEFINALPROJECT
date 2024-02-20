@@ -1,9 +1,9 @@
 {
     "format": "NVD_CVE",
-    "resultsPerPage": 3,
+    "resultsPerPage": 10,
     "startIndex": 0,
-    "timestamp": "2024-02-14T19:53:29.353",
-    "totalResults": 3,
+    "timestamp": "2024-02-20T18:13:29.637",
+    "totalResults": 10,
     "version": "2.0",
     "vulnerabilities": [
         {
@@ -11,57 +11,57 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Contiki-NG is an open-source, cross-platform operating system for Next-Generation IoT devices. An out-of-bounds write exists in the driver for IEEE 802.15.4 radios on nRF platforms in the Contiki-NG operating system. The problem is triggered when parsing radio frames in the `read_frame` function in the `arch/cpu/nrf/net/nrf-ieee-driver-arch.c` module. More specifically, the `read_frame` function performs an incomplete validation of the payload length of the packet, which is a value that can be set by an external party that sends radio packets to a Contiki-NG system. Although the value is validated to be in the range of the MTU length, it is not validated to fit into the given buffer into which the packet will be copied. The problem has been patched in the \"develop\" branch of Contiki-NG and is expected to be included in subsequent releases. Users are advised to update their develop branch or to update to a subsequent release when available. Users unable to upgrade should consider manually applying the changes in PR #2741."
+                        "value": "A heap-based buffer overflow vulnerability exists in the .egi parsing functionality of The Biosig Project libbiosig 2.5.0 and Master Branch (ab0ee111). A specially crafted .egi file can lead to arbitrary code execution. An attacker can provide a malicious file to trigger this vulnerability."
                     }
                 ],
-                "id": "CVE-2023-48229",
-                "lastModified": "2024-02-14T19:15:08.893",
+                "id": "CVE-2024-21795",
+                "lastModified": "2024-02-20T16:15:08.130",
                 "metrics": {
                     "cvssMetricV31": [
                         {
                             "cvssData": {
-                                "attackComplexity": "HIGH",
+                                "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "HIGH",
-                                "baseScore": 7.0,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "LOW",
-                                "integrityImpact": "LOW",
+                                "baseScore": 9.8,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
                                 "privilegesRequired": "NONE",
                                 "scope": "UNCHANGED",
                                 "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:H",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.2,
-                            "impactScore": 4.7,
-                            "source": "security-advisories@github.com",
-                            "type": "Secondary"
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 5.9,
+                            "source": "talos-cna@cisco.com",
+                            "type": "Primary"
                         }
                     ]
                 },
-                "published": "2024-02-14T19:15:08.893",
+                "published": "2024-02-20T16:15:08.130",
                 "references": [
                     {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/contiki-ng/contiki-ng/pull/2741"
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2024-1920"
                     },
                     {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/contiki-ng/contiki-ng/security/advisories/GHSA-rcwv-xwc9-5hp2"
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://www.talosintelligence.com/vulnerability_reports/TALOS-2024-1920"
                     }
                 ],
-                "sourceIdentifier": "security-advisories@github.com",
+                "sourceIdentifier": "talos-cna@cisco.com",
                 "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-787"
+                                "value": "CWE-122"
                             }
                         ],
-                        "source": "security-advisories@github.com",
+                        "source": "talos-cna@cisco.com",
                         "type": "Primary"
                     }
                 ]
@@ -72,17 +72,448 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "A cross-site scripting (XSS) vulnerability in Redaxo v5.15.1 allows attackers to execute arbitrary web scripts or HTML via a crafted payload injected into the Name parameter in the Template section."
+                        "value": "An integer overflow vulnerability exists in the sopen_FAMOS_read functionality of The Biosig Project libbiosig 2.5.0 and Master Branch (ab0ee111). A specially crafted .famos file can lead to an out-of-bounds write which in turn can lead to arbitrary code execution. An attacker can provide a malicious file to trigger this vulnerability."
                     }
                 ],
-                "id": "CVE-2024-25300",
-                "lastModified": "2024-02-14T19:15:10.213",
+                "id": "CVE-2024-21812",
+                "lastModified": "2024-02-20T16:15:08.370",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.8,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 5.9,
+                            "source": "talos-cna@cisco.com",
+                            "type": "Primary"
+                        }
+                    ]
+                },
+                "published": "2024-02-20T16:15:08.370",
+                "references": [
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2024-1921"
+                    },
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://www.talosintelligence.com/vulnerability_reports/TALOS-2024-1921"
+                    }
+                ],
+                "sourceIdentifier": "talos-cna@cisco.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-190"
+                            }
+                        ],
+                        "source": "talos-cna@cisco.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A double-free vulnerability exists in the BrainVision Header Parsing functionality of The Biosig Project libbiosig Master Branch (ab0ee111) and 2.5.0. A specially crafted .vdhr file can lead to arbitrary code execution. An attacker can provide a malicious file to trigger this vulnerability."
+                    }
+                ],
+                "id": "CVE-2024-22097",
+                "lastModified": "2024-02-20T16:15:08.583",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.8,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 5.9,
+                            "source": "talos-cna@cisco.com",
+                            "type": "Primary"
+                        }
+                    ]
+                },
+                "published": "2024-02-20T16:15:08.583",
+                "references": [
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2024-1917"
+                    },
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://www.talosintelligence.com/vulnerability_reports/TALOS-2024-1917"
+                    }
+                ],
+                "sourceIdentifier": "talos-cna@cisco.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-415"
+                            }
+                        ],
+                        "source": "talos-cna@cisco.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "An out-of-bounds write vulnerability exists in the BrainVisionMarker Parsing functionality of The Biosig Project libbiosig 2.5.0 and Master Branch (ab0ee111). A specially crafted .vmrk file can lead to arbitrary code execution. An attacker can provide a malicious file to trigger this vulnerability."
+                    }
+                ],
+                "id": "CVE-2024-23305",
+                "lastModified": "2024-02-20T16:15:08.823",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.8,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 5.9,
+                            "source": "talos-cna@cisco.com",
+                            "type": "Primary"
+                        }
+                    ]
+                },
+                "published": "2024-02-20T16:15:08.823",
+                "references": [
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2024-1918"
+                    },
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://www.talosintelligence.com/vulnerability_reports/TALOS-2024-1918"
+                    }
+                ],
+                "sourceIdentifier": "talos-cna@cisco.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-787"
+                            }
+                        ],
+                        "source": "talos-cna@cisco.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A use-after-free vulnerability exists in the sopen_FAMOS_read functionality of The Biosig Project libbiosig 2.5.0 and Master Branch (ab0ee111). A specially crafted .famos file can lead to arbitrary code execution. An attacker can provide a malicious file to trigger this vulnerability."
+                    }
+                ],
+                "id": "CVE-2024-23310",
+                "lastModified": "2024-02-20T16:15:09.097",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.8,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 5.9,
+                            "source": "talos-cna@cisco.com",
+                            "type": "Primary"
+                        }
+                    ]
+                },
+                "published": "2024-02-20T16:15:09.097",
+                "references": [
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2024-1923"
+                    },
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://www.talosintelligence.com/vulnerability_reports/TALOS-2024-1923"
+                    }
+                ],
+                "sourceIdentifier": "talos-cna@cisco.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-825"
+                            }
+                        ],
+                        "source": "talos-cna@cisco.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "An integer underflow vulnerability exists in the sopen_FAMOS_read functionality of The Biosig Project libbiosig 2.5.0 and Master Branch (ab0ee111). A specially crafted .famos file can lead to an out-of-bounds write which in turn can lead to arbitrary code execution. An attacker can provide a malicious file to trigger this vulnerability."
+                    }
+                ],
+                "id": "CVE-2024-23313",
+                "lastModified": "2024-02-20T16:15:09.477",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.8,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 5.9,
+                            "source": "talos-cna@cisco.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-20T16:15:09.477",
+                "references": [
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2024-1922"
+                    },
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://www.talosintelligence.com/vulnerability_reports/TALOS-2024-1922"
+                    }
+                ],
+                "sourceIdentifier": "talos-cna@cisco.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-191"
+                            }
+                        ],
+                        "source": "talos-cna@cisco.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "An out-of-bounds write vulnerability exists in the sopen_FAMOS_read functionality of The Biosig Project libbiosig 2.5.0 and Master Branch (ab0ee111). A specially crafted .famos file can lead to arbitrary code execution. An attacker can provide a malicious file to trigger this vulnerability."
+                    }
+                ],
+                "id": "CVE-2024-23606",
+                "lastModified": "2024-02-20T16:15:09.737",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.8,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 5.9,
+                            "source": "talos-cna@cisco.com",
+                            "type": "Primary"
+                        }
+                    ]
+                },
+                "published": "2024-02-20T16:15:09.737",
+                "references": [
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2024-1925"
+                    },
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://www.talosintelligence.com/vulnerability_reports/TALOS-2024-1925"
+                    }
+                ],
+                "sourceIdentifier": "talos-cna@cisco.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-131"
+                            }
+                        ],
+                        "source": "talos-cna@cisco.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A double-free vulnerability exists in the BrainVision ASCII Header Parsing functionality of The Biosig Project libbiosig 2.5.0 and Master Branch (ab0ee111). A specially crafted .vdhr file can lead to arbitrary code execution. An attacker can provide a malicious file to trigger this vulnerability."
+                    }
+                ],
+                "id": "CVE-2024-23809",
+                "lastModified": "2024-02-20T16:15:10.003",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.8,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 5.9,
+                            "source": "talos-cna@cisco.com",
+                            "type": "Primary"
+                        }
+                    ]
+                },
+                "published": "2024-02-20T16:15:10.003",
+                "references": [
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2024-1919"
+                    },
+                    {
+                        "source": "talos-cna@cisco.com",
+                        "url": "https://www.talosintelligence.com/vulnerability_reports/TALOS-2024-1919"
+                    }
+                ],
+                "sourceIdentifier": "talos-cna@cisco.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-415"
+                            }
+                        ],
+                        "source": "talos-cna@cisco.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "An arbitrary file upload vulnerability in the component /sysFile/upload of Novel-Plus v4.3.0-RC1 allows attackers to execute arbitrary code via uploading a crafted file."
+                    }
+                ],
+                "id": "CVE-2024-25274",
+                "lastModified": "2024-02-20T16:15:10.230",
                 "metrics": {},
-                "published": "2024-02-14T19:15:10.213",
+                "published": "2024-02-20T16:15:10.230",
                 "references": [
                     {
                         "source": "cve@mitre.org",
-                        "url": "https://github.com/WoodManGitHub/MyCVEs/blob/main/2024-REDAXO/XSS.md"
+                        "url": "https://gist.github.com/capable-Hub/725c294f1aeac729fa314a32fef55d5a"
+                    },
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://reference1.example.com/login"
                     }
                 ],
                 "sourceIdentifier": "cve@mitre.org",
@@ -94,21 +525,25 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Redaxo v5.15.1 was discovered to contain a remote code execution (RCE) vulnerability via the component /pages/templates.php."
+                        "value": "Buffer Overflow vulnerability in mz-automation.de libiec61859 v.1.4.0 allows a remote attacker to cause a denial of service via the mmsServer_handleGetNameListRequest function to the mms_getnamelist_service component."
                     }
                 ],
-                "id": "CVE-2024-25301",
-                "lastModified": "2024-02-14T19:15:10.277",
+                "id": "CVE-2024-25366",
+                "lastModified": "2024-02-20T16:15:10.283",
                 "metrics": {},
-                "published": "2024-02-14T19:15:10.277",
+                "published": "2024-02-20T16:15:10.283",
                 "references": [
                     {
                         "source": "cve@mitre.org",
-                        "url": "https://github.com/WoodManGitHub/MyCVEs/blob/main/2024-REDAXO/RCE.md"
+                        "url": "https://github.com/mz-automation/libiec61850"
                     },
                     {
                         "source": "cve@mitre.org",
-                        "url": "https://github.com/evildrummer/MyOwnCVEs/tree/main/CVE-2021-39459"
+                        "url": "https://github.com/mz-automation/libiec61850/issues/492"
+                    },
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://www.mz-automation.de/"
                     }
                 ],
                 "sourceIdentifier": "cve@mitre.org",

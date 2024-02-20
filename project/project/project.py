@@ -180,7 +180,7 @@ def update_cves_table(new_cves, db):
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
 
 def check_if_threat(cve):
-    print("threat to humanity")
+    print("check if threat 183")
     global threat_count
 
     # Analyze with OpenAI
@@ -188,23 +188,25 @@ def check_if_threat(cve):
     completion = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a helpful AI assistant. Given the text input, determine the following about the text: \
-                Does this represents a cyber security threat? Reply only with 'yes', 'no', or 'unknown'. \
+            {"role": "system", "content": "You are a helpful NVD Cybersecurity assistant. Given the text input, determine the following about the text: \
+                Generate a CVSS attack vector string.\
             "},
             {"role": "user", "content": cve.description}
         ],
         temperature=1
     )
-    # openai_analysis = completion.choices[0].message.content.lower()
     openai_analysis = completion.choices[0].message.content.lower()
-    print(openai_analysis)
+    print("chatgpt returns: " + openai_analysis)
 
     # openai_analysis = 'yes'
 
     # Check if the severity is high enough or OpenAI analysis is 'yes'
-    if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"] and openai_analysis == "yes":
+    # if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"] and openai_analysis == "yes":
+    if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"]:
         threat_count += 1
-        print(send_threat_mail(cve))
+        # print(send_threat_mail(cve))
+        # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
+        print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
 
     # Return the openai response
     return openai_analysis
