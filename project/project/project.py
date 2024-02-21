@@ -188,8 +188,8 @@ def check_if_threat(cve):
     completion = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a helpful NVD Cybersecurity assistant. Given the text input, determine the following about the text: \
-                Generate a CVSS attack vector string.\
+            {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
+                Generate a complete 3.1 CVSS attack vector string based off this description.\
             "},
             {"role": "user", "content": cve.description}
         ],

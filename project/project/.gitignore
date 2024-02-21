@@ -5,7 +5,7 @@ protected_info.py
 *.db
 
 # General
-.json
+*.json
 .pyc
 .DS_Store
 .AppleDouble
