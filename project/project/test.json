@@ -1,13 +1,21 @@
 {
     "format": "NVD_CVE",
+<<<<<<< HEAD
     "resultsPerPage": 137,
     "startIndex": 0,
     "timestamp": "2024-02-07T20:23:11.817",
     "totalResults": 137,
+=======
+    "resultsPerPage": 6,
+    "startIndex": 0,
+    "timestamp": "2024-02-22T23:45:49.597",
+    "totalResults": 6,
+>>>>>>> main
     "version": "2.0",
     "vulnerabilities": [
         {
             "cve": {
+<<<<<<< HEAD
                 "configurations": [
                     {
                         "nodes": [
@@ -84,10 +92,65 @@
                         "type": "Primary"
                     }
                 ]
+=======
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "The ACME-challenge endpoint in Appwrite 0.5.0 through 0.12.x before 0.12.2 allows remote attackers to read arbitrary local files via ../ directory traversal. In order to be vulnerable, APP_STORAGE_CERTIFICATES/.well-known/acme-challenge must exist on disk. (This pathname is automatically created if the user chooses to install Let's Encrypt certificates via Appwrite.)"
+                    }
+                ],
+                "id": "CVE-2022-25377",
+                "lastModified": "2024-02-22T22:15:47.170",
+                "metrics": {},
+                "published": "2024-02-22T22:15:47.170",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://dubell.io/unauthenticated-lfi-in-appwrite-0.5.0-0.12.1/"
+                    },
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/appwrite/appwrite/blob/0.12.0/app/controllers/general.php#L539"
+                    },
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/appwrite/appwrite/pull/2780"
+                    },
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/appwrite/appwrite/releases/tag/0.12.2"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Received"
             }
         },
         {
             "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Stack Based Buffer Overflow vulnerability in Tenda AC9 v.3.0 with firmware version v.15.03.06.42_multi allows a remote attacker to execute arbitrary code via the add_white_node function."
+                    }
+                ],
+                "id": "CVE-2024-25746",
+                "lastModified": "2024-02-22T22:15:47.253",
+                "metrics": {},
+                "published": "2024-02-22T22:15:47.253",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/TimeSeg/IOT_CVE/blob/main/tenda/AC9V3/0218/add_white_node.md"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Received"
+>>>>>>> main
+            }
+        },
+        {
+            "cve": {
+<<<<<<< HEAD
                 "configurations": [
                     {
                         "nodes": [
@@ -22394,6 +22457,16 @@
                 ],
                 "id": "CVE-2024-24571",
                 "lastModified": "2024-02-07T17:25:31.677",
+=======
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "### Summary\nOn all Label Studio versions prior to 1.11.0, data imported via file upload feature is not properly sanitized prior to being rendered within a [`Choices`](https://labelstud.io/tags/choices) or [`Labels`](https://labelstud.io/tags/labels) tag, resulting in an XSS vulnerability.\n\n### Details\nNeed permission to use the \"data import\" function. This was reproduced on Label Studio 1.10.1.\n\n### PoC\n\n1. Create a project.\n![Create a project](https://github.com/HumanSignal/label-studio/assets/3943358/9b1536ad-feac-4238-a1bd-ca9b1b798673)\n\n2. Upload a file containing the payload using the \"Upload Files\" function.\n![2  Upload a file containing the payload using the Upload Files function](https://github.com/HumanSignal/label-studio/assets/3943358/26bb7af1-1cd2-408f-9adf-61e31a5b7328)\n![3  complete](https://github.com/HumanSignal/label-studio/assets/3943358/f2f62774-1fa6-4456-9e6f-8fa1ca0a2d2e)\n\nThe following are the contents of the files used in the PoC\n```\n{\n  \"data\": {\n    \"prompt\": \"labelstudio universe image\",\n    \"images\": [\n      {\n        \"value\": \"id123#0\",\n        \"style\": \"margin: 5px\",\n        \"html\": \"<img width='400' src='https://labelstud.io/_astro/images-tab.64279c16_ZaBSvC.avif' onload=alert(document.cookie)>\"\n      }\n    ]\n  }\n}\n```\n\n3. Select the text-to-image generation labeling template of Ranking and scoring\n![3  Select the text-to-image generation labelling template for Ranking and scoring](https://github.com/HumanSignal/label-studio/assets/3943358/f227f49c-a718-4738-bc2a-807da4f97155)\n![5  save](https://github.com/HumanSignal/label-studio/assets/3943358/9b529f8a-8e99-4bb0-bdf6-bb7a95c9b75d)\n\n4. Select a task\n![4  Select a task](https://github.com/HumanSignal/label-studio/assets/3943358/71856b7a-2b1f-44ea-99ab-fc48bc20caa7)\n\n5. Check that the script is running\n![5  Check that the script is running](https://github.com/HumanSignal/label-studio/assets/3943358/e396ae7b-a591-4db7-afe9-5bab30b48cb9)\n\n### Impact\nMalicious scripts can be injected into the code, and when linked with vulnerabilities such as CSRF, it can cause even greater damage. In particular, It can become a source of further attacks, especially when linked to social engineering.\n"
+                    }
+                ],
+                "id": "CVE-2024-26152",
+                "lastModified": "2024-02-22T22:15:47.310",
+>>>>>>> main
                 "metrics": {
                     "cvssMetricV31": [
                         {
@@ -22401,6 +22474,7 @@
                                 "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "NONE",
+<<<<<<< HEAD
                                 "baseScore": 5.4,
                                 "baseSeverity": "MEDIUM",
                                 "confidentialityImpact": "LOW",
@@ -28715,11 +28789,26 @@
                             },
                             "exploitabilityScore": 1.5,
                             "impactScore": 6.0,
+=======
+                                "baseScore": 4.7,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "LOW",
+                                "integrityImpact": "NONE",
+                                "privilegesRequired": "NONE",
+                                "scope": "CHANGED",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:N/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.8,
+                            "impactScore": 1.4,
+>>>>>>> main
                             "source": "security-advisories@github.com",
                             "type": "Secondary"
                         }
                     ]
                 },
+<<<<<<< HEAD
                 "published": "2024-02-07T03:15:50.273",
                 "references": [
                     {
@@ -28729,11 +28818,35 @@
                 ],
                 "sourceIdentifier": "security-advisories@github.com",
                 "vulnStatus": "Awaiting Analysis",
+=======
+                "published": "2024-02-22T22:15:47.310",
+                "references": [
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/HumanSignal/label-studio/commit/5df9ae3828b98652e9fa290a19f4deedf51ef6c8"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/HumanSignal/label-studio/pull/5232"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/HumanSignal/label-studio/releases/tag/1.11.0"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/HumanSignal/label-studio/security/advisories/GHSA-6xv9-957j-qfhg"
+                    }
+                ],
+                "sourceIdentifier": "security-advisories@github.com",
+                "vulnStatus": "Received",
+>>>>>>> main
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
+<<<<<<< HEAD
                                 "value": "CWE-426"
                             }
                         ],
@@ -28803,6 +28916,12 @@
                             }
                         ],
                         "source": "bressers@elastic.co",
+=======
+                                "value": "CWE-79"
+                            }
+                        ],
+                        "source": "security-advisories@github.com",
+>>>>>>> main
                         "type": "Secondary"
                     }
                 ]
@@ -28813,6 +28932,7 @@
                 "descriptions": [
                     {
                         "lang": "en",
+<<<<<<< HEAD
                         "value": "An issue was discovered in the Windows Network Drive Connector when using Document Level Security to assign permissions to a file, with explicit allow write and deny read. Although the document is not accessible to the user in Network Drive it is visible in search applications to the user."
                     },
                     {
@@ -28871,6 +28991,23 @@
                         "type": "Secondary"
                     }
                 ]
+=======
+                        "value": "A Stack Based Buffer Overflow vulnerability in tenda AC9 AC9 v.3.0 with firmware version v.15.03.06.42_multi allows a remote attacker to execute arbitrary code via the fromSetIpMacBind function."
+                    }
+                ],
+                "id": "CVE-2024-25748",
+                "lastModified": "2024-02-22T23:15:07.640",
+                "metrics": {},
+                "published": "2024-02-22T23:15:07.640",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/TimeSeg/IOT_CVE/blob/main/tenda/AC9V3/0218/fromSetIpMacBind.md"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Received"
+>>>>>>> main
             }
         },
         {
@@ -28878,6 +29015,7 @@
                 "descriptions": [
                     {
                         "lang": "en",
+<<<<<<< HEAD
                         "value": "The Starbox plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Profile Display Name and Social Settings in all versions up to, and including, 3.4.8 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page."
                     },
                     {
@@ -28924,6 +29062,23 @@
                 ],
                 "sourceIdentifier": "security@wordfence.com",
                 "vulnStatus": "Awaiting Analysis"
+=======
+                        "value": "Stack Based Buffer Overflow vulnerability in Tenda AC9 v.3.0 with firmware version v.15.03.06.42_multi allows a remote attacker to execute arbitrary code via the formSetDeviceName function."
+                    }
+                ],
+                "id": "CVE-2024-25753",
+                "lastModified": "2024-02-22T23:15:07.703",
+                "metrics": {},
+                "published": "2024-02-22T23:15:07.703",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/TimeSeg/IOT_CVE/blob/main/tenda/AC9V3/0218/formSetDeviceName.md"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Received"
+>>>>>>> main
             }
         },
         {
@@ -28931,6 +29086,7 @@
                 "descriptions": [
                     {
                         "lang": "en",
+<<<<<<< HEAD
                         "value": "The WP RSS Aggregator plugin for WordPress is vulnerable to Server-Side Request Forgery in all versions up to, and including, 4.23.5 via the RSS feed source in admin settings. This makes it possible for authenticated attackers, with administrator-level access and above, to make web requests to arbitrary locations originating from the web application and can be used to query and modify information from internal services."
                     },
                     {
@@ -31038,6 +31194,23 @@
                         "type": "Primary"
                     }
                 ]
+=======
+                        "value": "A Stack Based Buffer Overflow vulnerability in Tenda AC9 v.3.0 with firmware version v.15.03.06.42_multi allows a remote attacker to execute arbitrary code via the formWifiBasicSet function."
+                    }
+                ],
+                "id": "CVE-2024-25756",
+                "lastModified": "2024-02-22T23:15:07.750",
+                "metrics": {},
+                "published": "2024-02-22T23:15:07.750",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/TimeSeg/IOT_CVE/blob/main/tenda/AC9V3/0218/formWifiBasicSet.md"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Received"
+>>>>>>> main
             }
         },
         {

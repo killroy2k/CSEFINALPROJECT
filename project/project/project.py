@@ -1,4 +1,4 @@
-import requests, openai, csv, tweepy, sqlite3, os, smtplib
+import requests, openai, csv, tweepy, sqlite3, os, smtplib, json
 from datetime import datetime, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -82,7 +82,7 @@ def check_nvd(hour_diff):
     
 
     # URL for the NVD API, resultsPerPage modified by the source documentation(max= 1000)
-    url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?lastModStartDate={start}&lastModEndDate={end}"
+    url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate={start}&pubEndDate={end}"
     
     #old url
     #url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?pubStartDate={start}&pubEndDate={end}&resultsPerPage=2000"
@@ -148,7 +148,7 @@ def check_nvd(hour_diff):
     return cve_list
 
 def update_cves_table(new_cves, db):
-    print("updoot")
+    print("updating cves table")
     cursor = db.cursor()
     
     for cve in new_cves:
@@ -179,30 +179,34 @@ def update_cves_table(new_cves, db):
     db.commit()
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
 
-def check_if_threat(cve): #cve is a CVE object
-    print("threat to humanity")
+def check_if_threat(cve):
+    print("check if threat 183")
     global threat_count
 
-    # # Analyze with OpenAI
-    # openai.api_key = API_KEYS._OPENAI_KEY
-    # completion = openai.chat.completions.create(
-    #     model="gpt-3.5-turbo",
-    #     messages=[
-    #         {"role": "system", "content": "You are a helpful AI assistant. Given the text input, determine the following about the text: \
-    #             Does this represents a cyber security threat? Reply only with 'yes', 'no', or 'unknown'. \
-    #         "}, # Provide the prompt
-    #         {"role": "user", "content": cve.description} # Use the CVE description as input
-    #     ],
-    #     temperature=1
-    # )
-    # openai_analysis = completion.choices[0].message.content.lower() # Get the OpenAI response
- 
-    openai_analysis = 'yes'
+    # Analyze with OpenAI
+    openai.api_key = API_KEYS._OPENAI_KEY
+    completion = openai.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
+                Generate a complete 3.1 CVSS attack vector string based off this description.\
+            "},
+            {"role": "user", "content": cve.description}
+        ],
+        temperature=1
+    )
+    openai_analysis = completion.choices[0].message.content.lower()
+    print("chatgpt returns: " + openai_analysis)
+
+    # openai_analysis = 'yes'
 
     # Check if the severity is high enough or OpenAI analysis is 'yes'
-    if cve.severity in ["MEDIUM", "HIGH", "CRITICAL"] and openai_analysis == "yes":
+    # if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"] and openai_analysis == "yes":
+    if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"]:
         threat_count += 1
-        print(send_threat_mail(cve))
+        # print(send_threat_mail(cve))
+        # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
+        print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
 
     # Return the openai response
     return openai_analysis
@@ -218,7 +222,7 @@ def check_cisa(db, day_diff):
     end_time = end_time - timedelta(minutes = 1)
     start_time = end_time - timedelta(days=day_diff)
     start_time = start_time - timedelta(minutes = -1)
-    # Fetch tweets from the previous full day from CISA Bot ==cisaCatalogBot
+    # Fetch tweets from the previous full day from CVEnew account
     cisa_tweets = client.search_recent_tweets(query="from:CVEnew -is:retweet",
                                               start_time=start_time,
                                               end_time=end_time,
@@ -233,8 +237,7 @@ def check_cisa(db, day_diff):
     if cisa_tweets.data:
         # Check if each CVE mentioned in CISA tweets exists in the database
         for tweet in cisa_tweets.data:
-            # print(tweet)
-            # print("\n")
+            # print(str(tweet) + "\n")
             cve_id = tweet.text.split()[0]  # Assuming the CVE ID is the first word in the tweet
             cursor.execute("SELECT count(1) FROM cves WHERE id = ?", (cve_id,))
             exists = cursor.fetchone()[0]
