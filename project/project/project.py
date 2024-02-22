@@ -179,7 +179,7 @@ def update_cves_table(new_cves, db):
     db.commit()
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
 
-def check_if_threat(cve):
+def check_if_threat(cve): #cve is a CVE object
     print("threat to humanity")
     global threat_count
 
@@ -190,12 +190,12 @@ def check_if_threat(cve):
     #     messages=[
     #         {"role": "system", "content": "You are a helpful AI assistant. Given the text input, determine the following about the text: \
     #             Does this represents a cyber security threat? Reply only with 'yes', 'no', or 'unknown'. \
-    #         "},
-    #         {"role": "user", "content": cve.description}
+    #         "}, # Provide the prompt
+    #         {"role": "user", "content": cve.description} # Use the CVE description as input
     #     ],
     #     temperature=1
     # )
-    # openai_analysis = completion.choices[0].message.content.lower()
+    # openai_analysis = completion.choices[0].message.content.lower() # Get the OpenAI response
  
     openai_analysis = 'yes'
 
