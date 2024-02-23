@@ -1,3 +1,0 @@
-{"messages": [{"role": "system", "content": "You are a helpful AI assistant. You're given a text and answer if the context is about a newly discovered cyber security threats, and describe the threat"}, 
-    {"role": "user", "content": "An out-of-bounds write vulnerability exists in the BrainVisionMarker Parsing functionality of The Biosig Project libbiosig 2.5.0 and Master Branch (ab0ee111). A specially crafted .vmrk file can lead to arbitrary code execution. An attacker can provide a malicious file to trigger this vulnerability. "}, 
-    {"role": "assistant", "content": "Yes, a new threat CVE-2021-46888 was dectected in hleger prior to 1.23. Attackers can run Javascript through XSS in toBloodhoundJson."}]}
