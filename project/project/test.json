@@ -1,9 +1,9 @@
 {
     "format": "NVD_CVE",
-    "resultsPerPage": 12,
+    "resultsPerPage": 10,
     "startIndex": 0,
-    "timestamp": "2024-02-21T21:03:07.523",
-    "totalResults": 12,
+    "timestamp": "2024-02-23T18:04:02.810",
+    "totalResults": 10,
     "version": "2.0",
     "vulnerabilities": [
         {
@@ -11,29 +11,89 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "The TD Bank TD Advanced Dashboard client through 3.0.3 for macOS allows arbitrary code execution because of the lack of electron::fuses::IsRunAsNodeEnabled (i.e., ELECTRON_RUN_AS_NODE can be used in production). This makes it easier for a compromised process to access banking information."
+                        "value": "A vulnerability was found in code-projects Crime Reporting System 1.0. It has been declared as critical. This vulnerability affects unknown code of the file inchargelogin.php. The manipulation of the argument email/password leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. The identifier of this vulnerability is VDB-254608."
                     }
                 ],
-                "id": "CVE-2023-50975",
-                "lastModified": "2024-02-21T19:15:08.373",
-                "metrics": {},
-                "published": "2024-02-21T19:15:08.373",
+                "id": "CVE-2024-1820",
+                "lastModified": "2024-02-23T16:15:47.223",
+                "metrics": {
+                    "cvssMetricV2": [
+                        {
+                            "acInsufInfo": false,
+                            "baseSeverity": "HIGH",
+                            "cvssData": {
+                                "accessComplexity": "LOW",
+                                "accessVector": "NETWORK",
+                                "authentication": "NONE",
+                                "availabilityImpact": "PARTIAL",
+                                "baseScore": 7.5,
+                                "confidentialityImpact": "PARTIAL",
+                                "integrityImpact": "PARTIAL",
+                                "vectorString": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+                                "version": "2.0"
+                            },
+                            "exploitabilityScore": 10.0,
+                            "impactScore": 6.4,
+                            "obtainAllPrivilege": false,
+                            "obtainOtherPrivilege": false,
+                            "obtainUserPrivilege": false,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary",
+                            "userInteractionRequired": false
+                        }
+                    ],
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "LOW",
+                                "baseScore": 7.3,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "LOW",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 3.4,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-23T16:15:47.223",
                 "references": [
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://gist.github.com/khronokernel/2598c067d0f49b0f0a4c8b01cf129d34"
+                        "source": "cna@vuldb.com",
+                        "url": "https://github.com/jxp98/VulResearch/blob/main/2024/02/1Crime%20Reporting%20System%20-%20SQL%20Injection.md"
                     },
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://newsroom.ripeda.com/tag/macs-for-business/"
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?ctiid.254608"
                     },
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://www.electronjs.org/blog/statement-run-as-node-cves"
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?id.254608"
                     }
                 ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
+                "sourceIdentifier": "cna@vuldb.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-89"
+                            }
+                        ],
+                        "source": "cna@vuldb.com",
+                        "type": "Primary"
+                    }
+                ]
             }
         },
         {
@@ -41,11 +101,497 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "A vulnerability, which was classified as problematic, was found in GARO WALLBOX GLB+ T2EV7 0.5. This affects an unknown part of the file /index.jsp#settings of the component Software Update Handler. The manipulation of the argument Reference leads to cross site scripting. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. The identifier VDB-254397 was assigned to this vulnerability. NOTE: The vendor was contacted early about this disclosure but did not respond in any way."
+                        "value": "A vulnerability was found in code-projects Crime Reporting System 1.0. It has been rated as critical. This issue affects some unknown processing of the file police_add.php. The manipulation of the argument police_name/police_id/police_spec/password leads to sql injection. The exploit has been disclosed to the public and may be used. The identifier VDB-254609 was assigned to this vulnerability."
                     }
                 ],
-                "id": "CVE-2024-1707",
-                "lastModified": "2024-02-21T19:15:08.453",
+                "id": "CVE-2024-1821",
+                "lastModified": "2024-02-23T16:15:47.510",
+                "metrics": {
+                    "cvssMetricV2": [
+                        {
+                            "acInsufInfo": false,
+                            "baseSeverity": "MEDIUM",
+                            "cvssData": {
+                                "accessComplexity": "LOW",
+                                "accessVector": "ADJACENT_NETWORK",
+                                "authentication": "SINGLE",
+                                "availabilityImpact": "PARTIAL",
+                                "baseScore": 5.2,
+                                "confidentialityImpact": "PARTIAL",
+                                "integrityImpact": "PARTIAL",
+                                "vectorString": "AV:A/AC:L/Au:S/C:P/I:P/A:P",
+                                "version": "2.0"
+                            },
+                            "exploitabilityScore": 5.1,
+                            "impactScore": 6.4,
+                            "obtainAllPrivilege": false,
+                            "obtainOtherPrivilege": false,
+                            "obtainUserPrivilege": false,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary",
+                            "userInteractionRequired": false
+                        }
+                    ],
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "ADJACENT_NETWORK",
+                                "availabilityImpact": "LOW",
+                                "baseScore": 5.5,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "LOW",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "LOW",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.1,
+                            "impactScore": 3.4,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-23T16:15:47.510",
+                "references": [
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://github.com/jxp98/VulResearch/blob/main/2024/02/2Crime%20Reporting%20System%20-%20SQL%20Injection-police_add.md"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?ctiid.254609"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?id.254609"
+                    }
+                ],
+                "sourceIdentifier": "cna@vuldb.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-89"
+                            }
+                        ],
+                        "source": "cna@vuldb.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A vulnerability classified as problematic has been found in PHPGurukul Tourism Management System 1.0. Affected is an unknown function of the file user-bookings.php. The manipulation of the argument Full Name leads to cross site scripting. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. VDB-254610 is the identifier assigned to this vulnerability."
+                    }
+                ],
+                "id": "CVE-2024-1822",
+                "lastModified": "2024-02-23T16:15:47.817",
+                "metrics": {
+                    "cvssMetricV2": [
+                        {
+                            "acInsufInfo": false,
+                            "baseSeverity": "LOW",
+                            "cvssData": {
+                                "accessComplexity": "LOW",
+                                "accessVector": "NETWORK",
+                                "authentication": "MULTIPLE",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 3.3,
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "PARTIAL",
+                                "vectorString": "AV:N/AC:L/Au:M/C:N/I:P/A:N",
+                                "version": "2.0"
+                            },
+                            "exploitabilityScore": 6.4,
+                            "impactScore": 2.9,
+                            "obtainAllPrivilege": false,
+                            "obtainOtherPrivilege": false,
+                            "obtainUserPrivilege": false,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary",
+                            "userInteractionRequired": false
+                        }
+                    ],
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 2.4,
+                                "baseSeverity": "LOW",
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "HIGH",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:N/I:L/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 0.9,
+                            "impactScore": 1.4,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-23T16:15:47.817",
+                "references": [
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://drive.google.com/file/d/1ulzFlRqsex39dDUOFU2LbmphrQblSAwn/view?usp=drive_link"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?ctiid.254610"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?id.254610"
+                    }
+                ],
+                "sourceIdentifier": "cna@vuldb.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-79"
+                            }
+                        ],
+                        "source": "cna@vuldb.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A vulnerability classified as critical was found in CodeAstro Simple Voting System 1.0. Affected by this vulnerability is an unknown functionality of the file users.php of the component Backend. The manipulation leads to improper access controls. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The associated identifier of this vulnerability is VDB-254611."
+                    }
+                ],
+                "id": "CVE-2024-1823",
+                "lastModified": "2024-02-23T16:15:48.043",
+                "metrics": {
+                    "cvssMetricV2": [
+                        {
+                            "acInsufInfo": false,
+                            "baseSeverity": "MEDIUM",
+                            "cvssData": {
+                                "accessComplexity": "LOW",
+                                "accessVector": "NETWORK",
+                                "authentication": "NONE",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 5.0,
+                                "confidentialityImpact": "PARTIAL",
+                                "integrityImpact": "NONE",
+                                "vectorString": "AV:N/AC:L/Au:N/C:P/I:N/A:N",
+                                "version": "2.0"
+                            },
+                            "exploitabilityScore": 10.0,
+                            "impactScore": 2.9,
+                            "obtainAllPrivilege": false,
+                            "obtainOtherPrivilege": false,
+                            "obtainUserPrivilege": false,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary",
+                            "userInteractionRequired": false
+                        }
+                    ],
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 5.3,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "LOW",
+                                "integrityImpact": "NONE",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 1.4,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-23T16:15:48.043",
+                "references": [
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://docs.qq.com/doc/DYll0ZEFKcUdGYlNr"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?ctiid.254611"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?id.254611"
+                    }
+                ],
+                "sourceIdentifier": "cna@vuldb.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-284"
+                            }
+                        ],
+                        "source": "cna@vuldb.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A vulnerability, which was classified as critical, has been found in CodeAstro House Rental Management System 1.0. Affected by this issue is some unknown functionality of the file signing.php. The manipulation of the argument uname/password leads to sql injection. The attack may be launched remotely. The exploit has been disclosed to the public and may be used. The identifier of this vulnerability is VDB-254612."
+                    }
+                ],
+                "id": "CVE-2024-1824",
+                "lastModified": "2024-02-23T16:15:48.263",
+                "metrics": {
+                    "cvssMetricV2": [
+                        {
+                            "acInsufInfo": false,
+                            "baseSeverity": "HIGH",
+                            "cvssData": {
+                                "accessComplexity": "LOW",
+                                "accessVector": "NETWORK",
+                                "authentication": "NONE",
+                                "availabilityImpact": "PARTIAL",
+                                "baseScore": 7.5,
+                                "confidentialityImpact": "PARTIAL",
+                                "integrityImpact": "PARTIAL",
+                                "vectorString": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+                                "version": "2.0"
+                            },
+                            "exploitabilityScore": 10.0,
+                            "impactScore": 6.4,
+                            "obtainAllPrivilege": false,
+                            "obtainOtherPrivilege": false,
+                            "obtainUserPrivilege": false,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary",
+                            "userInteractionRequired": false
+                        }
+                    ],
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "LOW",
+                                "baseScore": 7.3,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "LOW",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 3.4,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-23T16:15:48.263",
+                "references": [
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://docs.qq.com/doc/DYk9QcHVFRENObWtj"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?ctiid.254612"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?id.254612"
+                    }
+                ],
+                "sourceIdentifier": "cna@vuldb.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-89"
+                            }
+                        ],
+                        "source": "cna@vuldb.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "`@backstage/backend-common` is a common functionality library for backends for Backstage, an open platform for building developer portals. In `@backstage/backend-common` prior to versions 0.21.1, 0.20.2, and 0.19.10, paths checks with the `resolveSafeChildPath` utility were not exhaustive enough, leading to risk of path traversal vulnerabilities if symlinks can be injected by attackers. This issue is patched in `@backstage/backend-common` versions 0.21.1, 0.20.2, and 0.19.10."
+                    }
+                ],
+                "id": "CVE-2024-26150",
+                "lastModified": "2024-02-23T16:15:48.570",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 8.7,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "HIGH",
+                                "scope": "CHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.3,
+                            "impactScore": 5.8,
+                            "source": "security-advisories@github.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-23T16:15:48.570",
+                "references": [
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/backstage/backstage/commit/1ad2b1b61ebb430051f7d804b0cc7ebfe7922b6f"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/backstage/backstage/commit/78f892b3a84d63de2ba167928f171154c447b717"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/backstage/backstage/commit/edf65d7d31e027599c2415f597d085ee84807871"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/backstage/backstage/security/advisories/GHSA-2fc9-xpp8-2g9h"
+                    }
+                ],
+                "sourceIdentifier": "security-advisories@github.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-22"
+                            }
+                        ],
+                        "source": "security-advisories@github.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Ember ZNet between v7.2.0 and v7.4.0 used software AES-CCM instead of integrated hardware cryptographic accelerators, potentially increasing risk of electromagnetic and differential power analysis sidechannel attacks."
+                    }
+                ],
+                "id": "CVE-2023-51392",
+                "lastModified": "2024-02-23T17:15:07.840",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "LOCAL",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 6.2,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "NONE",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.5,
+                            "impactScore": 3.6,
+                            "source": "product-security@silabs.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-23T17:15:07.840",
+                "references": [
+                    {
+                        "source": "product-security@silabs.com",
+                        "url": "https://community.silabs.com/068Vm000001BKm6"
+                    }
+                ],
+                "sourceIdentifier": "product-security@silabs.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-327"
+                            }
+                        ],
+                        "source": "product-security@silabs.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A vulnerability, which was classified as problematic, was found in CodeAstro House Rental Management System 1.0. This affects an unknown part of the component User Registration Page. The manipulation of the argument address with the input <img src=\"1\" onerror=\"console.log(1)\"> leads to cross site scripting. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. The identifier VDB-254613 was assigned to this vulnerability."
+                    }
+                ],
+                "id": "CVE-2024-1825",
+                "lastModified": "2024-02-23T17:15:08.073",
                 "metrics": {
                     "cvssMetricV2": [
                         {
@@ -95,23 +641,19 @@
                         }
                     ]
                 },
-                "published": "2024-02-21T19:15:08.453",
+                "published": "2024-02-23T17:15:08.073",
                 "references": [
                     {
                         "source": "cna@vuldb.com",
-                        "url": "https://drive.google.com/file/d/1spsElvU8rgCs4gUxc662SCBjTI9VAqth/view"
+                        "url": "https://docs.qq.com/doc/DYndSY3V4UXh4dHFC"
                     },
                     {
                         "source": "cna@vuldb.com",
-                        "url": "https://github.com/strik3r0x1/Vulns/blob/main/GARO_GLBDCMB-T274WO_Stored_XSS.md"
+                        "url": "https://vuldb.com/?ctiid.254613"
                     },
                     {
                         "source": "cna@vuldb.com",
-                        "url": "https://vuldb.com/?ctiid.254397"
-                    },
-                    {
-                        "source": "cna@vuldb.com",
-                        "url": "https://vuldb.com/?id.254397"
+                        "url": "https://vuldb.com/?id.254613"
                     }
                 ],
                 "sourceIdentifier": "cna@vuldb.com",
@@ -135,369 +677,89 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "TRNG is used before initialization by ECDSA signing driver when exiting EM2/EM3 on Virtual Secure Vault (VSE) devices. This defect may allow Signature Spoofing by Key Recreation.This issue affects Gecko SDK through v4.4.0.\n\n"
+                        "value": "A vulnerability has been found in code-projects Library System 1.0 and classified as critical. This vulnerability affects unknown code of the file Source/librarian/user/student/login.php. The manipulation of the argument username/password leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. VDB-254614 is the identifier assigned to this vulnerability."
                     }
                 ],
-                "id": "CVE-2024-22473",
-                "lastModified": "2024-02-21T19:15:08.813",
+                "id": "CVE-2024-1826",
+                "lastModified": "2024-02-23T17:15:08.323",
                 "metrics": {
-                    "cvssMetricV31": [
+                    "cvssMetricV2": [
                         {
+                            "acInsufInfo": false,
+                            "baseSeverity": "HIGH",
                             "cvssData": {
-                                "attackComplexity": "HIGH",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 6.8,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "HIGH",
-                                "privilegesRequired": "NONE",
-                                "scope": "CHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:N",
-                                "version": "3.1"
+                                "accessComplexity": "LOW",
+                                "accessVector": "NETWORK",
+                                "authentication": "NONE",
+                                "availabilityImpact": "PARTIAL",
+                                "baseScore": 7.5,
+                                "confidentialityImpact": "PARTIAL",
+                                "integrityImpact": "PARTIAL",
+                                "vectorString": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+                                "version": "2.0"
                             },
-                            "exploitabilityScore": 2.2,
-                            "impactScore": 4.0,
-                            "source": "product-security@silabs.com",
-                            "type": "Secondary"
+                            "exploitabilityScore": 10.0,
+                            "impactScore": 6.4,
+                            "obtainAllPrivilege": false,
+                            "obtainOtherPrivilege": false,
+                            "obtainUserPrivilege": false,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary",
+                            "userInteractionRequired": false
                         }
-                    ]
-                },
-                "published": "2024-02-21T19:15:08.813",
-                "references": [
-                    {
-                        "source": "product-security@silabs.com",
-                        "url": "https://community.silabs.com/068Vm000001FrjT"
-                    }
-                ],
-                "sourceIdentifier": "product-security@silabs.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-330"
-                            },
-                            {
-                                "lang": "en",
-                                "value": "CWE-338"
-                            },
-                            {
-                                "lang": "en",
-                                "value": "CWE-908"
-                            }
-                        ],
-                        "source": "product-security@silabs.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Buffer Overflow vulnerability in Wireshark team Wireshark before v.4.2.0 allows a remote attacker to cause a denial of service via the pan/addr_resolv.c, and ws_manuf_lookup_str(), size components."
-                    }
-                ],
-                "id": "CVE-2024-24476",
-                "lastModified": "2024-02-21T19:15:09.030",
-                "metrics": {},
-                "published": "2024-02-21T19:15:09.030",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://gist.github.com/1047524396/369ba0ccffe255cf8142208b6142be2b"
-                    },
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/wireshark/wireshark/commit/108217f4bb1afb8b25fc705c2722b3e328b1ad78"
-                    },
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://gitlab.com/wireshark/wireshark/-/issues/19344"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Buffer Overflow vulnerability in Wireshark team Wireshark before v.4.2.0 allows a remote attacker to cause a denial of service via the wsutil/to_str.c, and format_fractional_part_nsecs components."
-                    }
-                ],
-                "id": "CVE-2024-24479",
-                "lastModified": "2024-02-21T19:15:09.077",
-                "metrics": {},
-                "published": "2024-02-21T19:15:09.077",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://gist.github.com/1047524396/c50ad17e9a1a18990043a7cd27814c78"
-                    },
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/wireshark/wireshark/commit/c3720cff158c265dec2a0c6104b1d65954ae6bfd"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "There is a Stored XSS Vulnerability in Emlog Pro 2.2.8 Article Publishing, due to non-filtering of quoted content."
-                    }
-                ],
-                "id": "CVE-2024-25381",
-                "lastModified": "2024-02-21T19:15:09.123",
-                "metrics": {},
-                "published": "2024-02-21T19:15:09.123",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/Ox130e07d/CVE-2024-25381/blob/main/description"
-                    },
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/emlog/emlog/issues/285"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Malformed Device Reset Locally Command Class packets can be sent to the controller, causing the controller to assume the end device has left the network. After this, frames sent by the end device will not be acknowledged by the controller. This vulnerability exists in PC Controller v5.54.0, and earlier.\u00a0"
-                    }
-                ],
-                "id": "CVE-2023-6533",
-                "lastModified": "2024-02-21T20:15:46.283",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "ADJACENT_NETWORK",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 6.5,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "NONE",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 3.6,
-                            "source": "product-security@silabs.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-21T20:15:46.283",
-                "references": [
-                    {
-                        "source": "product-security@silabs.com",
-                        "url": "https://community.silabs.com/068Vm000001HdNm"
-                    }
-                ],
-                "sourceIdentifier": "product-security@silabs.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-345"
-                            },
-                            {
-                                "lang": "en",
-                                "value": "CWE-754"
-                            }
-                        ],
-                        "source": "product-security@silabs.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Malformed S2 Nonce Get Command Class packets can be sent to crash PC Controller v5.54.0 and earlier.\u00a0"
-                    }
-                ],
-                "id": "CVE-2023-6640",
-                "lastModified": "2024-02-21T20:15:46.497",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "ADJACENT_NETWORK",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 6.5,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "NONE",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 3.6,
-                            "source": "product-security@silabs.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-21T20:15:46.497",
-                "references": [
-                    {
-                        "source": "product-security@silabs.com",
-                        "url": "https://community.silabs.com/068Vm000001HdNm"
-                    }
-                ],
-                "sourceIdentifier": "product-security@silabs.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-754"
-                            }
-                        ],
-                        "source": "product-security@silabs.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "An issue in He3 App for macOS version 2.0.17, allows remote attackers to execute arbitrary code via the RunAsNode and enableNodeClilnspectArguments settings."
-                    }
-                ],
-                "id": "CVE-2024-25249",
-                "lastModified": "2024-02-21T20:15:46.670",
-                "metrics": {},
-                "published": "2024-02-21T20:15:46.670",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/intbjw"
-                    },
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/intbjw/CVE-2024-25249"
-                    },
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://www.electronjs.org/blog/statement-run-as-node-cves"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Directory Traversal vulnerability in Terrasoft, Creatio Terrasoft CRM v.7.18.4.1532 allows a remote attacker to obtain sensitive information via a crafted request to the terrasoft.axd component."
-                    }
-                ],
-                "id": "CVE-2024-25461",
-                "lastModified": "2024-02-21T20:15:46.727",
-                "metrics": {},
-                "published": "2024-02-21T20:15:46.727",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://safe-surf.ru/specialists/news/697426/"
-                    },
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://safe-surf.ru/upload/ALRT/ALRT-20230808.1.pdf"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Archer Platform 6.8 before 6.14 P2 (6.14.0.2) contains an improper access control vulnerability. A remote authenticated malicious user could potentially exploit this to gain access to API information that should only be accessible with extra privileges."
-                    }
-                ],
-                "id": "CVE-2024-26310",
-                "lastModified": "2024-02-21T20:15:46.800",
-                "metrics": {
+                    ],
                     "cvssMetricV31": [
                         {
                             "cvssData": {
                                 "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 4.3,
-                                "baseSeverity": "MEDIUM",
+                                "availabilityImpact": "LOW",
+                                "baseScore": 7.3,
+                                "baseSeverity": "HIGH",
                                 "confidentialityImpact": "LOW",
-                                "integrityImpact": "NONE",
-                                "privilegesRequired": "LOW",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "NONE",
                                 "scope": "UNCHANGED",
                                 "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 1.4,
-                            "source": "cve@mitre.org",
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 3.4,
+                            "source": "cna@vuldb.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-21T20:15:46.800",
+                "published": "2024-02-23T17:15:08.323",
                 "references": [
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://archerirm.com"
+                        "source": "cna@vuldb.com",
+                        "url": "https://github.com/jxp98/VulResearch/blob/main/2024/02/3Library%20System%20In%20PHP%20-%20SQL%20Injection-student_login.md"
                     },
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://www.archerirm.community/t5/platform-announcements/archer-update-for-multiple-vulnerabilities/ta-p/716134"
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?ctiid.254614"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?id.254614"
                     }
                 ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
+                "sourceIdentifier": "cna@vuldb.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-89"
+                            }
+                        ],
+                        "source": "cna@vuldb.com",
+                        "type": "Primary"
+                    }
+                ]
             }
         },
         {
@@ -505,48 +767,45 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Archer Platform 6.x before 6.14 P2 HF1 (6.14.0.2.1) contains a reflected XSS vulnerability. A remote authenticated malicious Archer user could potentially exploit this by tricking a victim application user into supplying malicious JavaScript code to the vulnerable web application. This code is then reflected to the victim and gets executed by the web browser in the context of the vulnerable web application."
+                        "value": "Improper Input Validation vulnerability in Apache DolphinScheduler. An authenticated user can cause arbitrary, unsandboxed javascript to be executed on the server.\n\nThis issue is a legacy of CVE-2023-49299. We didn't fix it completely in CVE-2023-49299, and we added one more patch to fix it.\n\nThis issue affects Apache DolphinScheduler: until 3.2.1.\n\nUsers are recommended to upgrade to version 3.2.1, which fixes the issue.\n\n"
                     }
                 ],
-                "id": "CVE-2024-26311",
-                "lastModified": "2024-02-21T20:15:46.967",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 5.7,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "NONE",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:N/A:N",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 2.1,
-                            "impactScore": 3.6,
-                            "source": "cve@mitre.org",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-21T20:15:46.967",
+                "id": "CVE-2024-23320",
+                "lastModified": "2024-02-23T17:15:08.570",
+                "metrics": {},
+                "published": "2024-02-23T17:15:08.570",
                 "references": [
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://archerirm.com"
+                        "source": "security@apache.org",
+                        "url": "https://github.com/apache/dolphinscheduler/pull/15487"
                     },
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://www.archerirm.community/t5/platform-announcements/archer-update-for-multiple-vulnerabilities/ta-p/716134"
+                        "source": "security@apache.org",
+                        "url": "https://lists.apache.org/thread/25qhfvlksozzp6j9y8ozznvjdjp3lxqq"
+                    },
+                    {
+                        "source": "security@apache.org",
+                        "url": "https://lists.apache.org/thread/p7rwzdgrztdfps8x1bwx646f1mn0x6cp"
+                    },
+                    {
+                        "source": "security@apache.org",
+                        "url": "https://lists.apache.org/thread/tnf99qoc6tlnwrny4t1zk6mfszgdsokm"
                     }
                 ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
+                "sourceIdentifier": "security@apache.org",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-20"
+                            }
+                        ],
+                        "source": "security@apache.org",
+                        "type": "Primary"
+                    }
+                ]
             }
         }
     ]

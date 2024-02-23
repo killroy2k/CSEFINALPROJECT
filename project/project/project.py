@@ -189,7 +189,8 @@ def check_if_threat(cve):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
-                Generate a complete 3.1 CVSS attack vector string based off this description.\
+                Generate the complete eight field 3.1 CVSS vector string based off this description.\
+                Only provide AV, AC, PR, UI, S, C, I, A values\
             "},
             {"role": "user", "content": cve.description}
         ],
