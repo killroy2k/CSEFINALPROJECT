@@ -209,8 +209,32 @@ def check_if_threat(cve):
         # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
         print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
 
+    cvss_score = 7.1 #Placeholder for CVSS score from manual calculation
+    if cvss_score > 7.0:
+        openai_generate_cve_description(cve)
+
     # Return the openai response
     return openai_analysis
+
+
+def openai_generate_cve_description(cve):
+    print("line 217 openai generate cve desc")
+
+    openai.api_key = API_KEYS._OPENAI_KEY
+    completion = openai.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
+                Generate a complete description of this CVE, and possible solutions, as if I am a cybersecurity analyst\
+            "},
+            {"role": "user", "content": cve.description}
+        ],
+        temperature=1
+    )
+
+    print(completion.choices[0].message.content)
+
+
 
 #cisa = checking tweets from @cisaCatalogBot
 def check_cisa(db, day_diff):
