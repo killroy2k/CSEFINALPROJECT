@@ -1,9 +1,9 @@
 {
     "format": "NVD_CVE",
-    "resultsPerPage": 2,
+    "resultsPerPage": 6,
     "startIndex": 0,
-    "timestamp": "2024-02-28T06:52:32.477",
-    "totalResults": 2,
+    "timestamp": "2024-02-28T19:55:26.847",
+    "totalResults": 6,
     "version": "2.0",
     "vulnerabilities": [
         {
@@ -11,57 +11,209 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "A user who is privileged already `manager` or `admin` can set their profile picture via the frontend API using a relative filepath to then user the PFP GET API to download any valid files.\n\nThe attacker would have to have been granted privileged permissions to the system before executing this attack."
+                        "value": "Heap-based Buffer Overflow, Memory Corruption, Out-Of-Bounds Read, Out-Of-Bounds Write, Stack-based Buffer Overflow, Type Confusion, Uninitialized Variable, Use-After-Free vulnerabilities exist in the file reading procedure in eDrawings from Release SOLIDWORKS 2023 through Release SOLIDWORKS 2024. These vulnerabilities could allow an attacker to execute arbitrary code while opening a specially crafted CATPART, DWG, DXF, IPT, JT, SAT, SLDDRW, SLDPRT, STL, STP, X_B or X_T file."
                     }
                 ],
-                "id": "CVE-2024-0550",
-                "lastModified": "2024-02-28T05:15:08.770",
+                "id": "CVE-2024-1847",
+                "lastModified": "2024-02-28T18:15:45.687",
                 "metrics": {
-                    "cvssMetricV30": [
+                    "cvssMetricV31": [
                         {
                             "cvssData": {
                                 "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 9.6,
-                                "baseSeverity": "CRITICAL",
+                                "attackVector": "LOCAL",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 7.8,
+                                "baseSeverity": "HIGH",
                                 "confidentialityImpact": "HIGH",
                                 "integrityImpact": "HIGH",
-                                "privilegesRequired": "LOW",
-                                "scope": "CHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:N",
-                                "version": "3.0"
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+                                "version": "3.1"
                             },
-                            "exploitabilityScore": 3.1,
-                            "impactScore": 5.8,
-                            "source": "security@huntr.dev",
+                            "exploitabilityScore": 1.8,
+                            "impactScore": 5.9,
+                            "source": "3DS.Information-Security@3ds.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-28T05:15:08.770",
+                "published": "2024-02-28T18:15:45.687",
                 "references": [
                     {
-                        "source": "security@huntr.dev",
-                        "url": "https://github.com/mintplex-labs/anything-llm/commit/e1dcd5ded010b03abd6aa32d1bf0668a48e38e17"
-                    },
-                    {
-                        "source": "security@huntr.dev",
-                        "url": "https://huntr.com/bounties/c6afeb5e-f211-4b3d-aa4b-6bad734217a6"
+                        "source": "3DS.Information-Security@3ds.com",
+                        "url": "https://www.3ds.com/vulnerability/advisories"
                     }
                 ],
-                "sourceIdentifier": "security@huntr.dev",
+                "sourceIdentifier": "3DS.Information-Security@3ds.com",
                 "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-23"
+                                "value": "CWE-125"
+                            },
+                            {
+                                "lang": "en",
+                                "value": "CWE-416"
+                            },
+                            {
+                                "lang": "en",
+                                "value": "CWE-787"
+                            },
+                            {
+                                "lang": "en",
+                                "value": "CWE-843"
+                            },
+                            {
+                                "lang": "en",
+                                "value": "CWE-908"
                             }
                         ],
-                        "source": "security@huntr.dev",
+                        "source": "3DS.Information-Security@3ds.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A Null pointer dereference in usr/sbin/httpd in ASUS AC68U 3.0.0.4.384.82230 allows remote attackers to trigger DoS via network packet."
+                    }
+                ],
+                "id": "CVE-2024-26342",
+                "lastModified": "2024-02-28T18:15:45.890",
+                "metrics": {},
+                "published": "2024-02-28T18:15:45.890",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/Nicholas-wei/bug-discovery/blob/main/asus/2/ASUS_ac68u.md"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Received"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Querybook is a Big Data Querying UI. When a user searches for their queries, datadocs, tables and lists, the search result is marked and highlighted, and this feature uses dangerouslySetInnerHTML which means that if the highlighted result has an XSS payload it will trigger. While the input to dangerouslySetInnerHTML is not sanitized for the data inside of queries which leads to an XSS vulnerability. During the \"query auto-suggestion\" the name of the suggested tables are set with innerHTML which leads to the XSS vulnerability. A patch to rectify this issue has been introduced in Querybook version 3.31.2."
+                    }
+                ],
+                "id": "CVE-2024-27103",
+                "lastModified": "2024-02-28T18:15:45.940",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 6.1,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "LOW",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "NONE",
+                                "scope": "CHANGED",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.8,
+                            "impactScore": 2.7,
+                            "source": "security-advisories@github.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-28T18:15:45.940",
+                "references": [
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/pinterest/querybook/commit/449bdc9e7d679e042c3718b7ed07d2ffa3c46a8f"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/pinterest/querybook/security/advisories/GHSA-3hjm-9277-5c88"
+                    }
+                ],
+                "sourceIdentifier": "security-advisories@github.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-79"
+                            }
+                        ],
+                        "source": "security-advisories@github.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Cross-Site Request Forgery (CSRF) vulnerability in Ecwid Ecommerce Ecwid Ecommerce Shopping Cart.This issue affects Ecwid Ecommerce Shopping Cart: from n/a through 6.12.4.\n\n"
+                    }
+                ],
+                "id": "CVE-2023-51533",
+                "lastModified": "2024-02-28T19:15:09.963",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "LOW",
+                                "baseScore": 5.4,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:L",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.8,
+                            "impactScore": 2.5,
+                            "source": "audit@patchstack.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-28T19:15:09.963",
+                "references": [
+                    {
+                        "source": "audit@patchstack.com",
+                        "url": "https://patchstack.com/database/vulnerability/ecwid-shopping-cart/wordpress-ecwid-ecommerce-shopping-cart-plugin-6-12-4-cross-site-request-forgery-csrf-vulnerability?_s_id=cve"
+                    }
+                ],
+                "sourceIdentifier": "audit@patchstack.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-352"
+                            }
+                        ],
+                        "source": "audit@patchstack.com",
                         "type": "Primary"
                     }
                 ]
@@ -72,21 +224,113 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Webtrees 2.1.18 is vulnerable to Directory Traversal. By manipulating the \"media_folder\" parameter in the URL, an attacker (in this case, an administrator) can navigate beyond the intended directory (the 'media/' directory) to access sensitive files in other parts of the application's file system."
+                        "value": "Missing Authorization vulnerability in CusRev Customer Reviews for WooCommerce.This issue affects Customer Reviews for WooCommerce: from n/a through 5.38.1.\n\n"
                     }
                 ],
-                "id": "CVE-2024-22723",
-                "lastModified": "2024-02-28T06:15:49.827",
-                "metrics": {},
-                "published": "2024-02-28T06:15:49.827",
+                "id": "CVE-2023-51692",
+                "lastModified": "2024-02-28T19:15:10.147",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 4.3,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.8,
+                            "impactScore": 1.4,
+                            "source": "audit@patchstack.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-28T19:15:10.147",
                 "references": [
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://cupc4k3.medium.com/cve-2024-22723-webtrees-vulnerability-uncovering-sensitive-data-through-path-traversal-7442e7a38b68"
+                        "source": "audit@patchstack.com",
+                        "url": "https://patchstack.com/database/vulnerability/customer-reviews-woocommerce/wordpress-customer-reviews-for-woocommerce-plugin-5-38-1-broken-access-control-vulnerability?_s_id=cve"
                     }
                 ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
+                "sourceIdentifier": "audit@patchstack.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-862"
+                            }
+                        ],
+                        "source": "audit@patchstack.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Cross-Site Request Forgery (CSRF) vulnerability in bytesforall Atahualpa.This issue affects Atahualpa: from n/a through 3.7.24.\n\n"
+                    }
+                ],
+                "id": "CVE-2024-27948",
+                "lastModified": "2024-02-28T19:15:11.357",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "LOW",
+                                "baseScore": 5.4,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:L",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.8,
+                            "impactScore": 2.5,
+                            "source": "audit@patchstack.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-02-28T19:15:11.357",
+                "references": [
+                    {
+                        "source": "audit@patchstack.com",
+                        "url": "https://patchstack.com/database/vulnerability/atahualpa/wordpress-atahualpa-theme-3-7-24-cross-site-request-forgery-csrf-vulnerability?_s_id=cve"
+                    }
+                ],
+                "sourceIdentifier": "audit@patchstack.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-352"
+                            }
+                        ],
+                        "source": "audit@patchstack.com",
+                        "type": "Primary"
+                    }
+                ]
             }
         }
     ]

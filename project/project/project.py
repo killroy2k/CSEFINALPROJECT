@@ -179,6 +179,8 @@ def update_cves_table(new_cves, db):
     db.commit()
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
 
+
+# WRITE DISCLAIMER (INACCURATE RESULTS)
 def check_if_threat(cve):
     print("check if threat 183")
     global threat_count
@@ -196,6 +198,8 @@ def check_if_threat(cve):
         ],
         temperature=1
     )
+
+    print("rated severity: " + cve.severity)
     openai_analysis = completion.choices[0].message.content.lower()
     print("chatgpt returns: " + openai_analysis)
 
@@ -226,8 +230,9 @@ def openai_generate_cve_description(cve):
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
                 Generate a complete description of this CVE, and possible solutions, as if I am a cybersecurity analyst\
+                notifying clients of this threat\
             "},
-            {"role": "user", "content": cve.description}
+            {"role": "user", "content": cve.id + cve.description}
         ],
         temperature=1
     )
