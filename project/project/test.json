@@ -1,9 +1,9 @@
 {
     "format": "NVD_CVE",
-    "resultsPerPage": 6,
+    "resultsPerPage": 10,
     "startIndex": 0,
-    "timestamp": "2024-02-28T19:55:26.847",
-    "totalResults": 6,
+    "timestamp": "2024-03-01T17:12:16.573",
+    "totalResults": 10,
     "version": "2.0",
     "vulnerabilities": [
         {
@@ -11,36 +11,36 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Heap-based Buffer Overflow, Memory Corruption, Out-Of-Bounds Read, Out-Of-Bounds Write, Stack-based Buffer Overflow, Type Confusion, Uninitialized Variable, Use-After-Free vulnerabilities exist in the file reading procedure in eDrawings from Release SOLIDWORKS 2023 through Release SOLIDWORKS 2024. These vulnerabilities could allow an attacker to execute arbitrary code while opening a specially crafted CATPART, DWG, DXF, IPT, JT, SAT, SLDDRW, SLDPRT, STL, STP, X_B or X_T file."
+                        "value": "An OS Command Injection vulnerability affecting documentation server on 3DEXPERIENCE from Release 3DEXPERIENCE R2022x through Release 3DEXPERIENCE R2024x, SIMULIA Abaqus from Release 2022 through Release 2024, SIMULIA Isight from Release 2022 through Release 2024 and CATIA Composer from Release R2023 through Release R2024. A specially crafted HTTP request can lead to arbitrary command execution."
                     }
                 ],
-                "id": "CVE-2024-1847",
-                "lastModified": "2024-02-28T18:15:45.687",
+                "id": "CVE-2024-1624",
+                "lastModified": "2024-03-01T16:15:45.723",
                 "metrics": {
                     "cvssMetricV31": [
                         {
                             "cvssData": {
                                 "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
+                                "attackVector": "NETWORK",
                                 "availabilityImpact": "HIGH",
-                                "baseScore": 7.8,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
+                                "baseScore": 9.4,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "LOW",
                                 "integrityImpact": "HIGH",
                                 "privilegesRequired": "NONE",
                                 "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:H",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.9,
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 5.5,
                             "source": "3DS.Information-Security@3ds.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-28T18:15:45.687",
+                "published": "2024-03-01T16:15:45.723",
                 "references": [
                     {
                         "source": "3DS.Information-Security@3ds.com",
@@ -54,23 +54,7 @@
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-125"
-                            },
-                            {
-                                "lang": "en",
-                                "value": "CWE-416"
-                            },
-                            {
-                                "lang": "en",
-                                "value": "CWE-787"
-                            },
-                            {
-                                "lang": "en",
-                                "value": "CWE-843"
-                            },
-                            {
-                                "lang": "en",
-                                "value": "CWE-908"
+                                "value": "CWE-78"
                             }
                         ],
                         "source": "3DS.Information-Security@3ds.com",
@@ -84,21 +68,33 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "A Null pointer dereference in usr/sbin/httpd in ASUS AC68U 3.0.0.4.384.82230 allows remote attackers to trigger DoS via network packet."
+                        "value": "** UNSUPPORTED WHEN ASSIGNED ** Incorrect Authorization vulnerability in Apache Archiva.\n\nApache Archiva has a setting to disable user registration, however this restriction can be bypassed. As Apache Archiva has been retired, we do not expect to release a version of Apache Archiva that fixes this issue. You are recommended to look into migrating to a different solution, or isolate your instance from any untrusted users.\n\nNOTE: This vulnerability only affects products that are no longer supported by the maintainer\n\n"
                     }
                 ],
-                "id": "CVE-2024-26342",
-                "lastModified": "2024-02-28T18:15:45.890",
+                "id": "CVE-2024-27138",
+                "lastModified": "2024-03-01T16:15:45.983",
                 "metrics": {},
-                "published": "2024-02-28T18:15:45.890",
+                "published": "2024-03-01T16:15:45.983",
                 "references": [
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/Nicholas-wei/bug-discovery/blob/main/asus/2/ASUS_ac68u.md"
+                        "source": "security@apache.org",
+                        "url": "https://lists.apache.org/thread/070qcpclcb3sqk1hn8j5lvzohp30k1m2"
                     }
                 ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
+                "sourceIdentifier": "security@apache.org",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-863"
+                            }
+                        ],
+                        "source": "security@apache.org",
+                        "type": "Primary"
+                    }
+                ]
             }
         },
         {
@@ -106,11 +102,79 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Querybook is a Big Data Querying UI. When a user searches for their queries, datadocs, tables and lists, the search result is marked and highlighted, and this feature uses dangerouslySetInnerHTML which means that if the highlighted result has an XSS payload it will trigger. While the input to dangerouslySetInnerHTML is not sanitized for the data inside of queries which leads to an XSS vulnerability. During the \"query auto-suggestion\" the name of the suggested tables are set with innerHTML which leads to the XSS vulnerability. A patch to rectify this issue has been introduced in Querybook version 3.31.2."
+                        "value": "** UNSUPPORTED WHEN ASSIGNED **\n\nIncorrect Authorization vulnerability in Apache Archiva: a vulnerability in Apache Archiva allows an unauthenticated attacker to modify account data, potentially leading to account takeover.\n\nThis issue affects Apache Archiva: from 2.0.0.\n\nAs this project is retired, we do not plan to release a version that fixes this issue. Users are recommended to find an alternative or restrict access to the instance to trusted users.\n\nNOTE: This vulnerability only affects products that are no longer supported by the maintainer.\n\n"
                     }
                 ],
-                "id": "CVE-2024-27103",
-                "lastModified": "2024-02-28T18:15:45.940",
+                "id": "CVE-2024-27139",
+                "lastModified": "2024-03-01T16:15:46.067",
+                "metrics": {},
+                "published": "2024-03-01T16:15:46.067",
+                "references": [
+                    {
+                        "source": "security@apache.org",
+                        "url": "https://lists.apache.org/thread/qr8b7r86p1hkn0dc0q827s981kf1bgd8"
+                    }
+                ],
+                "sourceIdentifier": "security@apache.org",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-863"
+                            }
+                        ],
+                        "source": "security@apache.org",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "** UNSUPPORTED WHEN ASSIGNED **\n\nImproper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Apache Archiva.\n\nThis issue affects Apache Archiva: from 2.0.0.\n\nAs this project is retired, we do not plan to release a version that fixes this issue. Users are recommended to find an alternative or restrict access to the instance to trusted users. Alternatively, you could configure a HTTP proxy in front of your Archiva instance to only forward requests that do not have malicious characters in the URL.\n\nNOTE: This vulnerability only affects products that are no longer supported by the maintainer.\n\n"
+                    }
+                ],
+                "id": "CVE-2024-27140",
+                "lastModified": "2024-03-01T16:15:46.143",
+                "metrics": {},
+                "published": "2024-03-01T16:15:46.143",
+                "references": [
+                    {
+                        "source": "security@apache.org",
+                        "url": "https://lists.apache.org/thread/xrn6nt904ozh3jym60c3f5hj2fb75pjy"
+                    }
+                ],
+                "sourceIdentifier": "security@apache.org",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-79"
+                            }
+                        ],
+                        "source": "security@apache.org",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Directus is a real-time API and App dashboard for managing SQL database content. The password reset mechanism of the Directus backend allows attackers to receive a password reset email of a victim user, specifically having it arrive at a similar email address as the victim with a one or more characters changed to use accents. This is due to the fact that by default MySQL/MariaDB are configured for accent-insensitive and case-insensitive comparisons. This vulnerability is fixed in version 10.8.3.\n\n"
+                    }
+                ],
+                "id": "CVE-2024-27295",
+                "lastModified": "2024-03-01T16:15:46.227",
                 "metrics": {
                     "cvssMetricV31": [
                         {
@@ -118,32 +182,28 @@
                                 "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "NONE",
-                                "baseScore": 6.1,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "LOW",
+                                "baseScore": 8.2,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "HIGH",
                                 "integrityImpact": "LOW",
                                 "privilegesRequired": "NONE",
-                                "scope": "CHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 2.7,
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 4.2,
                             "source": "security-advisories@github.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-28T18:15:45.940",
+                "published": "2024-03-01T16:15:46.227",
                 "references": [
                     {
                         "source": "security-advisories@github.com",
-                        "url": "https://github.com/pinterest/querybook/commit/449bdc9e7d679e042c3718b7ed07d2ffa3c46a8f"
-                    },
-                    {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/pinterest/querybook/security/advisories/GHSA-3hjm-9277-5c88"
+                        "url": "https://github.com/directus/directus/security/advisories/GHSA-qw9g-7549-7wg5"
                     }
                 ],
                 "sourceIdentifier": "security-advisories@github.com",
@@ -153,7 +213,7 @@
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-79"
+                                "value": "CWE-706"
                             }
                         ],
                         "source": "security-advisories@github.com",
@@ -167,68 +227,11 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Cross-Site Request Forgery (CSRF) vulnerability in Ecwid Ecommerce Ecwid Ecommerce Shopping Cart.This issue affects Ecwid Ecommerce Shopping Cart: from n/a through 6.12.4.\n\n"
+                        "value": "Directus is a real-time API and App dashboard for managing SQL database content. Prior to version 10.8.3, the exact Directus version number was being shipped in compiled JS bundles which are accessible without authentication. With this information a malicious attacker can trivially look for known vulnerabilities in Directus core or any of its shipped dependencies in that specific running version. The problem has been resolved in versions 10.8.3 and newer."
                     }
                 ],
-                "id": "CVE-2023-51533",
-                "lastModified": "2024-02-28T19:15:09.963",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "LOW",
-                                "baseScore": 5.4,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "LOW",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:L",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 2.5,
-                            "source": "audit@patchstack.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-28T19:15:09.963",
-                "references": [
-                    {
-                        "source": "audit@patchstack.com",
-                        "url": "https://patchstack.com/database/vulnerability/ecwid-shopping-cart/wordpress-ecwid-ecommerce-shopping-cart-plugin-6-12-4-cross-site-request-forgery-csrf-vulnerability?_s_id=cve"
-                    }
-                ],
-                "sourceIdentifier": "audit@patchstack.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-352"
-                            }
-                        ],
-                        "source": "audit@patchstack.com",
-                        "type": "Primary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Missing Authorization vulnerability in CusRev Customer Reviews for WooCommerce.This issue affects Customer Reviews for WooCommerce: from n/a through 5.38.1.\n\n"
-                    }
-                ],
-                "id": "CVE-2023-51692",
-                "lastModified": "2024-02-28T19:15:10.147",
+                "id": "CVE-2024-27296",
+                "lastModified": "2024-03-01T16:15:46.413",
                 "metrics": {
                     "cvssMetricV31": [
                         {
@@ -236,41 +239,161 @@
                                 "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "NONE",
-                                "baseScore": 4.3,
+                                "baseScore": 5.3,
                                 "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "LOW",
+                                "confidentialityImpact": "LOW",
+                                "integrityImpact": "NONE",
                                 "privilegesRequired": "NONE",
                                 "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.8,
+                            "exploitabilityScore": 3.9,
                             "impactScore": 1.4,
-                            "source": "audit@patchstack.com",
+                            "source": "security-advisories@github.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-28T19:15:10.147",
+                "published": "2024-03-01T16:15:46.413",
                 "references": [
                     {
-                        "source": "audit@patchstack.com",
-                        "url": "https://patchstack.com/database/vulnerability/customer-reviews-woocommerce/wordpress-customer-reviews-for-woocommerce-plugin-5-38-1-broken-access-control-vulnerability?_s_id=cve"
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/directus/directus/commit/a5a1c26ac48795ed3212a4c51b9523588aff4fa0"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/directus/directus/security/advisories/GHSA-5mhg-wv8w-p59j"
                     }
                 ],
-                "sourceIdentifier": "audit@patchstack.com",
+                "sourceIdentifier": "security-advisories@github.com",
                 "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-862"
+                                "value": "CWE-200"
                             }
                         ],
-                        "source": "audit@patchstack.com",
+                        "source": "security-advisories@github.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Bagisto v1.5.1 is vulnerable for Cross site scripting(XSS) via png file upload vulnerability in product review option."
+                    }
+                ],
+                "id": "CVE-2024-27499",
+                "lastModified": "2024-03-01T16:15:46.597",
+                "metrics": {},
+                "published": "2024-03-01T16:15:46.597",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/Ek-Saini/security/blob/main/xss-bagisto-v1.5.1"
+                    },
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/bagisto/bagisto/pull/9474"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Received"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A vulnerability was found in SourceCodester Computer Inventory System 1.0. It has been rated as problematic. This issue affects some unknown processing of the file /endpoint/update-computer.php. The manipulation of the argument model leads to cross site scripting. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. The associated identifier of this vulnerability is VDB-255383."
+                    }
+                ],
+                "id": "CVE-2024-2068",
+                "lastModified": "2024-03-01T16:15:46.643",
+                "metrics": {
+                    "cvssMetricV2": [
+                        {
+                            "acInsufInfo": false,
+                            "baseSeverity": "MEDIUM",
+                            "cvssData": {
+                                "accessComplexity": "LOW",
+                                "accessVector": "NETWORK",
+                                "authentication": "SINGLE",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 4.0,
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "PARTIAL",
+                                "vectorString": "AV:N/AC:L/Au:S/C:N/I:P/A:N",
+                                "version": "2.0"
+                            },
+                            "exploitabilityScore": 8.0,
+                            "impactScore": 2.9,
+                            "obtainAllPrivilege": false,
+                            "obtainOtherPrivilege": false,
+                            "obtainUserPrivilege": false,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary",
+                            "userInteractionRequired": false
+                        }
+                    ],
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 3.5,
+                                "baseSeverity": "LOW",
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "LOW",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.1,
+                            "impactScore": 1.4,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-01T16:15:46.643",
+                "references": [
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://github.com/skid-nochizplz/skid-nochizplz/blob/main/TrashBin/CVE/SOURCECODESTER%20Computer%20Inventory%20System%20Using%20PHP/STORED%20XSS%20upadte-computer.php%20.md"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?ctiid.255383"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?id.255383"
+                    }
+                ],
+                "sourceIdentifier": "cna@vuldb.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-79"
+                            }
+                        ],
+                        "source": "cna@vuldb.com",
                         "type": "Primary"
                     }
                 ]
@@ -281,53 +404,176 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Cross-Site Request Forgery (CSRF) vulnerability in bytesforall Atahualpa.This issue affects Atahualpa: from n/a through 3.7.24.\n\n"
+                        "value": "A vulnerability classified as critical has been found in SourceCodester FAQ Management System 1.0. Affected is an unknown function of the file /endpoint/delete-faq.php. The manipulation of the argument faq leads to sql injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The identifier of this vulnerability is VDB-255384."
                     }
                 ],
-                "id": "CVE-2024-27948",
-                "lastModified": "2024-02-28T19:15:11.357",
+                "id": "CVE-2024-2069",
+                "lastModified": "2024-03-01T16:15:46.857",
                 "metrics": {
+                    "cvssMetricV2": [
+                        {
+                            "acInsufInfo": false,
+                            "baseSeverity": "MEDIUM",
+                            "cvssData": {
+                                "accessComplexity": "LOW",
+                                "accessVector": "NETWORK",
+                                "authentication": "SINGLE",
+                                "availabilityImpact": "PARTIAL",
+                                "baseScore": 6.5,
+                                "confidentialityImpact": "PARTIAL",
+                                "integrityImpact": "PARTIAL",
+                                "vectorString": "AV:N/AC:L/Au:S/C:P/I:P/A:P",
+                                "version": "2.0"
+                            },
+                            "exploitabilityScore": 8.0,
+                            "impactScore": 6.4,
+                            "obtainAllPrivilege": false,
+                            "obtainOtherPrivilege": false,
+                            "obtainUserPrivilege": false,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary",
+                            "userInteractionRequired": false
+                        }
+                    ],
                     "cvssMetricV31": [
                         {
                             "cvssData": {
                                 "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "LOW",
-                                "baseScore": 5.4,
+                                "baseScore": 6.3,
                                 "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
+                                "confidentialityImpact": "LOW",
                                 "integrityImpact": "LOW",
-                                "privilegesRequired": "NONE",
+                                "privilegesRequired": "LOW",
                                 "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:L",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
                                 "version": "3.1"
                             },
                             "exploitabilityScore": 2.8,
-                            "impactScore": 2.5,
-                            "source": "audit@patchstack.com",
+                            "impactScore": 3.4,
+                            "source": "cna@vuldb.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-28T19:15:11.357",
+                "published": "2024-03-01T16:15:46.857",
                 "references": [
                     {
-                        "source": "audit@patchstack.com",
-                        "url": "https://patchstack.com/database/vulnerability/atahualpa/wordpress-atahualpa-theme-3-7-24-cross-site-request-forgery-csrf-vulnerability?_s_id=cve"
+                        "source": "cna@vuldb.com",
+                        "url": "https://github.com/smurf-reigz/security/blob/main/proof-of-concepts/SOURCECODESTER%20%5BFAQ%20Management%20System%20Using%20PHP%20and%20MySQL%5D%20SQLi%20on%20delete-faq.php.md"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?ctiid.255384"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?id.255384"
                     }
                 ],
-                "sourceIdentifier": "audit@patchstack.com",
+                "sourceIdentifier": "cna@vuldb.com",
                 "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-352"
+                                "value": "CWE-89"
                             }
                         ],
-                        "source": "audit@patchstack.com",
+                        "source": "cna@vuldb.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A vulnerability classified as problematic was found in SourceCodester FAQ Management System 1.0. Affected by this vulnerability is an unknown functionality of the file /endpoint/add-faq.php. The manipulation of the argument question/answer leads to cross site scripting. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The identifier VDB-255385 was assigned to this vulnerability."
+                    }
+                ],
+                "id": "CVE-2024-2070",
+                "lastModified": "2024-03-01T16:15:47.063",
+                "metrics": {
+                    "cvssMetricV2": [
+                        {
+                            "acInsufInfo": false,
+                            "baseSeverity": "MEDIUM",
+                            "cvssData": {
+                                "accessComplexity": "LOW",
+                                "accessVector": "NETWORK",
+                                "authentication": "SINGLE",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 4.0,
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "PARTIAL",
+                                "vectorString": "AV:N/AC:L/Au:S/C:N/I:P/A:N",
+                                "version": "2.0"
+                            },
+                            "exploitabilityScore": 8.0,
+                            "impactScore": 2.9,
+                            "obtainAllPrivilege": false,
+                            "obtainOtherPrivilege": false,
+                            "obtainUserPrivilege": false,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary",
+                            "userInteractionRequired": false
+                        }
+                    ],
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 3.5,
+                                "baseSeverity": "LOW",
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "LOW",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.1,
+                            "impactScore": 1.4,
+                            "source": "cna@vuldb.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-01T16:15:47.063",
+                "references": [
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://github.com/smurf-reigz/security/blob/main/proof-of-concepts/SOURCECODESTER%20%5BFAQ%20Management%20System%20Using%20PHP%20and%20MySQL%5D%20XSS%20on%20add-faq.php.md"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?ctiid.255385"
+                    },
+                    {
+                        "source": "cna@vuldb.com",
+                        "url": "https://vuldb.com/?id.255385"
+                    }
+                ],
+                "sourceIdentifier": "cna@vuldb.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-79"
+                            }
+                        ],
+                        "source": "cna@vuldb.com",
                         "type": "Primary"
                     }
                 ]
