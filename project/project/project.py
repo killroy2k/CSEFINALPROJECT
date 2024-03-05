@@ -214,8 +214,9 @@ def check_if_threat(cve):
         print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
 
     cvss_score = 7.1 #Placeholder for CVSS score from manual calculation
+    openai_description = ""
     if cvss_score > 0.0:
-        openai_generate_cve_description(cve)
+        openai_description = openai_generate_cve_description(cve)
 
     # Return the openai response
     return openai_analysis
