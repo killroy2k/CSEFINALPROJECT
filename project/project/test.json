@@ -2,8 +2,8 @@
     "format": "NVD_CVE",
     "resultsPerPage": 10,
     "startIndex": 0,
-    "timestamp": "2024-02-28T17:27:47.203",
-    "totalResults": 6,
+    "timestamp": "2024-03-05T20:12:55.277",
+    "totalResults": 10,
     "version": "2.0",
     "vulnerabilities": [
         {
@@ -11,54 +11,142 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Cross-Site Request Forgery (CSRF) vulnerability in Duplicator Duplicator \u2013 WordPress Migration & Backup Plugin.This issue affects Duplicator \u2013 WordPress Migration & Backup Plugin: from n/a through 1.5.7.\n\n"
+                        "value": "A Server-Side Request Forgery (SSRF) in the installUpdateThemePluginAction function of WonderCMS v3.1.3 allows attackers to force the application to make arbitrary requests via injection of crafted URLs into the installThemePlugin parameter."
                     }
                 ],
-                "id": "CVE-2023-51681",
-                "lastModified": "2024-02-28T17:15:07.270",
+                "id": "CVE-2024-27561",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {},
+                "published": "2024-03-05T17:15:06.887",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/zer0yu/CVE_Request/blob/master/WonderCMS/wondercms_installUpdateThemePluginAction_plugins.md"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A Server-Side Request Forgery (SSRF) in the getFileFromRepo function of WonderCMS v3.1.3 allows attackers to force the application to make arbitrary requests via injection of crafted URLs into the pluginThemeUrl parameter."
+                    }
+                ],
+                "id": "CVE-2024-27563",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {},
+                "published": "2024-03-05T17:15:06.947",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/zer0yu/CVE_Request/blob/master/WonderCMS/wondercms_pluginThemeUrl.md"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A Server-Side Request Forgery (SSRF) in pictureproxy.php of ChatGPT commit f9f4bbc allows attackers to force the application to make arbitrary requests via injection of crafted URLs into the urlparameter."
+                    }
+                ],
+                "id": "CVE-2024-27564",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {},
+                "published": "2024-03-05T17:15:06.997",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/dirk1983/chatgpt/issues/114"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A Server-Side Request Forgery (SSRF) in weixin.php of ChatGPT-wechat-personal commit a0857f6 allows attackers to force the application to make arbitrary requests."
+                    }
+                ],
+                "id": "CVE-2024-27565",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {},
+                "published": "2024-03-05T17:15:07.050",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/dirk1983/chatgpt-wechat-personal/issues/4"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "ImageSharp is a managed, cross-platform, 2D graphics library. A heap-use-after-free flaw was found in ImageSharp's InitializeImage() function of PngDecoderCore.cs file. This vulnerability is triggered when an attacker passes a specially crafted PNG image file to ImageSharp for conversion, potentially leading to information disclosure. This issue has been patched in version 3.1.3."
+                    }
+                ],
+                "id": "CVE-2024-27929",
+                "lastModified": "2024-03-05T18:50:18.333",
                 "metrics": {
                     "cvssMetricV31": [
                         {
                             "cvssData": {
                                 "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
+                                "attackVector": "LOCAL",
                                 "availabilityImpact": "HIGH",
-                                "baseScore": 6.5,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
+                                "baseScore": 7.1,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "HIGH",
                                 "integrityImpact": "NONE",
                                 "privilegesRequired": "NONE",
                                 "scope": "UNCHANGED",
                                 "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:H",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 3.6,
-                            "source": "audit@patchstack.com",
+                            "exploitabilityScore": 1.8,
+                            "impactScore": 5.2,
+                            "source": "security-advisories@github.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-28T17:15:07.270",
+                "published": "2024-03-05T17:15:07.097",
                 "references": [
                     {
-                        "source": "audit@patchstack.com",
-                        "url": "https://https://patchstack.com/database/vulnerability/duplicator/wordpress-duplicator-plugin-1-5-7-cross-site-request-forgery-csrf-vulnerability?_s_id=cve"
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/SixLabors/ImageSharp/security/advisories/GHSA-65x7-c272-7g7r"
                     }
                 ],
-                "sourceIdentifier": "audit@patchstack.com",
-                "vulnStatus": "Received",
+                "sourceIdentifier": "security-advisories@github.com",
+                "vulnStatus": "Awaiting Analysis",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-352"
+                                "value": "CWE-416"
                             }
                         ],
-                        "source": "audit@patchstack.com",
-                        "type": "Primary"
+                        "source": "security-advisories@github.com",
+                        "type": "Secondary"
                     }
                 ]
             }
@@ -68,33 +156,11 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Stack Based Buffer Overflow vulnerability in Tenda AC9 v.3.0 with firmware version v.15.03.06.42_multi allows a remote attacker to execute arbitrary code via the add_white_node function."
+                        "value": "Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Insufficient validation of parameters in `Deno.makeTemp*` APIs would allow for creation of files outside of the allowed directories. This may allow the user to overwrite important files on the system that may affect other systems. A user may provide a prefix or suffix to a `Deno.makeTemp*` API containing path traversal characters. This is fixed in Deno 1.41.1.\n\n"
                     }
                 ],
-                "id": "CVE-2024-25746",
-                "lastModified": "2024-02-22T22:15:47.253",
-                "metrics": {},
-                "published": "2024-02-22T22:15:47.253",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/TimeSeg/IOT_CVE/blob/main/tenda/AC9V3/0218/add_white_node.md"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "### Summary\nOn all Label Studio versions prior to 1.11.0, data imported via file upload feature is not properly sanitized prior to being rendered within a [`Choices`](https://labelstud.io/tags/choices) or [`Labels`](https://labelstud.io/tags/labels) tag, resulting in an XSS vulnerability.\n\n### Details\nNeed permission to use the \"data import\" function. This was reproduced on Label Studio 1.10.1.\n\n### PoC\n\n1. Create a project.\n![Create a project](https://github.com/HumanSignal/label-studio/assets/3943358/9b1536ad-feac-4238-a1bd-ca9b1b798673)\n\n2. Upload a file containing the payload using the \"Upload Files\" function.\n![2  Upload a file containing the payload using the Upload Files function](https://github.com/HumanSignal/label-studio/assets/3943358/26bb7af1-1cd2-408f-9adf-61e31a5b7328)\n![3  complete](https://github.com/HumanSignal/label-studio/assets/3943358/f2f62774-1fa6-4456-9e6f-8fa1ca0a2d2e)\n\nThe following are the contents of the files used in the PoC\n```\n{\n  \"data\": {\n    \"prompt\": \"labelstudio universe image\",\n    \"images\": [\n      {\n        \"value\": \"id123#0\",\n        \"style\": \"margin: 5px\",\n        \"html\": \"<img width='400' src='https://labelstud.io/_astro/images-tab.64279c16_ZaBSvC.avif' onload=alert(document.cookie)>\"\n      }\n    ]\n  }\n}\n```\n\n3. Select the text-to-image generation labeling template of Ranking and scoring\n![3  Select the text-to-image generation labelling template for Ranking and scoring](https://github.com/HumanSignal/label-studio/assets/3943358/f227f49c-a718-4738-bc2a-807da4f97155)\n![5  save](https://github.com/HumanSignal/label-studio/assets/3943358/9b529f8a-8e99-4bb0-bdf6-bb7a95c9b75d)\n\n4. Select a task\n![4  Select a task](https://github.com/HumanSignal/label-studio/assets/3943358/71856b7a-2b1f-44ea-99ab-fc48bc20caa7)\n\n5. Check that the script is running\n![5  Check that the script is running](https://github.com/HumanSignal/label-studio/assets/3943358/e396ae7b-a591-4db7-afe9-5bab30b48cb9)\n\n### Impact\nMalicious scripts can be injected into the code, and when linked with vulnerabilities such as CSRF, it can cause even greater damage. In particular, It can become a source of further attacks, especially when linked to social engineering.\n"
-                    }
-                ],
-                "id": "CVE-2024-26152",
-                "lastModified": "2024-02-22T22:15:47.310",
+                "id": "CVE-2024-27931",
+                "lastModified": "2024-03-05T18:50:18.333",
                 "metrics": {
                     "cvssMetricV31": [
                         {
@@ -102,54 +168,42 @@
                                 "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "NONE",
-                                "baseScore": 4.7,
+                                "baseScore": 5.8,
                                 "baseSeverity": "MEDIUM",
                                 "confidentialityImpact": "NONE",
                                 "integrityImpact": "LOW",
                                 "privilegesRequired": "NONE",
                                 "scope": "CHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:N/A:N",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:L/A:N",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.8,
+                            "exploitabilityScore": 3.9,
                             "impactScore": 1.4,
                             "source": "security-advisories@github.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-22T22:15:47.310",
+                "published": "2024-03-05T17:15:07.310",
                 "references": [
                     {
                         "source": "security-advisories@github.com",
-                        "url": "https://github.com/HumanSignal/label-studio/commit/5df9ae3828b98652e9fa290a19f4deedf51ef6c8"
-                    },
-                    {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/HumanSignal/label-studio/pull/5232"
-                    },
-                    {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/HumanSignal/label-studio/releases/tag/1.11.0"
-                    },
-                    {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/HumanSignal/label-studio/security/advisories/GHSA-6xv9-957j-qfhg"
+                        "url": "https://github.com/denoland/deno/security/advisories/GHSA-hrqr-jv8w-v9jh"
                     }
                 ],
                 "sourceIdentifier": "security-advisories@github.com",
-                "vulnStatus": "Received",
+                "vulnStatus": "Awaiting Analysis",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-79"
+                                "value": "CWE-20"
                             }
                         ],
-                        "source": "audit@patchstack.com",
-                        "type": "Primary"
+                        "source": "security-advisories@github.com",
+                        "type": "Secondary"
                     }
                 ]
             }
@@ -159,21 +213,44 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "A Stack Based Buffer Overflow vulnerability in tenda AC9 AC9 v.3.0 with firmware version v.15.03.06.42_multi allows a remote attacker to execute arbitrary code via the fromSetIpMacBind function."
+                        "value": "VMware ESXi, Workstation, and Fusion contain a use-after-free vulnerability in the XHCI USB controller.\u00a0A malicious actor with local administrative privileges on a virtual machine may exploit this issue to execute code as the virtual machine's VMX process running on the host. On ESXi, the exploitation is contained within the VMX sandbox whereas, on Workstation and Fusion, this may lead to code execution on the machine where Workstation or Fusion is installed."
                     }
                 ],
-                "id": "CVE-2024-25748",
-                "lastModified": "2024-02-22T23:15:07.640",
-                "metrics": {},
-                "published": "2024-02-22T23:15:07.640",
+                "id": "CVE-2024-22252",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "LOCAL",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.3,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "CHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.5,
+                            "impactScore": 6.0,
+                            "source": "security@vmware.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-05T18:15:47.713",
                 "references": [
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/TimeSeg/IOT_CVE/blob/main/tenda/AC9V3/0218/fromSetIpMacBind.md"
+                        "source": "security@vmware.com",
+                        "url": "https://www.vmware.com/security/advisories/VMSA-2024-0006.html"
                     }
                 ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
+                "sourceIdentifier": "security@vmware.com",
+                "vulnStatus": "Awaiting Analysis"
             }
         },
         {
@@ -181,21 +258,44 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Stack Based Buffer Overflow vulnerability in Tenda AC9 v.3.0 with firmware version v.15.03.06.42_multi allows a remote attacker to execute arbitrary code via the formSetDeviceName function."
+                        "value": "VMware ESXi, Workstation, and Fusion contain a use-after-free vulnerability in the UHCI USB controller.\u00a0A malicious actor with local administrative privileges on a virtual machine may exploit this issue to execute code as the virtual machine's VMX process running on the host. On ESXi, the exploitation is contained within the VMX sandbox whereas, on Workstation and Fusion, this may lead to code execution on the machine where Workstation or Fusion is installed."
                     }
                 ],
-                "id": "CVE-2024-25753",
-                "lastModified": "2024-02-22T23:15:07.703",
-                "metrics": {},
-                "published": "2024-02-22T23:15:07.703",
+                "id": "CVE-2024-22253",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "LOCAL",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.3,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "CHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.5,
+                            "impactScore": 6.0,
+                            "source": "security@vmware.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-05T18:15:47.920",
                 "references": [
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/TimeSeg/IOT_CVE/blob/main/tenda/AC9V3/0218/formSetDeviceName.md"
+                        "source": "security@vmware.com",
+                        "url": "https://www.vmware.com/security/advisories/VMSA-2024-0006.html"
                     }
                 ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
+                "sourceIdentifier": "security@vmware.com",
+                "vulnStatus": "Awaiting Analysis"
             }
         },
         {
@@ -203,21 +303,89 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "A Stack Based Buffer Overflow vulnerability in Tenda AC9 v.3.0 with firmware version v.15.03.06.42_multi allows a remote attacker to execute arbitrary code via the formWifiBasicSet function."
+                        "value": "VMware ESXi contains an out-of-bounds write vulnerability.\u00a0A malicious actor with privileges within the VMX process may trigger an out-of-bounds write leading to an escape of the sandbox.\n\n\n\n\n\n\n\n\n\n\n\n"
                     }
                 ],
-                "id": "CVE-2024-25756",
-                "lastModified": "2024-02-22T23:15:07.750",
-                "metrics": {},
-                "published": "2024-02-22T23:15:07.750",
+                "id": "CVE-2024-22254",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "LOCAL",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 7.9,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "HIGH",
+                                "scope": "CHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 1.5,
+                            "impactScore": 5.8,
+                            "source": "security@vmware.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-05T18:15:48.100",
                 "references": [
                     {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/TimeSeg/IOT_CVE/blob/main/tenda/AC9V3/0218/formWifiBasicSet.md"
+                        "source": "security@vmware.com",
+                        "url": "https://www.vmware.com/security/advisories/VMSA-2024-0006.html"
                     }
                 ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Received"
+                "sourceIdentifier": "security@vmware.com",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "VMware ESXi, Workstation, and Fusion contain an information disclosure vulnerability in the UHCI USB controller.\u00a0A malicious actor with administrative access to a virtual machine may be able to exploit this issue to leak memory from the vmx process.\u00a0\u00a0\n\n\n\n\n\n\n\n\n\n\n\n"
+                    }
+                ],
+                "id": "CVE-2024-22255",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "LOCAL",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 7.1,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "NONE",
+                                "privilegesRequired": "NONE",
+                                "scope": "CHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.5,
+                            "impactScore": 4.0,
+                            "source": "security@vmware.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-05T18:15:48.277",
+                "references": [
+                    {
+                        "source": "security@vmware.com",
+                        "url": "https://www.vmware.com/security/advisories/VMSA-2024-0006.html"
+                    }
+                ],
+                "sourceIdentifier": "security@vmware.com",
+                "vulnStatus": "Awaiting Analysis"
             }
         }
     ]
