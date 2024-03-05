@@ -1,9 +1,9 @@
 {
     "format": "NVD_CVE",
-    "resultsPerPage": 6,
+    "resultsPerPage": 10,
     "startIndex": 0,
-    "timestamp": "2024-02-28T17:27:47.203",
-    "totalResults": 6,
+    "timestamp": "2024-03-05T20:12:55.277",
+    "totalResults": 10,
     "version": "2.0",
     "vulnerabilities": [
         {
@@ -11,54 +11,142 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Cross-Site Request Forgery (CSRF) vulnerability in Duplicator Duplicator \u2013 WordPress Migration & Backup Plugin.This issue affects Duplicator \u2013 WordPress Migration & Backup Plugin: from n/a through 1.5.7.\n\n"
+                        "value": "A Server-Side Request Forgery (SSRF) in the installUpdateThemePluginAction function of WonderCMS v3.1.3 allows attackers to force the application to make arbitrary requests via injection of crafted URLs into the installThemePlugin parameter."
                     }
                 ],
-                "id": "CVE-2023-51681",
-                "lastModified": "2024-02-28T17:15:07.270",
+                "id": "CVE-2024-27561",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {},
+                "published": "2024-03-05T17:15:06.887",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/zer0yu/CVE_Request/blob/master/WonderCMS/wondercms_installUpdateThemePluginAction_plugins.md"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A Server-Side Request Forgery (SSRF) in the getFileFromRepo function of WonderCMS v3.1.3 allows attackers to force the application to make arbitrary requests via injection of crafted URLs into the pluginThemeUrl parameter."
+                    }
+                ],
+                "id": "CVE-2024-27563",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {},
+                "published": "2024-03-05T17:15:06.947",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/zer0yu/CVE_Request/blob/master/WonderCMS/wondercms_pluginThemeUrl.md"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A Server-Side Request Forgery (SSRF) in pictureproxy.php of ChatGPT commit f9f4bbc allows attackers to force the application to make arbitrary requests via injection of crafted URLs into the urlparameter."
+                    }
+                ],
+                "id": "CVE-2024-27564",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {},
+                "published": "2024-03-05T17:15:06.997",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/dirk1983/chatgpt/issues/114"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A Server-Side Request Forgery (SSRF) in weixin.php of ChatGPT-wechat-personal commit a0857f6 allows attackers to force the application to make arbitrary requests."
+                    }
+                ],
+                "id": "CVE-2024-27565",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {},
+                "published": "2024-03-05T17:15:07.050",
+                "references": [
+                    {
+                        "source": "cve@mitre.org",
+                        "url": "https://github.com/dirk1983/chatgpt-wechat-personal/issues/4"
+                    }
+                ],
+                "sourceIdentifier": "cve@mitre.org",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "ImageSharp is a managed, cross-platform, 2D graphics library. A heap-use-after-free flaw was found in ImageSharp's InitializeImage() function of PngDecoderCore.cs file. This vulnerability is triggered when an attacker passes a specially crafted PNG image file to ImageSharp for conversion, potentially leading to information disclosure. This issue has been patched in version 3.1.3."
+                    }
+                ],
+                "id": "CVE-2024-27929",
+                "lastModified": "2024-03-05T18:50:18.333",
                 "metrics": {
                     "cvssMetricV31": [
                         {
                             "cvssData": {
                                 "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
+                                "attackVector": "LOCAL",
                                 "availabilityImpact": "HIGH",
-                                "baseScore": 6.5,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
+                                "baseScore": 7.1,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "HIGH",
                                 "integrityImpact": "NONE",
                                 "privilegesRequired": "NONE",
                                 "scope": "UNCHANGED",
                                 "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:H",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 3.6,
-                            "source": "audit@patchstack.com",
+                            "exploitabilityScore": 1.8,
+                            "impactScore": 5.2,
+                            "source": "security-advisories@github.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-28T17:15:07.270",
+                "published": "2024-03-05T17:15:07.097",
                 "references": [
                     {
-                        "source": "audit@patchstack.com",
-                        "url": "https://https://patchstack.com/database/vulnerability/duplicator/wordpress-duplicator-plugin-1-5-7-cross-site-request-forgery-csrf-vulnerability?_s_id=cve"
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/SixLabors/ImageSharp/security/advisories/GHSA-65x7-c272-7g7r"
                     }
                 ],
-                "sourceIdentifier": "audit@patchstack.com",
-                "vulnStatus": "Received",
+                "sourceIdentifier": "security-advisories@github.com",
+                "vulnStatus": "Awaiting Analysis",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-352"
+                                "value": "CWE-416"
                             }
                         ],
-                        "source": "audit@patchstack.com",
-                        "type": "Primary"
+                        "source": "security-advisories@github.com",
+                        "type": "Secondary"
                     }
                 ]
             }
@@ -68,125 +156,11 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Cross-Site Request Forgery (CSRF) vulnerability in Scott Paterson Easy PayPal & Stripe Buy Now Button.This issue affects Easy PayPal & Stripe Buy Now Button: from n/a through 1.8.1.\n\n"
+                        "value": "Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Insufficient validation of parameters in `Deno.makeTemp*` APIs would allow for creation of files outside of the allowed directories. This may allow the user to overwrite important files on the system that may affect other systems. A user may provide a prefix or suffix to a `Deno.makeTemp*` API containing path traversal characters. This is fixed in Deno 1.41.1.\n\n"
                     }
                 ],
-                "id": "CVE-2023-51683",
-                "lastModified": "2024-02-28T17:15:07.760",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "LOW",
-                                "baseScore": 5.4,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "LOW",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:L",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 2.5,
-                            "source": "audit@patchstack.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-28T17:15:07.760",
-                "references": [
-                    {
-                        "source": "audit@patchstack.com",
-                        "url": "https://patchstack.com/database/vulnerability/wp-ecommerce-paypal/wordpress-easy-paypal-stripe-buy-now-button-plugin-1-8-1-cross-site-request-forgery-csrf-vulnerability?_s_id=cve"
-                    }
-                ],
-                "sourceIdentifier": "audit@patchstack.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-352"
-                            }
-                        ],
-                        "source": "audit@patchstack.com",
-                        "type": "Primary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Cross-Site Request Forgery (CSRF) vulnerability in MailerLite MailerLite \u2013 WooCommerce integration.This issue affects MailerLite \u2013 WooCommerce integration: from n/a through 2.0.8.\n\n"
-                    }
-                ],
-                "id": "CVE-2023-52223",
-                "lastModified": "2024-02-28T17:15:07.953",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "LOW",
-                                "baseScore": 5.4,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "LOW",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:L",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 2.5,
-                            "source": "audit@patchstack.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-28T17:15:07.953",
-                "references": [
-                    {
-                        "source": "audit@patchstack.com",
-                        "url": "https://patchstack.com/database/vulnerability/woo-mailerlite/wordpress-mailerlite-woocommerce-integration-plugin-2-0-7-cross-site-request-forgery-csrf-vulnerability?_s_id=cve"
-                    }
-                ],
-                "sourceIdentifier": "audit@patchstack.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-352"
-                            }
-                        ],
-                        "source": "audit@patchstack.com",
-                        "type": "Primary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Cross-Site Request Forgery (CSRF) vulnerability in Advanced Flamingo.This issue affects Advanced Flamingo: from n/a through 1.0.\n\n"
-                    }
-                ],
-                "id": "CVE-2023-52226",
-                "lastModified": "2024-02-28T17:15:08.150",
+                "id": "CVE-2024-27931",
+                "lastModified": "2024-03-05T18:50:18.333",
                 "metrics": {
                     "cvssMetricV31": [
                         {
@@ -194,107 +168,42 @@
                                 "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
                                 "availabilityImpact": "NONE",
-                                "baseScore": 4.3,
+                                "baseScore": 5.8,
                                 "baseSeverity": "MEDIUM",
                                 "confidentialityImpact": "NONE",
                                 "integrityImpact": "LOW",
                                 "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 1.4,
-                            "source": "audit@patchstack.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-02-28T17:15:08.150",
-                "references": [
-                    {
-                        "source": "audit@patchstack.com",
-                        "url": "https://patchstack.com/database/vulnerability/advanced-flamingo/wordpress-advanced-flamingo-plugin-1-0-cross-site-request-forgery-csrf-vulnerability?_s_id=cve"
-                    }
-                ],
-                "sourceIdentifier": "audit@patchstack.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-352"
-                            }
-                        ],
-                        "source": "audit@patchstack.com",
-                        "type": "Primary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "A vulnerability was found in 3Scale, when used with Keycloak 15 (or RHSSO 7.5.0) and superiors. When the auth_type is use_3scale_oidc_issuer_endpoint, the Token Introspection policy discovers the Token Introspection endpoint from the token_introspection_endpoint field, but the field was removed on RH-SSO 7.5. As a result, the policy doesn't inspect tokens, it determines that all tokens are valid."
-                    }
-                ],
-                "id": "CVE-2024-0560",
-                "lastModified": "2024-02-28T17:15:08.340",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "LOW",
-                                "baseScore": 6.3,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "LOW",
-                                "integrityImpact": "LOW",
-                                "privilegesRequired": "LOW",
-                                "scope": "UNCHANGED",
+                                "scope": "CHANGED",
                                 "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:L/A:N",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 3.4,
-                            "source": "secalert@redhat.com",
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 1.4,
+                            "source": "security-advisories@github.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-28T17:15:08.340",
+                "published": "2024-03-05T17:15:07.310",
                 "references": [
                     {
-                        "source": "secalert@redhat.com",
-                        "url": "https://access.redhat.com/security/cve/CVE-2024-0560"
-                    },
-                    {
-                        "source": "secalert@redhat.com",
-                        "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2258456"
-                    },
-                    {
-                        "source": "secalert@redhat.com",
-                        "url": "https://github.com/3scale/APIcast/pull/1438"
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/denoland/deno/security/advisories/GHSA-hrqr-jv8w-v9jh"
                     }
                 ],
-                "sourceIdentifier": "secalert@redhat.com",
-                "vulnStatus": "Received",
+                "sourceIdentifier": "security-advisories@github.com",
+                "vulnStatus": "Awaiting Analysis",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-280"
+                                "value": "CWE-20"
                             }
                         ],
-                        "source": "secalert@redhat.com",
-                        "type": "Primary"
+                        "source": "security-advisories@github.com",
+                        "type": "Secondary"
                     }
                 ]
             }
@@ -304,56 +213,179 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "Cross-Site Request Forgery (CSRF) vulnerability in Atakan Au 1 click disable all.This issue affects 1 click disable all: from n/a through 1.0.1.\n\n"
+                        "value": "VMware ESXi, Workstation, and Fusion contain a use-after-free vulnerability in the XHCI USB controller.\u00a0A malicious actor with local administrative privileges on a virtual machine may exploit this issue to execute code as the virtual machine's VMX process running on the host. On ESXi, the exploitation is contained within the VMX sandbox whereas, on Workstation and Fusion, this may lead to code execution on the machine where Workstation or Fusion is installed."
                     }
                 ],
-                "id": "CVE-2024-21749",
-                "lastModified": "2024-02-28T17:15:08.543",
+                "id": "CVE-2024-22252",
+                "lastModified": "2024-03-05T18:50:18.333",
                 "metrics": {
                     "cvssMetricV31": [
                         {
                             "cvssData": {
                                 "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "LOW",
-                                "baseScore": 5.4,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "LOW",
+                                "attackVector": "LOCAL",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.3,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
                                 "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:L",
+                                "scope": "CHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 2.8,
-                            "impactScore": 2.5,
-                            "source": "audit@patchstack.com",
+                            "exploitabilityScore": 2.5,
+                            "impactScore": 6.0,
+                            "source": "security@vmware.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-02-28T17:15:08.543",
+                "published": "2024-03-05T18:15:47.713",
                 "references": [
                     {
-                        "source": "audit@patchstack.com",
-                        "url": "https://patchstack.com/database/vulnerability/first-graders-toolbox/wordpress-1-click-disable-all-plugin-1-0-1-cross-site-request-forgery-csrf-vulnerability?_s_id=cve"
+                        "source": "security@vmware.com",
+                        "url": "https://www.vmware.com/security/advisories/VMSA-2024-0006.html"
                     }
                 ],
-                "sourceIdentifier": "audit@patchstack.com",
-                "vulnStatus": "Received",
-                "weaknesses": [
+                "sourceIdentifier": "security@vmware.com",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
                     {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-352"
-                            }
-                        ],
-                        "source": "audit@patchstack.com",
-                        "type": "Primary"
+                        "lang": "en",
+                        "value": "VMware ESXi, Workstation, and Fusion contain a use-after-free vulnerability in the UHCI USB controller.\u00a0A malicious actor with local administrative privileges on a virtual machine may exploit this issue to execute code as the virtual machine's VMX process running on the host. On ESXi, the exploitation is contained within the VMX sandbox whereas, on Workstation and Fusion, this may lead to code execution on the machine where Workstation or Fusion is installed."
                     }
-                ]
+                ],
+                "id": "CVE-2024-22253",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "LOCAL",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.3,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "CHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.5,
+                            "impactScore": 6.0,
+                            "source": "security@vmware.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-05T18:15:47.920",
+                "references": [
+                    {
+                        "source": "security@vmware.com",
+                        "url": "https://www.vmware.com/security/advisories/VMSA-2024-0006.html"
+                    }
+                ],
+                "sourceIdentifier": "security@vmware.com",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "VMware ESXi contains an out-of-bounds write vulnerability.\u00a0A malicious actor with privileges within the VMX process may trigger an out-of-bounds write leading to an escape of the sandbox.\n\n\n\n\n\n\n\n\n\n\n\n"
+                    }
+                ],
+                "id": "CVE-2024-22254",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "LOCAL",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 7.9,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "HIGH",
+                                "scope": "CHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 1.5,
+                            "impactScore": 5.8,
+                            "source": "security@vmware.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-05T18:15:48.100",
+                "references": [
+                    {
+                        "source": "security@vmware.com",
+                        "url": "https://www.vmware.com/security/advisories/VMSA-2024-0006.html"
+                    }
+                ],
+                "sourceIdentifier": "security@vmware.com",
+                "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "VMware ESXi, Workstation, and Fusion contain an information disclosure vulnerability in the UHCI USB controller.\u00a0A malicious actor with administrative access to a virtual machine may be able to exploit this issue to leak memory from the vmx process.\u00a0\u00a0\n\n\n\n\n\n\n\n\n\n\n\n"
+                    }
+                ],
+                "id": "CVE-2024-22255",
+                "lastModified": "2024-03-05T18:50:18.333",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "LOCAL",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 7.1,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "NONE",
+                                "privilegesRequired": "NONE",
+                                "scope": "CHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.5,
+                            "impactScore": 4.0,
+                            "source": "security@vmware.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-05T18:15:48.277",
+                "references": [
+                    {
+                        "source": "security@vmware.com",
+                        "url": "https://www.vmware.com/security/advisories/VMSA-2024-0006.html"
+                    }
+                ],
+                "sourceIdentifier": "security@vmware.com",
+                "vulnStatus": "Awaiting Analysis"
             }
         }
     ]
