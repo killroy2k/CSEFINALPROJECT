@@ -6,7 +6,7 @@ protected_info.py
 
 # General
 *.json
-.pyc
+*.pyc
 .DS_Store
 .AppleDouble
 .LSOverride

@@ -1,213 +1,11 @@
 {
     "format": "NVD_CVE",
-    "resultsPerPage": 10,
+    "resultsPerPage": 13,
     "startIndex": 0,
-    "timestamp": "2024-03-05T19:56:51.463",
-    "totalResults": 10,
+    "timestamp": "2024-03-05T20:45:15.320",
+    "totalResults": 13,
     "version": "2.0",
     "vulnerabilities": [
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "A Server-Side Request Forgery (SSRF) in the installUpdateThemePluginAction function of WonderCMS v3.1.3 allows attackers to force the application to make arbitrary requests via injection of crafted URLs into the installThemePlugin parameter."
-                    }
-                ],
-                "id": "CVE-2024-27561",
-                "lastModified": "2024-03-05T18:50:18.333",
-                "metrics": {},
-                "published": "2024-03-05T17:15:06.887",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/zer0yu/CVE_Request/blob/master/WonderCMS/wondercms_installUpdateThemePluginAction_plugins.md"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Awaiting Analysis"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "A Server-Side Request Forgery (SSRF) in the getFileFromRepo function of WonderCMS v3.1.3 allows attackers to force the application to make arbitrary requests via injection of crafted URLs into the pluginThemeUrl parameter."
-                    }
-                ],
-                "id": "CVE-2024-27563",
-                "lastModified": "2024-03-05T18:50:18.333",
-                "metrics": {},
-                "published": "2024-03-05T17:15:06.947",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/zer0yu/CVE_Request/blob/master/WonderCMS/wondercms_pluginThemeUrl.md"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Awaiting Analysis"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "A Server-Side Request Forgery (SSRF) in pictureproxy.php of ChatGPT commit f9f4bbc allows attackers to force the application to make arbitrary requests via injection of crafted URLs into the urlparameter."
-                    }
-                ],
-                "id": "CVE-2024-27564",
-                "lastModified": "2024-03-05T18:50:18.333",
-                "metrics": {},
-                "published": "2024-03-05T17:15:06.997",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/dirk1983/chatgpt/issues/114"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Awaiting Analysis"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "A Server-Side Request Forgery (SSRF) in weixin.php of ChatGPT-wechat-personal commit a0857f6 allows attackers to force the application to make arbitrary requests."
-                    }
-                ],
-                "id": "CVE-2024-27565",
-                "lastModified": "2024-03-05T18:50:18.333",
-                "metrics": {},
-                "published": "2024-03-05T17:15:07.050",
-                "references": [
-                    {
-                        "source": "cve@mitre.org",
-                        "url": "https://github.com/dirk1983/chatgpt-wechat-personal/issues/4"
-                    }
-                ],
-                "sourceIdentifier": "cve@mitre.org",
-                "vulnStatus": "Awaiting Analysis"
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "ImageSharp is a managed, cross-platform, 2D graphics library. A heap-use-after-free flaw was found in ImageSharp's InitializeImage() function of PngDecoderCore.cs file. This vulnerability is triggered when an attacker passes a specially crafted PNG image file to ImageSharp for conversion, potentially leading to information disclosure. This issue has been patched in version 3.1.3."
-                    }
-                ],
-                "id": "CVE-2024-27929",
-                "lastModified": "2024-03-05T18:50:18.333",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "LOCAL",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 7.1,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "HIGH",
-                                "integrityImpact": "NONE",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "REQUIRED",
-                                "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:H",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 1.8,
-                            "impactScore": 5.2,
-                            "source": "security-advisories@github.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-03-05T17:15:07.097",
-                "references": [
-                    {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/SixLabors/ImageSharp/security/advisories/GHSA-65x7-c272-7g7r"
-                    }
-                ],
-                "sourceIdentifier": "security-advisories@github.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-416"
-                            }
-                        ],
-                        "source": "security-advisories@github.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
-        {
-            "cve": {
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "Deno is a JavaScript, TypeScript, and WebAssembly runtime with secure defaults. Insufficient validation of parameters in `Deno.makeTemp*` APIs would allow for creation of files outside of the allowed directories. This may allow the user to overwrite important files on the system that may affect other systems. A user may provide a prefix or suffix to a `Deno.makeTemp*` API containing path traversal characters. This is fixed in Deno 1.41.1.\n\n"
-                    }
-                ],
-                "id": "CVE-2024-27931",
-                "lastModified": "2024-03-05T18:50:18.333",
-                "metrics": {
-                    "cvssMetricV31": [
-                        {
-                            "cvssData": {
-                                "attackComplexity": "LOW",
-                                "attackVector": "NETWORK",
-                                "availabilityImpact": "NONE",
-                                "baseScore": 5.8,
-                                "baseSeverity": "MEDIUM",
-                                "confidentialityImpact": "NONE",
-                                "integrityImpact": "LOW",
-                                "privilegesRequired": "NONE",
-                                "scope": "CHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:L/A:N",
-                                "version": "3.1"
-                            },
-                            "exploitabilityScore": 3.9,
-                            "impactScore": 1.4,
-                            "source": "security-advisories@github.com",
-                            "type": "Secondary"
-                        }
-                    ]
-                },
-                "published": "2024-03-05T17:15:07.310",
-                "references": [
-                    {
-                        "source": "security-advisories@github.com",
-                        "url": "https://github.com/denoland/deno/security/advisories/GHSA-hrqr-jv8w-v9jh"
-                    }
-                ],
-                "sourceIdentifier": "security-advisories@github.com",
-                "vulnStatus": "Awaiting Analysis",
-                "weaknesses": [
-                    {
-                        "description": [
-                            {
-                                "lang": "en",
-                                "value": "CWE-20"
-                            }
-                        ],
-                        "source": "security-advisories@github.com",
-                        "type": "Secondary"
-                    }
-                ]
-            }
-        },
         {
             "cve": {
                 "descriptions": [
@@ -386,6 +184,369 @@
                 ],
                 "sourceIdentifier": "security@vmware.com",
                 "vulnStatus": "Awaiting Analysis"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "IBM Aspera Faspex 5.0.0 and 5.0.1 is vulnerable to HTTP header injection, caused by improper validation of input by the HOST headers.  This could allow an attacker to conduct various attacks against the vulnerable system, including cross-site scripting, cache poisoning or session hijacking.  IBM X-Force ID:  222562."
+                    }
+                ],
+                "id": "CVE-2022-22399",
+                "lastModified": "2024-03-05T20:16:00.620",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 5.4,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "LOW",
+                                "integrityImpact": "LOW",
+                                "privilegesRequired": "LOW",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.8,
+                            "impactScore": 2.5,
+                            "source": "psirt@us.ibm.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-05T20:16:00.620",
+                "references": [
+                    {
+                        "source": "psirt@us.ibm.com",
+                        "url": "https://exchange.xforce.ibmcloud.com/vulnerabilities/222562"
+                    },
+                    {
+                        "source": "psirt@us.ibm.com",
+                        "url": "https://www.ibm.com/support/pages/node/6618959"
+                    }
+                ],
+                "sourceIdentifier": "psirt@us.ibm.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-644"
+                            }
+                        ],
+                        "source": "psirt@us.ibm.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "LDAP users on IBM Spectrum Virtualize 8.5 which are configured to require multifactor authentication can still authenticate to the CIM interface using only username and password. This does not affect local users with MFA configured or remote users authenticating via single sign-on.  IBM X-Force ID:  247033."
+                    }
+                ],
+                "id": "CVE-2023-25681",
+                "lastModified": "2024-03-05T20:16:00.857",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "HIGH",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 5.3,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "LOW",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 1.6,
+                            "impactScore": 3.6,
+                            "source": "psirt@us.ibm.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-05T20:16:00.857",
+                "references": [
+                    {
+                        "source": "psirt@us.ibm.com",
+                        "url": "https://exchange.xforce.ibmcloud.com/vulnerabilities/247033"
+                    },
+                    {
+                        "source": "psirt@us.ibm.com",
+                        "url": "https://www.ibm.com/support/pages/node/6962203"
+                    }
+                ],
+                "sourceIdentifier": "psirt@us.ibm.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-308"
+                            }
+                        ],
+                        "source": "psirt@us.ibm.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "IBM Watson CP4D Data Stores 4.6.0 through 4.6.3 could allow a user with physical access and specific knowledge of the system to modify files or data on the system.  IBM X-Force ID:  248415."
+                    }
+                ],
+                "id": "CVE-2023-26282",
+                "lastModified": "2024-03-05T20:16:01.077",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "HIGH",
+                                "attackVector": "PHYSICAL",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 4.2,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "NONE",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:P/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 0.5,
+                            "impactScore": 3.6,
+                            "source": "psirt@us.ibm.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-05T20:16:01.077",
+                "references": [
+                    {
+                        "source": "psirt@us.ibm.com",
+                        "url": "https://exchange.xforce.ibmcloud.com/vulnerabilities/248415"
+                    },
+                    {
+                        "source": "psirt@us.ibm.com",
+                        "url": "https://https://www.ibm.com/support/pages/node/6965452"
+                    }
+                ],
+                "sourceIdentifier": "psirt@us.ibm.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-73"
+                            }
+                        ],
+                        "source": "psirt@us.ibm.com",
+                        "type": "Primary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A memory corruption issue was addressed with improved validation. This issue is fixed in iOS 16.7.6 and iPadOS 16.7.6, iOS 17.4 and iPadOS 17.4. An attacker with arbitrary kernel read and write capability may be able to bypass kernel memory protections. Apple is aware of a report that this issue may have been exploited."
+                    }
+                ],
+                "id": "CVE-2024-23225",
+                "lastModified": "2024-03-05T20:16:01.370",
+                "metrics": {},
+                "published": "2024-03-05T20:16:01.370",
+                "references": [
+                    {
+                        "source": "product-security@apple.com",
+                        "url": "https://support.apple.com/en-us/HT214081"
+                    },
+                    {
+                        "source": "product-security@apple.com",
+                        "url": "https://support.apple.com/en-us/HT214082"
+                    }
+                ],
+                "sourceIdentifier": "product-security@apple.com",
+                "vulnStatus": "Received"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A privacy issue was addressed with improved private data redaction for log entries. This issue is fixed in iOS 17.4 and iPadOS 17.4. An app may be able to read sensitive location information."
+                    }
+                ],
+                "id": "CVE-2024-23243",
+                "lastModified": "2024-03-05T20:16:01.450",
+                "metrics": {},
+                "published": "2024-03-05T20:16:01.450",
+                "references": [
+                    {
+                        "source": "product-security@apple.com",
+                        "url": "https://support.apple.com/en-us/HT214081"
+                    }
+                ],
+                "sourceIdentifier": "product-security@apple.com",
+                "vulnStatus": "Received"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A logic issue was addressed with improved state management. This issue is fixed in iOS 17.4 and iPadOS 17.4. A user's locked tabs may be briefly visible while switching tab groups when Locked Private Browsing is enabled."
+                    }
+                ],
+                "id": "CVE-2024-23256",
+                "lastModified": "2024-03-05T20:16:01.503",
+                "metrics": {},
+                "published": "2024-03-05T20:16:01.503",
+                "references": [
+                    {
+                        "source": "product-security@apple.com",
+                        "url": "https://support.apple.com/en-us/HT214081"
+                    }
+                ],
+                "sourceIdentifier": "product-security@apple.com",
+                "vulnStatus": "Received"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "A memory corruption issue was addressed with improved validation. This issue is fixed in iOS 17.4 and iPadOS 17.4. An attacker with arbitrary kernel read and write capability may be able to bypass kernel memory protections. Apple is aware of a report that this issue may have been exploited."
+                    }
+                ],
+                "id": "CVE-2024-23296",
+                "lastModified": "2024-03-05T20:16:01.553",
+                "metrics": {},
+                "published": "2024-03-05T20:16:01.553",
+                "references": [
+                    {
+                        "source": "product-security@apple.com",
+                        "url": "https://support.apple.com/en-us/HT214081"
+                    }
+                ],
+                "sourceIdentifier": "product-security@apple.com",
+                "vulnStatus": "Received"
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "The \"Rich Filemanager\" feature of Artica Proxy provides a web-based interface for file management capabilities. When the feature is enabled, it does not require authentication by default, and runs as the root user."
+                    }
+                ],
+                "id": "CVE-2024-2055",
+                "lastModified": "2024-03-05T20:16:01.617",
+                "metrics": {},
+                "published": "2024-03-05T20:16:01.617",
+                "references": [
+                    {
+                        "source": "cve@takeonme.org",
+                        "url": "http://seclists.org/fulldisclosure/2024/Mar/13"
+                    },
+                    {
+                        "source": "cve@takeonme.org",
+                        "url": "https://korelogic.com/Resources/Advisories/KL-001-2024-003.txt"
+                    }
+                ],
+                "sourceIdentifier": "cve@takeonme.org",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-288"
+                            },
+                            {
+                                "lang": "en",
+                                "value": "CWE-552"
+                            }
+                        ],
+                        "source": "cve@takeonme.org",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Services that are running and bound to the loopback interface on the Artica Proxy are accessible through the proxy service. In particular, the \"tailon\" service is running, running as the root user, is bound to the loopback interface, and is listening on TCP port 7050. Security issues associated with exposing this network service are documented at gvalkov's 'tailon' GitHub repo. Using the tailon service, the contents of any file on the Artica Proxy can be viewed."
+                    }
+                ],
+                "id": "CVE-2024-2056",
+                "lastModified": "2024-03-05T20:16:01.703",
+                "metrics": {},
+                "published": "2024-03-05T20:16:01.703",
+                "references": [
+                    {
+                        "source": "cve@takeonme.org",
+                        "url": "http://seclists.org/fulldisclosure/2024/Mar/14"
+                    },
+                    {
+                        "source": "cve@takeonme.org",
+                        "url": "https://github.com/gvalkov/tailon#security"
+                    },
+                    {
+                        "source": "cve@takeonme.org",
+                        "url": "https://korelogic.com/Resources/Advisories/KL-001-2024-004.txt"
+                    }
+                ],
+                "sourceIdentifier": "cve@takeonme.org",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-288"
+                            },
+                            {
+                                "lang": "en",
+                                "value": "CWE-552"
+                            }
+                        ],
+                        "source": "cve@takeonme.org",
+                        "type": "Secondary"
+                    }
+                ]
             }
         }
     ]
