@@ -1,16 +1,16 @@
 import os
 import openai
-from dotenv import load_dotenv
-load_dotenv()
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# from dotenv import load_dotenv
+# load_dotenv()
+openai.api_key = "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"
 
 #https://www.pinecone.io/learn/fine-tune-gpt-3.5
 
-res = openai.FineTuningJob.create(
-    training_file='file-6QG5cJlXiM2AhHvb59kI26n8',
+res = openai.fine_tuning.jobs.create(
+    training_file='file-AvblJfzyLR5VoVSiU7YyqPCu',
     model="gpt-3.5-turbo"
 )
-job_id = res["id"]
+job_id = res.id
 print(res)
 
 """{
