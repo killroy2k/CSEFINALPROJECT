@@ -12,7 +12,7 @@ threat_count = 0
 
 
 class CVE:
-    def __init__(self, id, description, severity, attackVector, attackComplexity, privilegesRequired, userInteraction, confidentialityImpact, integrityImpact, availabilityImpact):
+    def __init__(self, id, description, severity, attackVector, attackComplexity, privilegesRequired, userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, openai_description):
         self.id = id
         self.description = description
         self.severity = severity
@@ -23,6 +23,7 @@ class CVE:
         self.confidentialityImpact = confidentialityImpact
         self.integrityImpact = integrityImpact
         self.availabilityImpact = availabilityImpact
+        self.openai_description = openai_description
 
     def __str__(self):
         return "CVE(ID: {self.id}, Severity: {self.severity}, Description: {self.description})"
@@ -47,7 +48,8 @@ def setup_db():
                 confidentialityImpact TEXT,
                 integrityImpact TEXT,
                 availabilityImpact TEXT,
-                ai_isthreat_reply TEXT,
+                gpt_response TEXT,
+                openai_description TEXT,
                 last_modified DATETIME
             )
         ''')
@@ -142,7 +144,7 @@ def check_nvd(hour_diff):
 
         # Initialize the CVE object with the new attributes
         cve_obj = CVE(cve_id, description, severity, vector_string, complexity, privileges_required, 
-                      user_interaction, confidentiality_impact, integrity_impact, availability_impact)
+                      user_interaction, confidentiality_impact, integrity_impact, availability_impact,openai_description="")
         cve_list.append(cve_obj)
 
     return cve_list
@@ -153,12 +155,12 @@ def update_cves_table(new_cves, db):
     
     for cve in new_cves:
         current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
-        ai_isthreat_reply = check_if_threat(cve)
+        gpt_response = check_if_threat(cve)
         cursor.execute('''
             INSERT INTO cves (
                 id, description, severity, attackVector, attackComplexity, privilegesRequired,
-                userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, ai_isthreat_reply, last_modified
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, last_modified
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(id) DO UPDATE SET
                 description=excluded.description,
                 severity=excluded.severity,
@@ -169,11 +171,12 @@ def update_cves_table(new_cves, db):
                 confidentialityImpact=excluded.confidentialityImpact,
                 integrityImpact=excluded.integrityImpact,
                 availabilityImpact=excluded.availabilityImpact,
-                ai_isthreat_reply=excluded.ai_isthreat_reply,
+                gpt_response=excluded.gpt_response,
+                openai_description=excluded.openai_description,
                 last_modified=excluded.last_modified
         ''', (
             cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
-            cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, ai_isthreat_reply, current_time
+            cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, current_time
         ))
     
     db.commit()
@@ -192,7 +195,7 @@ def check_if_threat(cve):
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
                 Generate the complete eight field 3.1 CVSS vector string based off this description.\
-                Only provide AV, AC, PR, UI, S, C, I, A values\
+                Only provide AV, AC, PR, UI, S, C, I, A values, an example: AV:X/AC:X/PR:X/UI:X/S:X/C:X/I:X/A:X\
             "},
             {"role": "user", "content": cve.description}
         ],
@@ -214,9 +217,8 @@ def check_if_threat(cve):
         print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
 
     cvss_score = 7.1 #Placeholder for CVSS score from manual calculation
-    openai_description = ""
     if cvss_score > 0.0:
-        openai_description = openai_generate_cve_description(cve)
+        cve.openai_description = openai_generate_cve_description(cve)
 
     # Return the openai response
     return openai_analysis
@@ -239,6 +241,7 @@ def openai_generate_cve_description(cve):
     )
 
     print(completion.choices[0].message.content)
+    return completion.choices[0].message.content
 
 
 def send_threat_mail(cve):
