@@ -195,8 +195,8 @@ def check_if_threat(cve):
         ],
         temperature=1
     )
-    openai_analysis = completion.choices[0].message.content.lower()
-    print("chatgpt returns: " + openai_analysis)
+    openai_analysis = completion.choices[0].message.content.lower() # Get the response from OpenAI
+    print("chatgpt returns: " + openai_analysis) 
 
     # openai_analysis = 'yes'
 
