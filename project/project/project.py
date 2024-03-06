@@ -54,14 +54,7 @@ def setup_db():
                 last_modified DATETIME
             )
         ''')
-        cursor.execute('''
-            CREATE TABLE accuracy (
-                source TEXT PRIMARY KEY,
-                pass INTEGER,
-                fail INTEGER
-            )
-        ''')
-        cursor.execute("INSERT INTO accuracy (source, pass, fail) VALUES ('cisa', 0, 0)")
+
         db.commit()
     
     return db
