@@ -1,9 +1,9 @@
 {
     "format": "NVD_CVE",
-    "resultsPerPage": 1,
+    "resultsPerPage": 5,
     "startIndex": 0,
-    "timestamp": "2024-03-06T05:29:53.593",
-    "totalResults": 1,
+    "timestamp": "2024-03-06T18:45:44.053",
+    "totalResults": 5,
     "version": "2.0",
     "vulnerabilities": [
         {
@@ -11,53 +11,301 @@
                 "descriptions": [
                     {
                         "lang": "en",
-                        "value": "A stack-based buffer overflow in the built-in web server in Moxa NPort W2150A/W2250A Series firmware version 2.3 and prior allows a remote attacker to exploit the vulnerability by sending crafted payload to the web service. Successful exploitation of the vulnerability could result in denial of service.\n\n"
+                        "value": "Pega Platform from 7.1.7 to 23.1.1 is affected by an XSS issue with editing/rendering user html content."
                     }
                 ],
-                "id": "CVE-2024-1220",
-                "lastModified": "2024-03-06T02:15:44.810",
+                "id": "CVE-2023-50167",
+                "lastModified": "2024-03-06T18:15:46.133",
                 "metrics": {
                     "cvssMetricV31": [
                         {
                             "cvssData": {
                                 "attackComplexity": "LOW",
                                 "attackVector": "NETWORK",
-                                "availabilityImpact": "HIGH",
-                                "baseScore": 8.2,
-                                "baseSeverity": "HIGH",
-                                "confidentialityImpact": "NONE",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 5.4,
+                                "baseSeverity": "MEDIUM",
+                                "confidentialityImpact": "LOW",
                                 "integrityImpact": "LOW",
-                                "privilegesRequired": "NONE",
-                                "scope": "UNCHANGED",
-                                "userInteraction": "NONE",
-                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+                                "privilegesRequired": "LOW",
+                                "scope": "CHANGED",
+                                "userInteraction": "REQUIRED",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N",
                                 "version": "3.1"
                             },
-                            "exploitabilityScore": 3.9,
-                            "impactScore": 4.2,
-                            "source": "psirt@moxa.com",
+                            "exploitabilityScore": 2.3,
+                            "impactScore": 2.7,
+                            "source": "security@pega.com",
                             "type": "Secondary"
                         }
                     ]
                 },
-                "published": "2024-03-06T02:15:44.810",
+                "published": "2024-03-06T18:15:46.133",
                 "references": [
                     {
-                        "source": "psirt@moxa.com",
-                        "url": "https://www.moxa.com/en/support/product-support/security-advisory/mpsa-238975-nport-w2150a-w2250a-series-web-server-stack-based-buffer-overflow-vulnerability"
+                        "source": "security@pega.com",
+                        "url": "https://support.pega.com/support-doc/pega-security-advisory-i23-vulnerability-remediation-note"
                     }
                 ],
-                "sourceIdentifier": "psirt@moxa.com",
+                "sourceIdentifier": "security@pega.com",
                 "vulnStatus": "Received",
                 "weaknesses": [
                     {
                         "description": [
                             {
                                 "lang": "en",
-                                "value": "CWE-121"
+                                "value": "CWE-79"
                             }
                         ],
-                        "source": "psirt@moxa.com",
+                        "source": "security@pega.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "eProsima Fast DDS (formerly Fast RTPS) is a C++ implementation of the Data Distribution Service standard of the Object Management Group. Prior to versions 2.13.0, 2.12.2, 2.11.3, 2.10.3, and 2.6.7, an invalid DATA_FRAG Submessage causes a bad-free error, and the Fast-DDS process can be remotely terminated. If an invalid Data_Frag packet is sent, the `Inline_qos, SerializedPayload` member of object `ch` will attempt to release memory without initialization, resulting in a 'bad-free' error. Versions 2.13.0, 2.12.2, 2.11.3, 2.10.2, and 2.6.7 fix this issue."
+                    }
+                ],
+                "id": "CVE-2023-50716",
+                "lastModified": "2024-03-06T18:15:46.360",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "ADJACENT_NETWORK",
+                                "availabilityImpact": "HIGH",
+                                "baseScore": 9.6,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "CHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 2.8,
+                            "impactScore": 6.0,
+                            "source": "security-advisories@github.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-06T18:15:46.360",
+                "references": [
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/eProsima/Fast-DDS/security/advisories/GHSA-5m2f-hvj2-cx2h"
+                    }
+                ],
+                "sourceIdentifier": "security-advisories@github.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-416"
+                            }
+                        ],
+                        "source": "security-advisories@github.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "Galette is a membership management web application for non profit organizations. Starting in version 1.0.0 and prior to version 1.0.2, public pages are per default restricted to only administrators and staff members. From configuration, it is possible to restrict to up-to-date members or to everyone. Version 1.0.2 fixes this issue."
+                    }
+                ],
+                "id": "CVE-2024-24761",
+                "lastModified": "2024-03-06T18:15:46.620",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 7.5,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "NONE",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 3.6,
+                            "source": "security-advisories@github.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-06T18:15:46.620",
+                "references": [
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/galette/galette/commit/a5c18bb9819b8da1b3ef58f3e79577083c657fbb"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/galette/galette/security/advisories/GHSA-jrqg-mpwv-pxpv"
+                    }
+                ],
+                "sourceIdentifier": "security-advisories@github.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-863"
+                            }
+                        ],
+                        "source": "security-advisories@github.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "CasaOS-UserService provides user management functionalities to CasaOS. Prior to version 0.4.7, path filtering of the URL for user avatar image files was not strict, making it possible to get any file on the system. This could allow an unauthorized actor to access, for example, the CasaOS user database, and possibly obtain system root privileges. Version 0.4.7 fixes this issue."
+                    }
+                ],
+                "id": "CVE-2024-24765",
+                "lastModified": "2024-03-06T18:15:46.807",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 7.5,
+                                "baseSeverity": "HIGH",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "NONE",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 3.6,
+                            "source": "security-advisories@github.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-06T18:15:46.807",
+                "references": [
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/IceWhaleTech/CasaOS-UserService/commit/3f4558e23c0a9958f9a0e20aabc64aa8fd51840e"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/IceWhaleTech/CasaOS-UserService/releases/tag/v0.4.7"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/IceWhaleTech/CasaOS-UserService/security/advisories/GHSA-h5gf-cmm8-cg7c"
+                    }
+                ],
+                "sourceIdentifier": "security-advisories@github.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-200"
+                            }
+                        ],
+                        "source": "security-advisories@github.com",
+                        "type": "Secondary"
+                    }
+                ]
+            }
+        },
+        {
+            "cve": {
+                "descriptions": [
+                    {
+                        "lang": "en",
+                        "value": "CasaOS-UserService provides user management functionalities to CasaOS. Starting in version 0.4.4.3 and prior to version 0.4.7, CasaOS doesn't defend against password brute force attacks, which leads to having full access to the server. The web application lacks control over the login attempts. This vulnerability allows attackers to get super user-level access over the server. Version 0.4.7 contains a patch for this issue."
+                    }
+                ],
+                "id": "CVE-2024-24767",
+                "lastModified": "2024-03-06T18:15:46.983",
+                "metrics": {
+                    "cvssMetricV31": [
+                        {
+                            "cvssData": {
+                                "attackComplexity": "LOW",
+                                "attackVector": "NETWORK",
+                                "availabilityImpact": "NONE",
+                                "baseScore": 9.1,
+                                "baseSeverity": "CRITICAL",
+                                "confidentialityImpact": "HIGH",
+                                "integrityImpact": "HIGH",
+                                "privilegesRequired": "NONE",
+                                "scope": "UNCHANGED",
+                                "userInteraction": "NONE",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+                                "version": "3.1"
+                            },
+                            "exploitabilityScore": 3.9,
+                            "impactScore": 5.2,
+                            "source": "security-advisories@github.com",
+                            "type": "Secondary"
+                        }
+                    ]
+                },
+                "published": "2024-03-06T18:15:46.983",
+                "references": [
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/IceWhaleTech/CasaOS-UserService/commit/62006f61b55951048dbace4ebd9e483274838699"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/IceWhaleTech/CasaOS-UserService/releases/tag/v0.4.7"
+                    },
+                    {
+                        "source": "security-advisories@github.com",
+                        "url": "https://github.com/IceWhaleTech/CasaOS-UserService/security/advisories/GHSA-c69x-5xmw-v44x"
+                    }
+                ],
+                "sourceIdentifier": "security-advisories@github.com",
+                "vulnStatus": "Received",
+                "weaknesses": [
+                    {
+                        "description": [
+                            {
+                                "lang": "en",
+                                "value": "CWE-307"
+                            }
+                        ],
+                        "source": "security-advisories@github.com",
                         "type": "Secondary"
                     }
                 ]

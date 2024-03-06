@@ -13,7 +13,7 @@ threat_count = 0
 
 
 class CVE:
-    def __init__(self, id, description, severity, attackVector, attackComplexity, privilegesRequired, userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, openai_description):
+    def __init__(self, id, description, severity, attackVector, attackComplexity, privilegesRequired, userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, openai_description, gpt_response, calc_score_based_on_ai=0):
         self.id = id
         self.description = description
         self.severity = severity
@@ -25,6 +25,8 @@ class CVE:
         self.integrityImpact = integrityImpact
         self.availabilityImpact = availabilityImpact
         self.openai_description = openai_description
+        self.gpt_response = gpt_response
+        self.calc_score_based_on_ai = calc_score_based_on_ai
 
     def __str__(self):
         return "CVE(ID: {self.id}, Severity: {self.severity}, Description: {self.description})"
@@ -71,17 +73,9 @@ def check_nvd(hour_diff):
     start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
     end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
 
-    #incorrect time format for NVD api 2.0
-    # start = time_diff.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
-    # end = time_now.strftime('%Y-%m-%dT%H:%M:%S:000 UTC-00:00')
-    
-
     # URL for the NVD API, resultsPerPage modified by the source documentation(max= 1000)
     url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate={start}&pubEndDate={end}"
     
-    #old url
-    #url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?pubStartDate={start}&pubEndDate={end}&resultsPerPage=2000"
-
     # Make the API call
     headers = {'apiKey': API_KEYS._NVD_KEY}
     response = requests.get(url, headers=headers)
@@ -92,8 +86,8 @@ def check_nvd(hour_diff):
     # Parse the response and create CVE objects
     cve_list = []
     data = response.json()
-    with open('test.json', 'w') as f:
-        json.dump(data, f, indent =4, sort_keys =True)
+    # with open('test.json', 'w') as f:
+    #     json.dump(data, f, indent =4, sort_keys =True)
     json_list = [data.get("vulnerabilities",{})]
     
     for cve in json_list[0]:
@@ -101,7 +95,6 @@ def check_nvd(hour_diff):
         cve_id = cve['cve']['id']
         # print(cve_id)
         description = cve['cve']['descriptions'][0]['value']
-
 
         #if statement is used to determine which version the cve is graded on (cvssMetricV31 is preferred)
         checkMetric = cve['cve'].get('metrics')
@@ -137,7 +130,7 @@ def check_nvd(hour_diff):
 
         # Initialize the CVE object with the new attributes
         cve_obj = CVE(cve_id, description, severity, vector_string, complexity, privileges_required, 
-                      user_interaction, confidentiality_impact, integrity_impact, availability_impact,openai_description="")
+                      user_interaction, confidentiality_impact, integrity_impact, availability_impact,openai_description="", gpt_response="", calc_score_based_on_ai=0)
         cve_list.append(cve_obj)
 
     return cve_list
@@ -150,6 +143,21 @@ def update_cves_table(new_cves, db):
         current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
         gpt_response = check_if_threat(cve)
         calc_score_based_on_ai = calculate_cvss_score(gpt_response)
+        cve.calc_score_based_on_ai = calc_score_based_on_ai
+
+        if cve.calc_score_based_on_ai is None:
+            print(f"Skipping {cve.id} due to an error in the CVSS calculation.")
+            continue
+
+        #Update the severity based on the calculated score
+        if cve.calc_score_based_on_ai < 3.9:
+            cve.severity = "LOW"
+        elif cve.calc_score_based_on_ai < 7.0:
+            cve.severity = "MEDIUM"
+        elif cve.calc_score_based_on_ai < 9.0:
+            cve.severity = "HIGH"
+        elif cve.calc_score_based_on_ai <= 10.0:
+            cve.severity = "CRITICAL"
 
         cursor.execute('''
             INSERT INTO cves (
@@ -174,12 +182,12 @@ def update_cves_table(new_cves, db):
             cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
             cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
         ))
+
+        send_threat_mail(cve)
     
     db.commit()
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
 
-
-# WRITE DISCLAIMER (INACCURATE RESULTS)
 def check_if_threat(cve):
     print("check if threat 183")
     global threat_count
@@ -200,25 +208,18 @@ def check_if_threat(cve):
 
     print("rated severity: " + cve.severity)
     openai_analysis = completion.choices[0].message.content.lower()
+    cve.gpt_response = openai_analysis.upper()  # Store the generated attack vector in the CVE object
     print("chatgpt returns: " + openai_analysis)
     
-    # openai_analysis = 'yes'
+    threat_count += 1
+    # print(send_threat_mail(cve))
+    # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
+    print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
 
-    # Check if the severity is high enough or OpenAI analysis is 'yes'
-    # if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"] and openai_analysis == "yes":
-    if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"]:
-        threat_count += 1
-        # print(send_threat_mail(cve))
-        # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
-        print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
-
-    cvss_score = 7.1 #Placeholder for CVSS score from manual calculation
-    if cvss_score > 0.0:
-        cve.openai_description = openai_generate_cve_description(cve)
-
+    cve.openai_description = openai_generate_cve_description(cve)
+    
     # Return the openai response
     return openai_analysis
-
 
 def openai_generate_cve_description(cve):
     print("line 217 openai generate cve desc")
@@ -228,7 +229,7 @@ def openai_generate_cve_description(cve):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
-                Generate a complete description of this CVE, and possible solutions, as if I am a cybersecurity analyst\
+                Generate a complete description of this CVE, and possible solutions(separated by line breaks), as if I am a cybersecurity analyst\
                 notifying clients of this threat\
             "},
             {"role": "user", "content": cve.id + cve.description}
@@ -258,6 +259,7 @@ def calculate_cvss_score(openai_analysis):
         c = CVSS4(openai_analysis)
         return c.base_score
 
+# WRITE DISCLAIMER (INACCURATE RESULTS)
 def send_threat_mail(cve):
     try:
         # Setup email server connection
@@ -271,22 +273,23 @@ def send_threat_mail(cve):
         msg['From'] = secret._HOST_EMAIL
         msg['To'] = ", ".join(secret._RECEIVER_EMAILS)
 
+        # Convert OpenAI description to HTML output including linebreaks
+        openai_description_html = cve.openai_description.replace('\n', '<br>')
+
         # HTML Email body
         html_body = f"""\
         <html>
             <body>
                 <p style="font-size: 16px;">
-                    <strong>Threat Report:</strong><br><br>
+                    <strong><u>DISCLAIMER: The following report is AI Generated and may have\
+                        incorrect or misleading information</u></strong><br><br>
+                    <strong>Threat Report:</strong><br>
                     <strong>CVE ID:</strong> {cve.id}<br>
                     <strong>Description:</strong> {cve.description}<br>
+                    <strong>Attack Vector:</strong> {cve.gpt_response}<br>
+                    <strong>Generated Score:</strong> {cve.calc_score_based_on_ai}<br>
                     <strong>Severity:</strong> {cve.severity}<br>
-                    <strong>Attack Vector:</strong> {cve.attackVector}<br>
-                    <strong>Attack Complexity:</strong> {cve.attackComplexity}<br>
-                    <strong>Privileges Required:</strong> {cve.privilegesRequired}<br>
-                    <strong>User Interaction:</strong> {cve.userInteraction}<br>
-                    <strong>Confidentiality Impact:</strong> {cve.confidentialityImpact}<br>
-                    <strong>Integrity Impact:</strong> {cve.integrityImpact}<br>
-                    <strong>Availability Impact:</strong> {cve.availabilityImpact}<br>
+                    <strong>Generated Description and Solutions:</strong> <br>{openai_description_html}<br>
                 </p>
             </body>
         </html>
