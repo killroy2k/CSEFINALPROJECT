@@ -1,6 +1,7 @@
 # API and Email secrets
 protected_info.py
 
+
 # DB not needed
 *.db
 test.json

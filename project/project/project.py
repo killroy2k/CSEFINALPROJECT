@@ -4,6 +4,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
+from cvss import CVSS3,CVSS4
 import json
 
 from protected_info import *
@@ -30,7 +31,6 @@ class CVE:
 
     
 def setup_db():
-    print("setting up")
     db_exists = os.path.exists('project.db')
     db = sqlite3.connect('project.db')
     cursor = db.cursor()
@@ -50,6 +50,7 @@ def setup_db():
                 availabilityImpact TEXT,
                 gpt_response TEXT,
                 openai_description TEXT,
+                calc_score_based_on_ai TEXT,
                 last_modified DATETIME
             )
         ''')
@@ -67,7 +68,6 @@ def setup_db():
 
 #hour diff is used to request entries between current time and (current time - hour_diff)
 def check_nvd(hour_diff):
-    print("checking")
     # Ensure that hourdiff is a positive integer
     if not isinstance(hour_diff, int) or hour_diff < 0:
         raise ValueError("hourdiff must be a non-negative integer")
@@ -106,14 +106,14 @@ def check_nvd(hour_diff):
     for cve in json_list[0]:
         # print(cve)
         cve_id = cve['cve']['id']
-        print(cve_id)
+        # print(cve_id)
         description = cve['cve']['descriptions'][0]['value']
 
 
         #if statement is used to determine which version the cve is graded on (cvssMetricV31 is preferred)
         checkMetric = cve['cve'].get('metrics')
         if checkMetric == {}:
-            print("continuing")
+            # print("continuing")
             severity = 'UNKNOWN'
             base_score = 'UNKNOWN'
             vector_string = 'UNKNOWN'
@@ -156,11 +156,13 @@ def update_cves_table(new_cves, db):
     for cve in new_cves:
         current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
         gpt_response = check_if_threat(cve)
+        calc_score_based_on_ai = calculate_cvss_score(ai_isthreat_reply)
+
         cursor.execute('''
             INSERT INTO cves (
                 id, description, severity, attackVector, attackComplexity, privilegesRequired,
-                userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, last_modified
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(id) DO UPDATE SET
                 description=excluded.description,
                 severity=excluded.severity,
@@ -171,12 +173,11 @@ def update_cves_table(new_cves, db):
                 confidentialityImpact=excluded.confidentialityImpact,
                 integrityImpact=excluded.integrityImpact,
                 availabilityImpact=excluded.availabilityImpact,
-                gpt_response=excluded.gpt_response,
-                openai_description=excluded.openai_description,
+                ai_isthreat_reply=excluded.ai_isthreat_reply,
                 last_modified=excluded.last_modified
         ''', (
             cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
-            cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, current_time
+            cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, ai_isthreat_reply, current_time
         ))
     
     db.commit()
@@ -205,7 +206,7 @@ def check_if_threat(cve):
     print("rated severity: " + cve.severity)
     openai_analysis = completion.choices[0].message.content.lower()
     print("chatgpt returns: " + openai_analysis)
-
+    
     # openai_analysis = 'yes'
 
     # Check if the severity is high enough or OpenAI analysis is 'yes'
@@ -243,9 +244,24 @@ def openai_generate_cve_description(cve):
     print(completion.choices[0].message.content)
     return completion.choices[0].message.content
 
+def calculate_cvss_score(openai_analysis):
+    scope = "S:"
+    if len(openai_analysis) > 35:
+        # vector = openai_analysis.split("/") #may just be an error string instead of the optimized attack vector
+        print("error finding score: attack vector not optimized for base score calculation")
+        return None
+    elif scope.lower() in openai_analysis.lower():
+        print("3.0: ", openai_analysis)
+        vector = 'CVSS:3.0/' + openai_analysis.upper()
+        c= CVSS3(vector)
+        return c.scores()[0]
+    elif "4.0" in openai_analysis: #if the vector given by openai is cvss 4.0 then the following code will be used
+        print("4.0: ", openai_analysis)
+        # vector = 'CVSS:4.0/' + openai_analysis
+        c = CVSS4(openai_analysis)
+        return c.base_score
 
 def send_threat_mail(cve):
-    print("sending threat email")
     try:
         # Setup email server connection
         server = smtplib.SMTP('smtp.gmail.com', 587)
