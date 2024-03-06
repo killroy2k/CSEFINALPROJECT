@@ -195,7 +195,7 @@ def check_if_threat(cve):
     # Analyze with OpenAI
     openai.api_key = API_KEYS._OPENAI_KEY
     completion = openai.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:personal::8zV4YfJo",
+        model="ft:gpt-3.5-turbo-0125:personal::8zrM1lG9",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
                 Generate the complete eight field 3.1 CVSS vector string based off this description.\
