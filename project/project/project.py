@@ -5,7 +5,6 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 from cvss import CVSS3,CVSS4
-import json
 
 from protected_info import *
 
