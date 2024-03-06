@@ -1,10 +1,14 @@
 # API and Email secrets
 protected_info.py
 
+
 # DB not needed
 *.db
+test.json
 
 # General
+*.json
+*.pyc
 .DS_Store
 .AppleDouble
 .LSOverride
