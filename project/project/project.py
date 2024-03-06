@@ -210,18 +210,22 @@ def check_if_threat(cve):
 
     # Check if the severity is high enough or OpenAI analysis is 'yes'
     # if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"] and openai_analysis == "yes":
-    if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"]:
+    if cve.severity in ["MEDIUM", "HIGH", "CRITICAL"]: #unknown is not really a threat yet
         threat_count += 1
         # print(send_threat_mail(cve))
         # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
         print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
 
     # cvss_score = 7.1 #Placeholder for CVSS score from manual calculation
-    cvss_score = calculate_cvss_score(openai_analysis)
-    print("cvss score: ", cvss_score)
-    if cvss_score == None:
-        cvss_score = "UNKNOWN"
-    if cvss_score >= 7.1: #if the score is equal or more then the cve is predicted to be a high or critical threat
+    if cve.severity == "UNKNOWN":
+        cvss_score = calculate_cvss_score(openai_analysis)
+        print("cvss score: ", cvss_score)
+        if cvss_score > 7.1 and cvss_score <= 10:
+            cve.severity = "CRITICAL"
+        elif cvss_score >= 7.1: #if the score is equal or more then the cve is predicted to be a high or critical threat
+            threat_count += 1
+            cve.severity = "HIGH"
+    
         openai_generate_cve_description(cve)
 
     # Return the openai response
@@ -251,8 +255,8 @@ def calculate_cvss_score(openai_analysis):
     if len(openai_analysis) > 35:
         # vector = openai_analysis.split("/") #may just be an error string instead of the optimized attack vector
         print("error finding score: attack vector not optimized for base score calculation")
-        return None
-    elif scope.lower() in openai_analysis.lower():
+        return "UNKNOWN"
+    elif scope in openai_analysis.upper():
         print("3.0: ", openai_analysis)
         vector = 'CVSS:3.0/' + openai_analysis.upper()
         c= CVSS3(vector)
@@ -262,8 +266,12 @@ def calculate_cvss_score(openai_analysis):
         # vector = 'CVSS:4.0/' + openai_analysis
         c = CVSS4(openai_analysis)
         return c.base_score
+    else:
+        print("error finding score: unknown error")
+        return "UNKNOWN"
 
 def send_threat_mail(cve):
+    print("sending threat mail")
     try:
         # Setup email server connection
         server = smtplib.SMTP('smtp.gmail.com', 587)
