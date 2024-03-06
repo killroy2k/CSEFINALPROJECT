@@ -156,7 +156,7 @@ def update_cves_table(new_cves, db):
     for cve in new_cves:
         current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
         gpt_response = check_if_threat(cve)
-        calc_score_based_on_ai = calculate_cvss_score(ai_isthreat_reply)
+        calc_score_based_on_ai = calculate_cvss_score(gpt_response)
 
         cursor.execute('''
             INSERT INTO cves (
@@ -173,11 +173,13 @@ def update_cves_table(new_cves, db):
                 confidentialityImpact=excluded.confidentialityImpact,
                 integrityImpact=excluded.integrityImpact,
                 availabilityImpact=excluded.availabilityImpact,
-                ai_isthreat_reply=excluded.ai_isthreat_reply,
+                gpt_response=excluded.gpt_response,
+                openai_description=excluded.openai_description,
+                calc_score_based_on_ai=excluded.calc_score_based_on_ai,
                 last_modified=excluded.last_modified
         ''', (
             cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
-            cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, ai_isthreat_reply, current_time
+            cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
         ))
     
     db.commit()
@@ -245,6 +247,7 @@ def openai_generate_cve_description(cve):
     return completion.choices[0].message.content
 
 def calculate_cvss_score(openai_analysis):
+    print("\n")
     scope = "S:"
     if len(openai_analysis) > 35:
         # vector = openai_analysis.split("/") #may just be an error string instead of the optimized attack vector
@@ -254,6 +257,7 @@ def calculate_cvss_score(openai_analysis):
         print("3.0: ", openai_analysis)
         vector = 'CVSS:3.0/' + openai_analysis.upper()
         c= CVSS3(vector)
+        print(c.scores()[0])
         return c.scores()[0]
     elif "4.0" in openai_analysis: #if the vector given by openai is cvss 4.0 then the following code will be used
         print("4.0: ", openai_analysis)
