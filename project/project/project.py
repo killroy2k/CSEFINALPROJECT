@@ -205,10 +205,10 @@ def check_if_threat(cve):
         ],
         temperature=1
     )
-<<<<<<< HEAD
+#<<<<<<< HEAD
     openai_analysis = completion.choices[0].message.content.lower() # Get the response from OpenAI
     print("chatgpt returns: " + openai_analysis) 
-=======
+#=======
 
     print("rated severity: " + cve.severity)
     openai_analysis = completion.choices[0].message.content.lower()
@@ -219,7 +219,7 @@ def check_if_threat(cve):
     # print(send_threat_mail(cve))
     # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
     print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
->>>>>>> main
+#>>>>>>> main
 
     cve.openai_description = openai_generate_cve_description(cve)
     
