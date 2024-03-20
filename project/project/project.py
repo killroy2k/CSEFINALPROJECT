@@ -135,6 +135,7 @@ def check_nvd(hour_diff):
 
     return cve_list
 
+
 def update_cves_table(new_cves, db):
     print("updating cves table")
     cursor = db.cursor()
@@ -188,6 +189,7 @@ def update_cves_table(new_cves, db):
     db.commit()
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
 
+
 def check_if_threat(cve):
     print("check if threat 183")
     global threat_count
@@ -226,6 +228,7 @@ def check_if_threat(cve):
     # Return the openai response
     return openai_analysis
 
+
 def openai_generate_cve_description(cve):
     print("line 217 openai generate cve desc")
 
@@ -244,6 +247,7 @@ def openai_generate_cve_description(cve):
 
     print(completion.choices[0].message.content)
     return completion.choices[0].message.content
+
 
 def calculate_cvss_score(openai_analysis):
     print("\n")
@@ -324,6 +328,7 @@ def fetch_all_rows(db, table_name):
         print(f"An error occurred: {e}")
         return None
     
+
 def print_table(db, table_name):
     rows = fetch_all_rows(db, table_name)
     if rows:
