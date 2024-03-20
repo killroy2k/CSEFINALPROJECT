@@ -4,9 +4,8 @@ CVE Monitoring Project
 Description
 -----------
 
-This project includes scripts for monitoring and reporting Common Vulnerabilities and Exposures (CVEs). It consists of two main Python scripts:
+This project includes scripts for monitoring and reporting Common Vulnerabilities and Exposures (CVEs). It consists of one main Python scripts:
 
-*   `daily_report.py`: Generates a daily report of CVE accuracy and sends it via email.
 *   `threat_check.py`: Checks for new CVEs every hour and updates the database accordingly.
 
 Prerequisites
@@ -16,7 +15,7 @@ To run this project, you need to have the following installed:
 
 *   Python 3.x
 *   SQLite3
-*   Required Python packages: `requests`, `openai`, `tweepy`, `smtplib`
+*   Required Python packages: `requests`, `openai`, `smtplib`
 
 Setup
 -----
@@ -39,7 +38,7 @@ Setup
     
     bashCopy code
     
-    `pip install requests openai tweepy`
+    `pip install requests openai`
     
 5.  **Database Setup:** The project uses SQLite. Ensure SQLite3 is installed on your system.
     
@@ -65,7 +64,7 @@ Usage
     
     bashCopy code
     
-    `python3 daily_report.py python3 threat_check.py`
+    `python3 threat_check.py`
     
 *   **Automated Execution:** If you have set up crontab as per the setup instructions, the scripts will run automatically at the specified times.
     
