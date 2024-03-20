@@ -194,7 +194,7 @@ def check_if_threat(cve):
     # Analyze with OpenAI
     openai.api_key = API_KEYS._OPENAI_KEY
     completion = openai.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:personal::8zrM1lG9",
+        model="ft:gpt-3.5-turbo-0125:personal::94gKPRse",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
                 Generate the complete eight field 3.1 CVSS vector string based off this description.\
@@ -228,10 +228,10 @@ def openai_generate_cve_description(cve):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
-                Generate a complete description of this CVE, and possible solutions(separated by line breaks), as if I am a cybersecurity analyst\
-                notifying clients of this threat\
+                Generate a complete description of this CVE, and possible solutions(separated by line breaks), as if I am a client for a cybersecurity firm\
+                refrain from using jargon and go into length to be descriptive\
             "},
-            {"role": "user", "content": cve.id + cve.description}
+            {"role": "user", "content": "Threat level:" + cve.severity + "CVE ID:" + cve.id + "Description:" + cve.description}
         ],
         temperature=1
     )
@@ -284,8 +284,6 @@ def send_threat_mail(cve):
                         incorrect or misleading information</u></strong><br><br>
                     <strong>Threat Report:</strong><br>
                     <strong>CVE ID:</strong> {cve.id}<br>
-                    <strong>Description:</strong> {cve.description}<br>
-                    <strong>Attack Vector:</strong> {cve.gpt_response}<br>
                     <strong>Generated Score:</strong> {cve.calc_score_based_on_ai}<br>
                     <strong>Severity:</strong> {cve.severity}<br>
                     <strong>Generated Description and Solutions:</strong> <br>{openai_description_html}<br>
