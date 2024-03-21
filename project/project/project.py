@@ -1,4 +1,4 @@
-import requests, openai, csv, tweepy, sqlite3, os, smtplib, json
+import requests, openai, csv, sqlite3, os, smtplib, json
 from datetime import datetime, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -217,27 +217,8 @@ def check_if_threat(cve):
     print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
     # openai_analysis = 'yes'
 
-    # Check if the severity is high enough or OpenAI analysis is 'yes'
-    # if cve.severity in ["MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"] and openai_analysis == "yes":
-    if cve.severity in ["MEDIUM", "HIGH", "CRITICAL"]: #unknown is not really a threat yet
-        threat_count += 1
-        # print(send_threat_mail(cve))
-        # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
-        print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
-
     cve.openai_description = openai_generate_cve_description(cve)
     
-    # cvss_score = 7.1 #Placeholder for CVSS score from manual calculation
-    if cve.severity == "UNKNOWN":
-        cvss_score = calculate_cvss_score(openai_analysis)
-        print("cvss score: ", cvss_score)
-        if cvss_score > 7.1 and cvss_score <= 10:
-            cve.severity = "CRITICAL"
-        elif cvss_score >= 7.1: #if the score is equal or more then the cve is predicted to be a high or critical threat
-            threat_count += 1
-            cve.severity = "HIGH"
-    
-        openai_generate_cve_description(cve)
 
     # Return the openai response
     return openai_analysis

@@ -39,7 +39,7 @@ Setup
     
     bashCopy code
     
-    `pip install requests openai tweepy`
+    `pip install requests openai`
     
 5.  **Database Setup:** The project uses SQLite. Ensure SQLite3 is installed on your system.
     

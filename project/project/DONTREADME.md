@@ -9,6 +9,7 @@ When you wanna
 
 
 
+
 When you make changes in here(VScode)
 1. git add .
 2. git status
