@@ -141,8 +141,12 @@ def check_nvd(hour_diff):
 def update_cves_table(new_cves, db):
     print("updating cves table")
     cursor = db.cursor()
+
+    num_cves = len(new_cves)
+    cur_cve = 1
     
     for cve in new_cves:
+        print("Num CVE: ", cur_cve, " out of ", num_cves)
         current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
         gpt_response = check_if_threat(cve)
         calc_score_based_on_ai = calculate_cvss_score(gpt_response)
@@ -234,8 +238,9 @@ def openai_generate_cve_description(cve):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
-                Generate a complete description of this CVE, and possible solutions(separated by line breaks), as if I am a client for a cybersecurity firm\
-                refrain from using jargon and go into length to be descriptive\
+                Generate a complete description of this CVE, a description of the company/vendor that owns this (including how many users have their products), why this would be a threat to general audiences based on previous information and company description, \
+                and possible solutions(numbered and separated by line breaks), as if I am a client for a cybersecurity firm. Refrain from using jargon and go into length to be descriptive and describe terms that would be unfamiliar to non technical people.\
+                and label each section with a bold header(ONLY BOLD THE SECTION TITLES IN HTML NOTHING ELSE)\
             "},
             {"role": "user", "content": "Threat level:" + cve.severity + "CVE ID:" + cve.id + "Description:" + cve.description}
         ],
@@ -296,7 +301,8 @@ def send_threat_mail(cve):
                     <strong>CVE ID:</strong> {cve.id}<br>
                     <strong>Generated Score:</strong> {cve.calc_score_based_on_ai}<br>
                     <strong>Severity:</strong> {cve.severity}<br>
-                    <strong>Generated Description and Solutions:</strong> <br>{openai_description_html}<br>
+                    <!-- <strong>Generated Description and Solutions:</strong> -->
+                    <br><span style="font-size: 16px;">{openai_description_html}</span><br>
                 </p>
             </body>
         </html>
