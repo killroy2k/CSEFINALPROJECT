@@ -1,5 +1,5 @@
 import requests, openai, csv, sqlite3, os, smtplib, json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
@@ -67,13 +67,17 @@ def check_nvd(hour_diff):
         raise ValueError("hourdiff must be a non-negative integer")
     
     # Format the current time and one hour ago in ISO8601 format
-    time_now = datetime.utcnow()
-    time_diff = time_now - timedelta(hours=hour_diff)
-    start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
-    end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
+    # time_now = datetime.now(timezone.utc)
+    # utc_timestamp = time_now.timestamp()
+    # formatted_time = time_now.strftime('%Y-%m-%dT%H:%M:%S.000Z')
+    # print(formatted_time)
+    # time_diff = formatted_time - timedelta(hours= - hour_diff)
+    # start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
+    # end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
+
 
     # URL for the NVD API, resultsPerPage modified by the source documentation(max= 1000)
-    url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate={start}&pubEndDate={end}"
+    url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate={start}&pubEndDate={end}&resultsPerPage=500"
     
     # Make the API call
     headers = {'apiKey': API_KEYS._NVD_KEY}
