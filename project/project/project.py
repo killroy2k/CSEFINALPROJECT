@@ -137,8 +137,12 @@ def check_nvd(hour_diff):
 def update_cves_table(new_cves, db):
     print("updating cves table")
     cursor = db.cursor()
+
+    num_cves = len(new_cves)
+    cur_cve = 0
     
     for cve in new_cves:
+        print("Num CVE: ", cur_cve, " out of ", num_cves)
         current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
         gpt_response = check_if_threat(cve)
         calc_score_based_on_ai = calculate_cvss_score(gpt_response)
@@ -228,8 +232,8 @@ def openai_generate_cve_description(cve):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
-                Generate a complete description of this CVE, and possible solutions(separated by line breaks), as if I am a client for a cybersecurity firm\
-                refrain from using jargon and go into length to be descriptive\
+                Generate a complete description of this CVE, a brief description of the company/vendor that owns this (including how many users have their products), why this would be a threat to general audiences based on previous information, \
+                and possible solutions(numbered and separated by line breaks), as if I am a client for a cybersecurity firm. Refrain from using jargon and go into length to be descriptive\
             "},
             {"role": "user", "content": "Threat level:" + cve.severity + "CVE ID:" + cve.id + "Description:" + cve.description}
         ],
