@@ -68,17 +68,16 @@ def check_nvd(minutes_diff):
     
     # Format the current time and one hour ago in ISO8601 format
     time_now = datetime.now(timezone.utc)
-    utc_timestamp = time_now.timestamp()
-    formatted_time = time_now.strftime('%Y-%m-%dT%H:%M:%S.000Z')
-    time_diff = time_now - timedelta(minutes= -minutes_diff)
+    time_diff = time_now - timedelta(minutes= minutes_diff)
     start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
     end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
-    print(start)
-    print(end)  
+
+    # URL for the NVD API, resultsPerPage modified by the source documentation(max= 500)
+    # updates regarding NVD API can be found at https://groups.google.com/a/list.nist.gov/g/nvd-news
 
 
-    # URL for the NVD API, resultsPerPage modified by the source documentation(max= 1000)
-    url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate={start}&pubEndDate={end}&resultsPerPage=500"
+    url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate={start}&pubEndDate={end}"
+    print(url)
     
     # Make the API call
     headers = {'apiKey': API_KEYS._NVD_KEY}
