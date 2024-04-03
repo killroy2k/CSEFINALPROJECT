@@ -139,7 +139,7 @@ def check_nvd(minutes_diff):
 
     return cve_list
 
-def update_cves_table(new_cves, db):
+def update_cves_table(new_cves, db, debug):
     print("updating cves table")
     cursor = db.cursor()
 
@@ -148,6 +148,7 @@ def update_cves_table(new_cves, db):
     
     for cve in new_cves:
         print("Num CVE: ", cur_cve, " out of ", num_cves)
+        cur_cve += 1
         current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
         gpt_response = check_if_threat(cve)
         calc_score_based_on_ai = calculate_cvss_score(gpt_response)
@@ -191,7 +192,11 @@ def update_cves_table(new_cves, db):
             cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
         ))
 
-        send_threat_mail(cve)
+        # If the calculated score is high or critical, send an email unless debug is on
+        if (cve.calc_score_based_on_ai >= 7.0):
+            send_threat_mail(cve)
+        elif(debug):  
+            send_threat_mail(cve)
     
     db.commit()
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
@@ -203,7 +208,7 @@ def check_if_threat(cve):
     # Analyze with OpenAI
     openai.api_key = API_KEYS._OPENAI_KEY
     completion = openai.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:personal::94gKPRse",
+        model="ft:gpt-3.5-turbo-0125:personal::99zKmiKh",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
                 Generate the complete eight field 3.1 CVSS vector string based off this description.\
