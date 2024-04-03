@@ -61,19 +61,20 @@ def setup_db():
     return db
 
 #hour diff is used to request entries between current time and (current time - hour_diff)
-def check_nvd(hour_diff):
+def check_nvd(minutes_diff):
     # Ensure that hourdiff is a positive integer
-    if not isinstance(hour_diff, int) or hour_diff < 0:
-        raise ValueError("hourdiff must be a non-negative integer")
+    if not isinstance(minutes_diff, int) or minutes_diff < 0:
+        raise ValueError("minutes_diff must be a non-negative integer")
     
     # Format the current time and one hour ago in ISO8601 format
     time_now = datetime.now(timezone.utc)
     utc_timestamp = time_now.timestamp()
     formatted_time = time_now.strftime('%Y-%m-%dT%H:%M:%S.000Z')
-    print(formatted_time)
-    time_diff = formatted_time - timedelta(hours= - hour_diff)
+    time_diff = time_now - timedelta(minutes= -minutes_diff)
     start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
     end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
+    print(start)
+    print(end)  
 
 
     # URL for the NVD API, resultsPerPage modified by the source documentation(max= 1000)
