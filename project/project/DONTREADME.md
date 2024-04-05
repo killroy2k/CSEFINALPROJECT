@@ -1,10 +1,12 @@
 Vynze's noobie github info stuff
 
-When you wanna  
+When you wanna grab code frmo github repo that somebody else did
 
 1. git fetch to grab the changes from repo
 2. git log to see changes
 3. git pull to update vscode
+       git pull main if from main 
+              else its git pull origin <name of branch>
 
 
 

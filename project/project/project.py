@@ -6,6 +6,11 @@ from email.mime.base import MIMEBase
 from email import encoders
 from cvss import CVSS3,CVSS4
 
+#test libraries
+import io
+import sys
+from contextlib import redirect_stdout
+
 from protected_info import *
 
 threat_count = 0
@@ -77,7 +82,6 @@ def check_nvd(minutes_diff):
 
 
     url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate={start}&pubEndDate={end}"
-    print(url)
     
     # Make the API call
     headers = {'apiKey': API_KEYS._NVD_KEY}
@@ -344,3 +348,22 @@ def print_table(db, table_name):
             print(row)
     else:
         print("No data found in the table.")
+
+
+
+# def debug_log():
+#     f = io.StringIO()
+
+#     with redirect_stdout(f):
+#         db = setup_db()
+#         new_cves = check_nvd(30)
+#         update_cves_table(new_cves, db, debug=True)
+#         print_table(db, 'cves')
+#         db.close()
+
+#     out = f.getvalue()
+
+#     with open('debug_log.txt', 'w') as file:
+#         file.write(out)
+
+#     file.close()
