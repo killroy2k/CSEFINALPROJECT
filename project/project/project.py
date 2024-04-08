@@ -6,10 +6,10 @@ from email.mime.base import MIMEBase
 from email import encoders
 from cvss import CVSS3,CVSS4
 
-#test libraries
-import io
-import sys
-from contextlib import redirect_stdout
+# #test libraries
+# import io
+# import sys
+# from contextlib import redirect_stdout
 
 from protected_info import *
 
