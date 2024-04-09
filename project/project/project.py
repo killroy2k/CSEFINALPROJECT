@@ -1,11 +1,15 @@
-import requests, openai, csv, tweepy, sqlite3, os, smtplib, json
-from datetime import datetime, timedelta
+import requests, openai, csv, sqlite3, os, smtplib, json
+from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 from cvss import CVSS3,CVSS4
-import json
+
+# #test libraries
+# import io
+# import sys
+# from contextlib import redirect_stdout
 
 from protected_info import *
 
@@ -62,18 +66,21 @@ def setup_db():
     return db
 
 #hour diff is used to request entries between current time and (current time - hour_diff)
-def check_nvd(hour_diff):
+def check_nvd(minutes_diff):
     # Ensure that hourdiff is a positive integer
-    if not isinstance(hour_diff, int) or hour_diff < 0:
-        raise ValueError("hourdiff must be a non-negative integer")
+    if not isinstance(minutes_diff, int) or minutes_diff < 0:
+        raise ValueError("minutes_diff must be a non-negative integer")
     
     # Format the current time and one hour ago in ISO8601 format
-    time_now = datetime.utcnow()
-    time_diff = time_now - timedelta(hours=hour_diff)
+    time_now = datetime.now(timezone.utc)
+    time_diff = time_now - timedelta(minutes= minutes_diff)
     start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
     end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
 
-    # URL for the NVD API, resultsPerPage modified by the source documentation(max= 1000)
+    # URL for the NVD API, resultsPerPage modified by the source documentation(max= 500)
+    # updates regarding NVD API can be found at https://groups.google.com/a/list.nist.gov/g/nvd-news
+
+
     url = f"https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate={start}&pubEndDate={end}"
     
     # Make the API call
@@ -135,12 +142,21 @@ def check_nvd(hour_diff):
 
     return cve_list
 
+<<<<<<< HEAD
 
 def update_cves_table(new_cves, db):
+=======
+def update_cves_table(new_cves, db, debug):
+>>>>>>> 9cdc5e1d17f31fcbc93c93ab857cf274082e01f5
     print("updating cves table")
     cursor = db.cursor()
+
+    num_cves = len(new_cves)
+    cur_cve = 1
     
     for cve in new_cves:
+        print("Num CVE: ", cur_cve, " out of ", num_cves)
+        cur_cve += 1
         current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
         gpt_response = check_if_threat(cve)
         calc_score_based_on_ai = calculate_cvss_score(gpt_response)
@@ -184,7 +200,11 @@ def update_cves_table(new_cves, db):
             cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
         ))
 
-        send_threat_mail(cve)
+        # If the calculated score is high or critical, send an email unless debug is on
+        if (cve.calc_score_based_on_ai >= 7.0):
+            send_threat_mail(cve)
+        elif(debug):  
+            send_threat_mail(cve)
     
     db.commit()
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
@@ -197,7 +217,7 @@ def check_if_threat(cve):
     # Analyze with OpenAI
     openai.api_key = API_KEYS._OPENAI_KEY
     completion = openai.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:personal::8zV4YfJo",
+        model="ft:gpt-3.5-turbo-0125:personal::99zKmiKh",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
                 Generate the complete eight field 3.1 CVSS vector string based off this description.\
@@ -221,10 +241,15 @@ def check_if_threat(cve):
     # print(send_threat_mail(cve))
     # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
     print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
+<<<<<<< HEAD
 #>>>>>>> main
+=======
+    # openai_analysis = 'yes'
+>>>>>>> 9cdc5e1d17f31fcbc93c93ab857cf274082e01f5
 
     cve.openai_description = openai_generate_cve_description(cve)
     
+
     # Return the openai response
     return openai_analysis
 
@@ -237,10 +262,11 @@ def openai_generate_cve_description(cve):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
-                Generate a complete description of this CVE, and possible solutions(separated by line breaks), as if I am a cybersecurity analyst\
-                notifying clients of this threat\
+                Generate a complete description of this CVE, a description of the company/vendor that owns this (including how many users have their products), why this would be a threat to general audiences based on previous information and company description, \
+                and possible solutions(numbered and separated by line breaks), as if I am a client for a cybersecurity firm. Refrain from using jargon and go into length to be descriptive and describe terms that would be unfamiliar to non technical people.\
+                and label each section with a bold header(ONLY BOLD THE SECTION TITLES IN HTML NOTHING ELSE)\
             "},
-            {"role": "user", "content": cve.id + cve.description}
+            {"role": "user", "content": "Threat level:" + cve.severity + "CVE ID:" + cve.id + "Description:" + cve.description}
         ],
         temperature=1
     )
@@ -255,8 +281,8 @@ def calculate_cvss_score(openai_analysis):
     if len(openai_analysis) > 35:
         # vector = openai_analysis.split("/") #may just be an error string instead of the optimized attack vector
         print("error finding score: attack vector not optimized for base score calculation")
-        return None
-    elif scope.lower() in openai_analysis.lower():
+        return "UNKNOWN"
+    elif scope in openai_analysis.upper():
         print("3.0: ", openai_analysis)
         vector = 'CVSS:3.0/' + openai_analysis.upper()
         c= CVSS3(vector)
@@ -267,9 +293,13 @@ def calculate_cvss_score(openai_analysis):
         # vector = 'CVSS:4.0/' + openai_analysis
         c = CVSS4(openai_analysis)
         return c.base_score
+    else:
+        print("error finding score: unknown error")
+        return "UNKNOWN"
 
 # WRITE DISCLAIMER (INACCURATE RESULTS)
 def send_threat_mail(cve):
+    print("sending threat mail")
     try:
         # Setup email server connection
         server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -294,11 +324,10 @@ def send_threat_mail(cve):
                         incorrect or misleading information</u></strong><br><br>
                     <strong>Threat Report:</strong><br>
                     <strong>CVE ID:</strong> {cve.id}<br>
-                    <strong>Description:</strong> {cve.description}<br>
-                    <strong>Attack Vector:</strong> {cve.gpt_response}<br>
                     <strong>Generated Score:</strong> {cve.calc_score_based_on_ai}<br>
                     <strong>Severity:</strong> {cve.severity}<br>
-                    <strong>Generated Description and Solutions:</strong> <br>{openai_description_html}<br>
+                    <!-- <strong>Generated Description and Solutions:</strong> -->
+                    <br><span style="font-size: 16px;">{openai_description_html}</span><br>
                 </p>
             </body>
         </html>
@@ -336,3 +365,22 @@ def print_table(db, table_name):
             print(row)
     else:
         print("No data found in the table.")
+
+
+
+# def debug_log():
+#     f = io.StringIO()
+
+#     with redirect_stdout(f):
+#         db = setup_db()
+#         new_cves = check_nvd(30)
+#         update_cves_table(new_cves, db, debug=True)
+#         print_table(db, 'cves')
+#         db.close()
+
+#     out = f.getvalue()
+
+#     with open('debug_log.txt', 'w') as file:
+#         file.write(out)
+
+#     file.close()
