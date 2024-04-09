@@ -142,12 +142,11 @@ def check_nvd(minutes_diff):
 
     return cve_list
 
-<<<<<<< HEAD
 
-def update_cves_table(new_cves, db):
-=======
+
+
 def update_cves_table(new_cves, db, debug):
->>>>>>> 9cdc5e1d17f31fcbc93c93ab857cf274082e01f5
+
     print("updating cves table")
     cursor = db.cursor()
 
@@ -227,10 +226,10 @@ def check_if_threat(cve):
         ],
         temperature=1
     )
-#<<<<<<< HEAD
+
     openai_analysis = completion.choices[0].message.content.lower() # Get the response from OpenAI
     print("chatgpt returns: " + openai_analysis) 
-#=======
+
 
     print("rated severity: " + cve.severity)
     openai_analysis = completion.choices[0].message.content.lower()
@@ -241,11 +240,7 @@ def check_if_threat(cve):
     # print(send_threat_mail(cve))
     # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
     print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
-<<<<<<< HEAD
-#>>>>>>> main
-=======
-    # openai_analysis = 'yes'
->>>>>>> 9cdc5e1d17f31fcbc93c93ab857cf274082e01f5
+
 
     cve.openai_description = openai_generate_cve_description(cve)
     
