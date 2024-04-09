@@ -294,6 +294,7 @@ def send_threat_mail(cve):
                         incorrect or misleading information</u></strong><br><br>
                     <strong>Threat Report:</strong><br>
                     <strong>CVE ID:</strong> {cve.id}<br>
+                    <strong>CVE Report Time:</strong>{datetime.utcnow}<br>
                     <strong>Generated Score:</strong> {cve.calc_score_based_on_ai}<br>
                     <strong>Severity:</strong> {cve.severity}<br>
                     <!-- <strong>Generated Description and Solutions:</strong> -->
