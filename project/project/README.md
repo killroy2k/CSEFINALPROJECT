@@ -62,6 +62,9 @@ Setup
 
     * Click "Create Task" to create a new task
     * Add name to task such as "30 min threat check" and (optional) add a description
+    
+    # * Under more testing, Give it high priviledges * #
+
     * Add trigger and set it to daily and set a time
             ** Make sure that the option "Repeat task every:" is selected and set time to 30 minutes for a duration of indefinitely
             ** Make sure that it is ENABLED
@@ -69,16 +72,14 @@ Setup
             **IF PATH CONTAINS SPACES ENCLOSE PATH IN QUOTES ("")**
             Under "Program/Script":
                 insert location of python.exe file
-                **IF UNSURE**
+                **IF UNSURE OF LOCATION**
                     Open "Command Prompt" and type "where python"
 
                     copy path of the most recent python version given and insert it to under Program/Scipt
 
             Under "Add arguments"
-                insert "threat_check.py"
+                insert the path to "threat_check.py"
 
-            Under "Start in"
-                insert folder where "threat_check.py" and "project.py" is stored in
         
     * Modify any conditions in the CONDITIONS tab if needed
 

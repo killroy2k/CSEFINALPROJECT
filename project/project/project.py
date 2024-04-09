@@ -231,7 +231,6 @@ def check_if_threat(cve):
     # print(send_threat_mail(cve))
     # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
     print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
-    # openai_analysis = 'yes'
 
     cve.openai_description = openai_generate_cve_description(cve)
     
