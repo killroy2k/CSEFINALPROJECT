@@ -14,7 +14,7 @@ f = io.StringIO()
 
 with redirect_stdout(f):
     db = setup_db()
-    new_cves = check_nvd(30)
+    new_cves = check_nvd(60)
     update_cves_table(new_cves, db, debug=True)
     print_table(db, 'cves')
     db.close()
@@ -26,4 +26,5 @@ with open('debug_log.txt', 'w') as file:
 
 
 with open('debug.json', 'w') as file:
+    out = str(out).replace('\n', ' ')
     json.dump(out, file, indent=4)

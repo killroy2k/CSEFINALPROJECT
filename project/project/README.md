@@ -58,8 +58,39 @@ Setup
         
 8.  **Task Scheduler Setup (Windows-based systems):** To schedule the scripts, set up the task:
 
+        ***Not tested but seen in video...Let the task run for at least a day before it becomes operational***
+
     * Click "Create Task" to create a new task
-    * Add name to task such as "30 min threat check" and description(optional)
+    * Add name to task such as "30 min threat check" and (optional) add a description
+    * Add trigger and set it to daily and set a time
+            ** Make sure that the option "Repeat task every:" is selected and set time to 30 minutes for a duration of indefinitely
+            ** Make sure that it is ENABLED
+    * Add an action
+            **IF PATH CONTAINS SPACES ENCLOSE PATH IN QUOTES ("")**
+            Under "Program/Script":
+                insert location of python.exe file
+                **IF UNSURE**
+                    Open "Command Prompt" and type "where python"
+
+                    copy path of the most recent python version given and insert it to under Program/Scipt
+
+            Under "Add arguments"
+                insert "threat_check.py"
+
+            Under "Start in"
+                insert folder where "threat_check.py" and "project.py" is stored in
+        
+    * Modify any conditions in the CONDITIONS tab if needed
+
+    * select ok and wait for the next day for full functionality (unconfirmed, testing rn)
+
+
+    # To manually run the task:
+        after creating the task following the steps above
+
+
+
+
 
 
 
