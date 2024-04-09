@@ -4,7 +4,7 @@ protected_info.py
 
 # DB not needed
 *.db
-
+test.json
 
 # General
 *.json
@@ -12,4 +12,3 @@ protected_info.py
 .DS_Store
 .AppleDouble
 .LSOverride
-test.json

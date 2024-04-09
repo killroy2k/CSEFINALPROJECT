@@ -4,6 +4,8 @@ Make sure openai api is also up to date
 
 When running the commands, its either:
 
+    python3 daily_report.py
+
     python3 threat_check.py
 
 Resolved:
@@ -20,5 +22,4 @@ TO DO List:
 
 
     
-    see if task scheduleer works
-        update readme if it does
+    get james to message jeremy if he wants the last year project to work before working on the current proj requirements
