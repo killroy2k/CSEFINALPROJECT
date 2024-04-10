@@ -235,7 +235,7 @@ def check_if_threat(cve):
 
 
 def openai_generate_cve_description(cve):
-    print("line 217 openai generate cve desc")
+    #print("line 217 openai generate cve desc")
 
     openai.api_key = API_KEYS._OPENAI_KEY
     completion = openai.chat.completions.create(
