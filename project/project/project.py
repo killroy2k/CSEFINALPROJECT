@@ -136,10 +136,6 @@ def check_nvd(hour_diff):
     return cve_list
 
 
-
-
-
-
 def update_cves_table(new_cves, db):
     print("updating cves table")
     cursor = db.cursor()
