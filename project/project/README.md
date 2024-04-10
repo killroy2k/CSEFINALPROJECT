@@ -54,7 +54,7 @@ Setup
         
         rubyCopy code
         
-        `# Run threat_check.py every hour 0 * * * * /usr/bin/python3 /path/to/threat_check.py  # Run daily_report.py once a day at 8 AM 0 8 * * * /usr/bin/python3 /path/to/daily_report.py`
+        `# Run threat_check.py every hour 0 * * * * /usr/bin/python3 /path/to/threat_check.py`
         
 
 Usage
@@ -75,5 +75,3 @@ Notes
 *   Make sure the system where the scripts are running has internet access, as the scripts need to make API calls.
 *   If you face any permission issues while running the scripts, you may need to adjust file permissions or run the scripts with appropriate user permissions.
 
-
-*also maybe need a Twitter/API that is up to date
