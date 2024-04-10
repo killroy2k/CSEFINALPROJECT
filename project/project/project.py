@@ -3,7 +3,7 @@ from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
-from email import encoders
+# from email import encoders
 from cvss import CVSS3,CVSS4
 
 # #test libraries
@@ -152,7 +152,7 @@ def update_cves_table(new_cves, db, debug):
     for cve in new_cves:
         print("Num CVE: ", cur_cve, " out of ", num_cves)
         cur_cve += 1
-        current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+        current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         gpt_response = check_if_threat(cve)
         calc_score_based_on_ai = calculate_cvss_score(gpt_response)
         cve.calc_score_based_on_ai = calc_score_based_on_ai
@@ -307,6 +307,7 @@ def send_threat_mail(cve):
                         incorrect or misleading information</u></strong><br><br>
                     <strong>Threat Report:</strong><br>
                     <strong>CVE ID:</strong> {cve.id}<br>
+                    <strong>CVE Report Time:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}<br>
                     <strong>Generated Score:</strong> {cve.calc_score_based_on_ai}<br>
                     <strong>Severity:</strong> {cve.severity}<br>
                     <!-- <strong>Generated Description and Solutions:</strong> -->
@@ -321,10 +322,12 @@ def send_threat_mail(cve):
 
         # Send email
         server.sendmail(from_addr=secret._HOST_EMAIL, to_addrs=secret._RECEIVER_EMAILS, msg=msg.as_string())
+        print("Email sent successfully.")
         server.quit()
         
         return "Email sent successfully."
     except Exception as e:
+        print(f"Failed to send email: {e}")
         return f"Failed to send email: {e}"
 
 

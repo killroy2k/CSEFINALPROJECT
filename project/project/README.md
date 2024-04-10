@@ -54,7 +54,7 @@ Setup
         
         rubyCopy code
         
-        `# Run threat_check.py every hour 0 * * * * /usr/bin/python3 /path/to/threat_check.py  # Run daily_report.py once a day at 8 AM 0 8 * * * /usr/bin/python3 /path/to/daily_report.py`
+        `# Run threat_check.py every hour 0 * * * * /usr/bin/python3 /path/to/threat_check.py`
         
 8.  **Task Scheduler Setup (Windows-based systems):** To schedule the scripts, set up the task:
 
