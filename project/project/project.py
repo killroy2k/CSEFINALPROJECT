@@ -1,9 +1,9 @@
-import requests, openai, csv, tweepy, sqlite3, os, smtplib, json
+import requests, openai, sqlite3, os, smtplib, json
 from datetime import datetime, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
-from email import encoders
+# from email import encoders
 from cvss import CVSS3,CVSS4
 import json
 
@@ -68,7 +68,7 @@ def check_nvd(hour_diff):
         raise ValueError("hourdiff must be a non-negative integer")
     
     # Format the current time and one hour ago in ISO8601 format
-    time_now = datetime.utcnow()
+    time_now = datetime.now()
     time_diff = time_now - timedelta(hours=hour_diff)
     start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
     end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
@@ -310,10 +310,12 @@ def send_threat_mail(cve):
 
         # Send email
         server.sendmail(from_addr=secret._HOST_EMAIL, to_addrs=secret._RECEIVER_EMAILS, msg=msg.as_string())
+        print("Email sent successfully.")
         server.quit()
         
         return "Email sent successfully."
     except Exception as e:
+        print(f"Failed to send email: {e}")
         return f"Failed to send email: {e}"
 
 
