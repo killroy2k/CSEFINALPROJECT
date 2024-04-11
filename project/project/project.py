@@ -162,36 +162,26 @@ def update_cves_table(new_cves, db):
         elif cve.calc_score_based_on_ai <= 10.0:
             cve.severity = "CRITICAL"
 
-        # cursor.execute('''
-        #     INSERT INTO cves (
-        #         id, description, severity, attackVector, attackComplexity, privilegesRequired,
-        #         userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified
-        #     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        #     ON CONFLICT(id) DO UPDATE SET
-        #         description=excluded.description,
-        #         severity=excluded.severity,
-        #         attackVector=excluded.attackVector,
-        #         attackComplexity=excluded.attackComplexity,
-        #         privilegesRequired=excluded.privilegesRequired,
-        #         userInteraction=excluded.userInteraction,
-        #         confidentialityImpact=excluded.confidentialityImpact,
-        #         integrityImpact=excluded.integrityImpact,
-        #         availabilityImpact=excluded.availabilityImpact,
-        #         gpt_response=excluded.gpt_response,
-        #         openai_description=excluded.openai_description,
-        #         calc_score_based_on_ai=excluded.calc_score_based_on_ai,
-        #         last_modified=excluded.last_modified
-        # ''', (
-        #     cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
-        #     cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
-        # ))
-
         cursor.execute('''
             INSERT INTO cves (
                 id, description, severity, attackVector, attackComplexity, privilegesRequired,
                 userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified
-            ) VALUES ({}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {})
-            ON CONFLICT(description) INSERT'''.format(
+            ) VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')
+            ON CONFLICT(id) DO UPDATE SET
+                description=excluded.description,
+                severity=excluded.severity,
+                attackVector=excluded.attackVector,
+                attackComplexity=excluded.attackComplexity,
+                privilegesRequired=excluded.privilegesRequired,
+                userInteraction=excluded.userInteraction,
+                confidentialityImpact=excluded.confidentialityImpact,
+                integrityImpact=excluded.integrityImpact,
+                availabilityImpact=excluded.availabilityImpact,
+                gpt_response=excluded.gpt_response,
+                openai_description=excluded.openai_description,
+                calc_score_based_on_ai=excluded.calc_score_based_on_ai,
+                last_modified=excluded.last_modified
+        '''.format(
             cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
             cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
         ))
