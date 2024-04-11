@@ -7,6 +7,8 @@ from email.mime.base import MIMEBase
 from cvss import CVSS3,CVSS4
 import json
 
+import psycopg2
+
 from protected_info import *
 
 threat_count = 0
@@ -34,7 +36,7 @@ class CVE:
     
 def setup_db():
     db_exists = os.path.exists('project.db')
-    db = sqlite3.connect('project.db')
+    db = psycopg2.connect( dbname='project.db', user='postgres', password='USF', host='127.0.0.1', port='5432')
     cursor = db.cursor()
     
     if not db_exists:
@@ -53,7 +55,7 @@ def setup_db():
                 gpt_response TEXT,
                 openai_description TEXT,
                 calc_score_based_on_ai TEXT,
-                last_modified DATETIME
+                last_modified TEXT
             )
         ''')
 
@@ -160,26 +162,36 @@ def update_cves_table(new_cves, db):
         elif cve.calc_score_based_on_ai <= 10.0:
             cve.severity = "CRITICAL"
 
+        # cursor.execute('''
+        #     INSERT INTO cves (
+        #         id, description, severity, attackVector, attackComplexity, privilegesRequired,
+        #         userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified
+        #     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        #     ON CONFLICT(id) DO UPDATE SET
+        #         description=excluded.description,
+        #         severity=excluded.severity,
+        #         attackVector=excluded.attackVector,
+        #         attackComplexity=excluded.attackComplexity,
+        #         privilegesRequired=excluded.privilegesRequired,
+        #         userInteraction=excluded.userInteraction,
+        #         confidentialityImpact=excluded.confidentialityImpact,
+        #         integrityImpact=excluded.integrityImpact,
+        #         availabilityImpact=excluded.availabilityImpact,
+        #         gpt_response=excluded.gpt_response,
+        #         openai_description=excluded.openai_description,
+        #         calc_score_based_on_ai=excluded.calc_score_based_on_ai,
+        #         last_modified=excluded.last_modified
+        # ''', (
+        #     cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
+        #     cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
+        # ))
+
         cursor.execute('''
             INSERT INTO cves (
                 id, description, severity, attackVector, attackComplexity, privilegesRequired,
                 userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(id) DO UPDATE SET
-                description=excluded.description,
-                severity=excluded.severity,
-                attackVector=excluded.attackVector,
-                attackComplexity=excluded.attackComplexity,
-                privilegesRequired=excluded.privilegesRequired,
-                userInteraction=excluded.userInteraction,
-                confidentialityImpact=excluded.confidentialityImpact,
-                integrityImpact=excluded.integrityImpact,
-                availabilityImpact=excluded.availabilityImpact,
-                gpt_response=excluded.gpt_response,
-                openai_description=excluded.openai_description,
-                calc_score_based_on_ai=excluded.calc_score_based_on_ai,
-                last_modified=excluded.last_modified
-        ''', (
+            ) VALUES ({}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {})
+            ON CONFLICT(description) INSERT'''.format(
             cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
             cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
         ))
