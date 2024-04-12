@@ -38,7 +38,7 @@ Setup
     
     bashCopy code
     
-    `pip install requests openai`
+    `pip install -r requirements.txt`
     
 5.  **Database Setup:** The project uses SQLite. Ensure SQLite3 is installed on your system.
     
@@ -58,7 +58,8 @@ Setup
         
 8.  **Task Scheduler Setup (Windows-based systems):** To schedule the scripts, set up the task:
 
-        ***Not tested but seen in video...Let the task run for at least a day before it becomes operational***
+    # If device is not functional at all times, set start time ahead of current time. #
+       ## for example, if the device is functional during 3:55 pm, set start time to 4:00 pm ##
 
     * Click "Create Task" to create a new task
     * Add name to task such as "30 min threat check" and (optional) add a description
@@ -87,13 +88,7 @@ Setup
 
 
     # To manually run the task:
-        after creating the task following the steps above
-
-
-
-
-
-
+        after creating the task following the steps above, click run on the right hand side of the task scheduler
 
 
 

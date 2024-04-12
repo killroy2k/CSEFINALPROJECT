@@ -1,3 +1,6 @@
 requests 
 openai
 cvss
+mysql-connector-python
+psycopg2-binary
+psycopg2

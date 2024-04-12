@@ -13,3 +13,8 @@ protected_info.py
 .AppleDouble
 .LSOverride
 test.json
+DONTREADME.md
+
+
+# Python cache directories
+__pycache__/
