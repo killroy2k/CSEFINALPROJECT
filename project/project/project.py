@@ -282,8 +282,6 @@ def send_threat_mail(cve):
                         incorrect or misleading information</u></strong><br><br>
                     <strong>Threat Report:</strong><br>
                     <strong>CVE ID:</strong> {cve.id}<br>
-                    <strong>Description:</strong> {cve.description}<br>
-                    <strong>Attack Vector:</strong> {cve.gpt_response}<br>
                     <strong>Generated Score:</strong> {cve.calc_score_based_on_ai}<br>
                     <strong>Severity:</strong> {cve.severity}<br>
                     <strong>Generated Description and Solutions:</strong> <br>{openai_description_html}<br>
@@ -297,12 +295,10 @@ def send_threat_mail(cve):
 
         # Send email
         server.sendmail(from_addr=secret._HOST_EMAIL, to_addrs=secret._RECEIVER_EMAILS, msg=msg.as_string())
-        print("Email sent successfully.")
         server.quit()
         
         return "Email sent successfully."
     except Exception as e:
-        print(f"Failed to send email: {e}")
         return f"Failed to send email: {e}"
 
 
