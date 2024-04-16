@@ -1,13 +1,11 @@
-import requests, openai, sqlite3, os, smtplib, json
-from datetime import datetime, timedelta
+import requests, openai, csv, sqlite3, os, smtplib, json
+from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
-# from email import encoders
 from cvss import CVSS3,CVSS4
 import json
 
-import psycopg2
 
 from protected_info import *
 
@@ -70,8 +68,8 @@ def check_nvd(hour_diff):
         raise ValueError("hourdiff must be a non-negative integer")
     
     # Format the current time and one hour ago in ISO8601 format
-    time_now = datetime.now()
-    time_diff = time_now - timedelta(hours=hour_diff)
+    time_now = datetime.now(timezone.utc)
+    time_diff = time_now - timedelta(minutes= minutes_diff)
     start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
     end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
 
@@ -146,11 +144,18 @@ def update_cves_table(new_cves, db):
         current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
         gpt_response = check_if_threat(cve)
         calc_score_based_on_ai = calculate_cvss_score(gpt_response)
+        
+        while calc_score_based_on_ai == "Failed":
+            print("Failed to calculate CVSS score, retrying...")
+            gpt_response = check_if_threat(cve)
+            calc_score_based_on_ai = calculate_cvss_score(gpt_response)
+    
+        
         cve.calc_score_based_on_ai = calc_score_based_on_ai
 
-        if cve.calc_score_based_on_ai is None:
-            print(f"Skipping {cve.id} due to an error in the CVSS calculation.")
-            continue
+        # if cve.calc_score_based_on_ai == "Failed":
+        #     print(f"Skipping {cve.id} due to an error in the CVSS calculation.")
+        #     continue
 
         #Update the severity based on the calculated score
         if cve.calc_score_based_on_ai < 3.9:
@@ -209,8 +214,6 @@ def check_if_threat(cve):
     # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
     print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
 
-#>>>>>>> main
-
     cve.openai_description = openai_generate_cve_description(cve)
     
     # Return the openai response
@@ -233,28 +236,37 @@ def openai_generate_cve_description(cve):
         temperature=1
     )
 
-    print(completion.choices[0].message.content)
+    # print(completion.choices[0].message.content)
     return completion.choices[0].message.content
 
 
 def calculate_cvss_score(openai_analysis):
-    print("\n")
-    scope = "S:"
-    if len(openai_analysis) > 35:
-        # vector = openai_analysis.split("/") #may just be an error string instead of the optimized attack vector
-        print("error finding score: attack vector not optimized for base score calculation")
-        return None
-    elif scope.lower() in openai_analysis.lower():
-        print("3.0: ", openai_analysis)
-        vector = 'CVSS:3.0/' + openai_analysis.upper()
-        c= CVSS3(vector)
-        print(c.scores()[0])
-        return c.scores()[0]
-    elif "4.0" in openai_analysis: #if the vector given by openai is cvss 4.0 then the following code will be used
-        print("4.0: ", openai_analysis)
-        # vector = 'CVSS:4.0/' + openai_analysis
-        c = CVSS4(openai_analysis)
-        return c.base_score
+    try:
+        scope = "S:"
+        colon_count = openai_analysis.count(":")
+        slash_count = openai_analysis.count("/")
+        if colon_count != 8 and slash_count !=7:
+            # vector = openai_analysis.split("/") #may just be an error string instead of the optimized attack vector
+            print("Error finding score: attack vector not optimized for base score calculation")
+            return "Failed"
+        elif scope in openai_analysis.upper():
+            print("3.0: ", openai_analysis)
+            vector = 'CVSS:3.0/' + openai_analysis.upper()
+            c= CVSS3(vector)
+            print(c.scores()[0])
+            return c.scores()[0]
+        elif "4.0" in openai_analysis: #if the vector given by openai is cvss 4.0 then the following code will be used
+            print("4.0: ", openai_analysis)
+            # vector = 'CVSS:4.0/' + openai_analysis
+            c = CVSS4(openai_analysis)
+            return c.base_score
+        else:
+            print("error finding score: unknown error")
+            return "Failed"
+    except Exception as e:
+        print(f"Calculation error occurred: {e}")
+        print("Faulty attack vector: ", openai_analysis)
+        return "Failed"
 
 # WRITE DISCLAIMER (INACCURATE RESULTS)
 def send_threat_mail(cve):

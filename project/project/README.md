@@ -39,7 +39,7 @@ Setup
     
     bashCopy code
     
-    `pip install requests openai tweepy`
+    `pip install -r requirements.txt`
     
 5.  **Database Setup:** The project uses SQLite. Ensure SQLite3 is installed on your system.
     
@@ -55,8 +55,43 @@ Setup
         
         rubyCopy code
         
-        `# Run threat_check.py every hour 0 * * * * /usr/bin/python3 /path/to/threat_check.py  # Run daily_report.py once a day at 8 AM 0 8 * * * /usr/bin/python3 /path/to/daily_report.py`
+        `# Run threat_check.py every hour 0 * * * * /usr/bin/python3 /path/to/threat_check.py`
         
+8.  **Task Scheduler Setup (Windows-based systems):** To schedule the scripts, set up the task:
+
+    # If device is not functional at all times, set start time ahead of current time. #
+       ## for example, if the device is functional during 3:55 pm, set start time to 4:00 pm ##
+
+    * Click "Create Task" to create a new task
+    * Add name to task such as "30 min threat check" and (optional) add a description
+    
+    # * Under more testing, Give it high priviledges * #
+
+    * Add trigger and set it to daily and set a time
+            ** Make sure that the option "Repeat task every:" is selected and set time to 30 minutes for a duration of indefinitely
+            ** Make sure that it is ENABLED
+    * Add an action
+            **IF PATH CONTAINS SPACES ENCLOSE PATH IN QUOTES ("")**
+            Under "Program/Script":
+                insert location of python.exe file
+                **IF UNSURE OF LOCATION**
+                    Open "Command Prompt" and type "where python"
+
+                    copy path of the most recent python version given and insert it to under Program/Scipt
+
+            Under "Add arguments"
+                insert the path to "threat_check.py"
+
+        
+    * Modify any conditions in the CONDITIONS tab if needed
+
+    * select ok and wait for the next day for full functionality (unconfirmed, testing rn)
+
+
+    # To manually run the task:
+        after creating the task following the steps above, click run on the right hand side of the task scheduler
+
+
 
 Usage
 -----
@@ -75,6 +110,5 @@ Notes
 
 *   Make sure the system where the scripts are running has internet access, as the scripts need to make API calls.
 *   If you face any permission issues while running the scripts, you may need to adjust file permissions or run the scripts with appropriate user permissions.
-
 
 *also maybe need a Twitter/API that is up to date
