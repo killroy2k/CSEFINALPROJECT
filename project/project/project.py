@@ -1,3 +1,4 @@
+import psycopg2
 import requests, openai, csv, sqlite3, os, smtplib, json
 from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
@@ -69,7 +70,7 @@ def check_nvd(hour_diff):
     
     # Format the current time and one hour ago in ISO8601 format
     time_now = datetime.now(timezone.utc)
-    time_diff = time_now - timedelta(minutes= minutes_diff)
+    time_diff = time_now - timedelta(minutes=hour_diff*60)
     start = time_diff.strftime('%Y-%m-%dT%H:%M:%S.000')
     end = time_now.strftime('%Y-%m-%dT%H:%M:%S.000')
 
