@@ -5,8 +5,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from cvss import CVSS3,CVSS4
-import json
-
+import psycopg2
 
 from protected_info import *
 
@@ -34,7 +33,8 @@ class CVE:
 
     
 def setup_db():
-    #db_exists = os.path.exists('project.db')
+    db_exists = True
+    # db_exists = os.path.exists('project.db')
     db = psycopg2.connect( dbname='project_db', user='postgres', password='USFFINALPROJ', host='database-2.crwmu0s8imjf.us-east-2.rds.amazonaws.com', port='5432')
     cursor = db.cursor()
     
@@ -73,6 +73,7 @@ def setup_db():
         db.commit()
     
     return db
+
 
 #hour diff is used to request entries between current time and (current time - hour_diff)
 def check_nvd(hour_diff):
@@ -180,16 +181,35 @@ def update_cves_table(new_cves, db):
         elif cve.calc_score_based_on_ai <= 10.0:
             cve.severity = "CRITICAL"
 
-
+        # Escape single quotes in the string fields
+        cve.id = cve.id.replace("'", "''")
+        cve.description = cve.description.replace("'", "''")
+        cve.severity = cve.severity.replace("'", "''")
+        # ... do this for all other string fields
 
         cursor.execute('''
             INSERT INTO cves (
                 id, description, severity, attackVector, attackComplexity, privilegesRequired,
                 userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified
-            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'''.format(
-            cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
-            cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
-        ))
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            ON CONFLICT(id) DO UPDATE SET
+                description=excluded.description,
+                severity=excluded.severity,
+                attackVector=excluded.attackVector,
+                attackComplexity=excluded.attackComplexity,
+                privilegesRequired=excluded.privilegesRequired,
+                userInteraction=excluded.userInteraction,
+                confidentialityImpact=excluded.confidentialityImpact,
+                integrityImpact=excluded.integrityImpact,
+                availabilityImpact=excluded.availabilityImpact,
+                gpt_response=excluded.gpt_response,
+                openai_description=excluded.openai_description,
+                calc_score_based_on_ai=excluded.calc_score_based_on_ai,
+                last_modified=excluded.last_modified
+            ''', (
+                cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
+                cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
+            ))
 
         send_threat_mail(cve)
     
