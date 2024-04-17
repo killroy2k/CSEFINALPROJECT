@@ -34,10 +34,22 @@ class CVE:
 
     
 def setup_db():
-    db_exists = os.path.exists('project.db')
-    db = psycopg2.connect( dbname='project.db', user='postgres', password='USF', host='127.0.0.1', port='5432')
+    #db_exists = os.path.exists('project.db')
+    db = psycopg2.connect( dbname='project_db', user='postgres', password='USFFINALPROJ', host='database-2.crwmu0s8imjf.us-east-2.rds.amazonaws.com', port='5432')
     cursor = db.cursor()
     
+
+    cursor.execute("""
+        SELECT EXISTS (
+            SELECT FROM information_schema.tables 
+            WHERE  table_schema = 'public'
+            AND    table_name   = 'cves'
+        );
+    """)
+    db_exists = cursor.fetchone()[0]
+
+
+
     if not db_exists:
         cursor.execute('''
             CREATE TABLE cves (
@@ -168,11 +180,13 @@ def update_cves_table(new_cves, db):
         elif cve.calc_score_based_on_ai <= 10.0:
             cve.severity = "CRITICAL"
 
+
+
         cursor.execute('''
             INSERT INTO cves (
                 id, description, severity, attackVector, attackComplexity, privilegesRequired,
                 userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified
-            ) VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')'''.format(
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'''.format(
             cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
             cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
         ))
