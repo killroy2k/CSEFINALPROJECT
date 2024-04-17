@@ -33,8 +33,9 @@ class CVE:
 
     
 def setup_db():
-    db_exists = os.path.exists('project.db')
-    db = psycopg2.connect( dbname='nvd-db', user='USFCSEFINALPROJ', password='usffinalproj', host='nvd-db.cx0m2s66uoeq.us-east-2.rds.amazonaws.com', port='5432')
+    db_exists = True
+    # db_exists = os.path.exists('project.db')
+    db = psycopg2.connect( dbname='project_db', user='postgres', password='USFFINALPROJ', host='database-2.crwmu0s8imjf.us-east-2.rds.amazonaws.com', port='5432')
     cursor = db.cursor()
     
     if not db_exists:
@@ -165,11 +166,17 @@ def update_cves_table(new_cves, db, debug):
         elif cve.calc_score_based_on_ai <= 10.0:
             cve.severity = "CRITICAL"
 
+        # Escape single quotes in the string fields
+        cve.id = cve.id.replace("'", "''")
+        cve.description = cve.description.replace("'", "''")
+        cve.severity = cve.severity.replace("'", "''")
+        # ... do this for all other string fields
+
         cursor.execute('''
             INSERT INTO cves (
                 id, description, severity, attackVector, attackComplexity, privilegesRequired,
                 userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified
-            ) VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT(id) DO UPDATE SET
                 description=excluded.description,
                 severity=excluded.severity,
@@ -184,10 +191,10 @@ def update_cves_table(new_cves, db, debug):
                 openai_description=excluded.openai_description,
                 calc_score_based_on_ai=excluded.calc_score_based_on_ai,
                 last_modified=excluded.last_modified
-        '''.format(
-            cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
-            cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
-        ))
+            ''', (
+                cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
+                cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
+            ))
 
         # If the calculated score is high or critical, send an email unless debug is on
         if (cve.calc_score_based_on_ai >= 7.0):
