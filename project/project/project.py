@@ -5,6 +5,7 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 # from email import encoders
 from cvss import CVSS3,CVSS4
+import psycopg2
 
 from protected_info import *
 
@@ -32,8 +33,9 @@ class CVE:
 
     
 def setup_db():
-    db_exists = os.path.exists('project.db')
-    db = sqlite3.connect('project.db')
+    db_exists = True
+    # db_exists = os.path.exists('project.db')
+    db = psycopg2.connect( dbname='project_db', user='postgres', password='USFFINALPROJ', host='database-2.crwmu0s8imjf.us-east-2.rds.amazonaws.com', port='5432')
     cursor = db.cursor()
     
     if not db_exists:
@@ -52,13 +54,14 @@ def setup_db():
                 gpt_response TEXT,
                 openai_description TEXT,
                 calc_score_based_on_ai TEXT,
-                last_modified DATETIME
+                last_modified TEXT
             )
         ''')
 
         db.commit()
     
     return db
+
 
 #hour diff is used to request entries between current time and (current time - hour_diff)
 def check_nvd(hour_diff):
@@ -163,11 +166,17 @@ def update_cves_table(new_cves, db, debug):
         elif cve.calc_score_based_on_ai <= 10.0:
             cve.severity = "CRITICAL"
 
+        # Escape single quotes in the string fields
+        cve.id = cve.id.replace("'", "''")
+        cve.description = cve.description.replace("'", "''")
+        cve.severity = cve.severity.replace("'", "''")
+        # ... do this for all other string fields
+
         cursor.execute('''
             INSERT INTO cves (
                 id, description, severity, attackVector, attackComplexity, privilegesRequired,
                 userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT(id) DO UPDATE SET
                 description=excluded.description,
                 severity=excluded.severity,
@@ -182,10 +191,10 @@ def update_cves_table(new_cves, db, debug):
                 openai_description=excluded.openai_description,
                 calc_score_based_on_ai=excluded.calc_score_based_on_ai,
                 last_modified=excluded.last_modified
-        ''', (
-            cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
-            cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
-        ))
+            ''', (
+                cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
+                cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
+            ))
 
         # If the calculated score is high or critical, send an email unless debug is on
         if (cve.calc_score_based_on_ai >= 7.0):
