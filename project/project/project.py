@@ -153,7 +153,7 @@ def update_cves_table(new_cves, db):
     cursor = db.cursor()
     
     for cve in new_cves:
-        current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+        current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         gpt_response = check_if_threat(cve)
         calc_score_based_on_ai = calculate_cvss_score(gpt_response)
         
