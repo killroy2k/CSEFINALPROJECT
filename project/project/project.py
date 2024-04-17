@@ -33,8 +33,6 @@ class CVE:
 
     
 def setup_db():
-    db_exists = True
-    # db_exists = os.path.exists('project.db')
     db = psycopg2.connect( dbname='project_db', user='postgres', password='USFFINALPROJ', host='database-2.crwmu0s8imjf.us-east-2.rds.amazonaws.com', port='5432')
     cursor = db.cursor()
     
