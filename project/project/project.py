@@ -155,30 +155,29 @@ def update_cves_table(new_cves, db):
     
     for cve in new_cves:
         current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        gpt_response = check_if_threat(cve)
-        calc_score_based_on_ai = calculate_cvss_score(gpt_response)
-        
-        while calc_score_based_on_ai == "Failed":
-            print("Failed to calculate CVSS score, retrying...")
-            gpt_response = check_if_threat(cve)
-            calc_score_based_on_ai = calculate_cvss_score(gpt_response)
+        gpt_response = check_if_threat(cve) #returns attack vector and updates generated description
     
-        
-        cve.calc_score_based_on_ai = calc_score_based_on_ai
+        final_score = -1
+        if cve.base_score != -1:
+            final_score = cve.base_score
+        else:
+            calc_score_based_on_ai = calculate_cvss_score(gpt_response)
+            while calc_score_based_on_ai == "Failed":
+                print("Failed to calculate CVSS score, retrying...")
+                gpt_response = check_if_threat(cve)
+                calc_score_based_on_ai = calculate_cvss_score(gpt_response)
+            final_score = calc_score_based_on_ai
 
-        # if cve.calc_score_based_on_ai == "Failed":
-        #     print(f"Skipping {cve.id} due to an error in the CVSS calculation.")
-        #     continue
-
-        #Update the severity based on the calculated score
-        if cve.calc_score_based_on_ai < 3.9:
-            cve.severity = "LOW"
-        elif cve.calc_score_based_on_ai < 7.0:
-            cve.severity = "MEDIUM"
-        elif cve.calc_score_based_on_ai < 9.0:
-            cve.severity = "HIGH"
-        elif cve.calc_score_based_on_ai <= 10.0:
-            cve.severity = "CRITICAL"
+        #Update the severity based on the calculated score if not present
+        if cve.severity == "UNKNOWN" or not cve.severity:
+            if cve.calc_score_based_on_ai < 3.9:
+                cve.severity = "LOW"
+            elif cve.calc_score_based_on_ai < 7.0:
+                cve.severity = "MEDIUM"
+            elif cve.calc_score_based_on_ai < 9.0:
+                cve.severity = "HIGH"
+            elif cve.calc_score_based_on_ai <= 10.0:
+                cve.severity = "CRITICAL"
 
         # Escape single quotes in the string fields
         cve.id = cve.id.replace("'", "''")
@@ -208,7 +207,7 @@ def update_cves_table(new_cves, db):
                 base_score=excluded.base_score
             ''', (
                 cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
-                cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time, cve.base_score
+                cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, final_score,current_time, cve.base_score
             ))
 
         send_threat_mail(cve)
@@ -220,6 +219,9 @@ def update_cves_table(new_cves, db):
 def check_if_threat(cve):
     print("check if threat 183")
     global threat_count
+
+    # Generate a description for the CVE
+    cve.openai_description = openai_generate_cve_description(cve)
 
     # Analyze with OpenAI
     openai.api_key = API_KEYS._OPENAI_KEY
@@ -249,7 +251,6 @@ def check_if_threat(cve):
     # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
     print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
 
-    cve.openai_description = openai_generate_cve_description(cve)
     
     # Return the openai response
     return openai_analysis
