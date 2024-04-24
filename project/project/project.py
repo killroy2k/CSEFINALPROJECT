@@ -159,25 +159,20 @@ def update_cves_table(new_cves, db):
     
         final_score = -1
         if cve.base_score != -1:
-            final_score = cve.base_score
+            calc_score_based_on_ai = cve.base_score
         else:
             calc_score_based_on_ai = calculate_cvss_score(gpt_response)
             while calc_score_based_on_ai == "Failed":
                 print("Failed to calculate CVSS score, retrying...")
                 gpt_response = check_if_threat(cve)
                 calc_score_based_on_ai = calculate_cvss_score(gpt_response)
-            final_score = calc_score_based_on_ai
+
+
 
         #Update the severity based on the calculated score if not present
-        if cve.severity == "UNKNOWN" or not cve.severity:
-            if cve.calc_score_based_on_ai < 3.9:
-                cve.severity = "LOW"
-            elif cve.calc_score_based_on_ai < 7.0:
-                cve.severity = "MEDIUM"
-            elif cve.calc_score_based_on_ai < 9.0:
-                cve.severity = "HIGH"
-            elif cve.calc_score_based_on_ai <= 10.0:
-                cve.severity = "CRITICAL"
+        if cve.severity == "UNKNOWN":
+            cve.severity = update_severity(calc_score_based_on_ai)
+    
 
         # Escape single quotes in the string fields
         cve.id = cve.id.replace("'", "''")
@@ -207,7 +202,7 @@ def update_cves_table(new_cves, db):
                 base_score=excluded.base_score
             ''', (
                 cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
-                cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, final_score,current_time, cve.base_score
+                cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time, cve.base_score
             ))
 
         send_threat_mail(cve)
@@ -215,6 +210,17 @@ def update_cves_table(new_cves, db):
     db.commit()
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
 
+
+def update_severity(cve_score):
+    if cve_score < 3.9:
+        cve_severity = "LOW"
+    elif cve_score < 7.0:
+        cve_severity = "MEDIUM"
+    elif cve_score < 9.0:
+        cve_severity = "HIGH"
+    elif cve_score <= 10.0:
+        cve_severity = "CRITICAL"
+    return cve_severity
 
 def check_if_threat(cve):
     print("check if threat 183")
