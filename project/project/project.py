@@ -142,7 +142,7 @@ def check_nvd(hour_diff):
 
         # Initialize the CVE object with the new attributes
         cve_obj = CVE(cve_id, description, severity, vector_string, complexity, privileges_required, 
-                      user_interaction, confidentiality_impact, integrity_impact, availability_impact,openai_description="", gpt_response="", calc_score_based_on_ai=0)
+                      user_interaction, confidentiality_impact, integrity_impact, availability_impact,openai_description="", gpt_response="", calc_score_based_on_ai=0, base_score=base_score)
         cve_list.append(cve_obj)
 
     return cve_list
