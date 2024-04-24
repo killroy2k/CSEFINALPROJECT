@@ -13,7 +13,7 @@ threat_count = 0
 
 
 class CVE:
-    def __init__(self, id, description, severity, attackVector, attackComplexity, privilegesRequired, userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, openai_description, gpt_response, calc_score_based_on_ai=0):
+    def __init__(self, id, description, severity, attackVector, attackComplexity, privilegesRequired, userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, openai_description, gpt_response, calc_score_based_on_ai=0, base_score=-1):
         self.id = id
         self.description = description
         self.severity = severity
@@ -27,6 +27,7 @@ class CVE:
         self.openai_description = openai_description
         self.gpt_response = gpt_response
         self.calc_score_based_on_ai = calc_score_based_on_ai
+        self.base_score = base_score
 
     def __str__(self):
         return "CVE(ID: {self.id}, Severity: {self.severity}, Description: {self.description})"
@@ -142,7 +143,7 @@ def check_nvd(hour_diff):
 
         # Initialize the CVE object with the new attributes
         cve_obj = CVE(cve_id, description, severity, vector_string, complexity, privileges_required, 
-                      user_interaction, confidentiality_impact, integrity_impact, availability_impact,openai_description="", gpt_response="", calc_score_based_on_ai=0, base_score=base_score)
+                      user_interaction, confidentiality_impact, integrity_impact, availability_impact,openai_description="", gpt_response="", calc_score_based_on_ai=0, base_score = base_score)
         cve_list.append(cve_obj)
 
     return cve_list
@@ -188,8 +189,8 @@ def update_cves_table(new_cves, db):
         cursor.execute('''
             INSERT INTO cves (
                 id, description, severity, attackVector, attackComplexity, privilegesRequired,
-                userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified
-            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified, base_score
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT(id) DO UPDATE SET
                 description=excluded.description,
                 severity=excluded.severity,
@@ -203,10 +204,11 @@ def update_cves_table(new_cves, db):
                 gpt_response=excluded.gpt_response,
                 openai_description=excluded.openai_description,
                 calc_score_based_on_ai=excluded.calc_score_based_on_ai,
-                last_modified=excluded.last_modified
+                last_modified=excluded.last_modified,
+                base_score=excluded.base_score
             ''', (
                 cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
-                cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
+                cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time, cve.base_score
             ))
 
         send_threat_mail(cve)
