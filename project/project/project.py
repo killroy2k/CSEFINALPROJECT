@@ -162,6 +162,7 @@ def update_cves_table(new_cves, db):
         if cve.base_score != "UNKNOWN":
             cve.calc_score_based_on_ai = cve.base_score
             cve.openai_description = openai_generate_cve_description(cve)
+            gpt_response = cve.attackVector
         else:
             gpt_response = check_if_threat(cve) #returns attack vector and updates generated description
             cve.calc_score_based_on_ai = calculate_cvss_score(gpt_response)
