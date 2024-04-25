@@ -1,5 +1,5 @@
 import psycopg2
-import requests, openai, csv, sqlite3, os, smtplib, json
+import requests, openai, smtplib
 from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText

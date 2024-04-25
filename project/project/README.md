@@ -15,7 +15,7 @@ To run this project, you need to have the following installed:
 
 *   Python 3.x
 *   postgresql Version 16
-*   Required Python packages: `requests`, `openai`, `tweepy`, `smtplib`
+*   Required Python packages: `requests`, `openai`, `cvss`, `psycopg2`
 
 Setup
 -----
@@ -99,7 +99,7 @@ Usage
     
     bashCopy code
     
-    `python3 daily_report.py python3 threat_check.py`
+    `python3 threat_check.py`
     
 *   **Automated Execution:** If you have set up crontab as per the setup instructions, the scripts will run automatically at the specified times.
 
@@ -136,4 +136,4 @@ Notes
 
 *   When downloading postgresql make sure to download all the files from the installer, especially pgAdmin4
 
-*also maybe need a Twitter/API that is up to date
+*also maybe need a NVD/OpenAI APIs are up to date
