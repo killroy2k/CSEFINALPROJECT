@@ -1,5 +1,5 @@
 import psycopg2
-import requests, openai, csv, sqlite3, os, smtplib, json
+import requests, openai, smtplib
 from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -9,11 +9,11 @@ import psycopg2
 
 from protected_info import *
 
-threat_count = 0
+global threat_count
 
 
 class CVE:
-    def __init__(self, id, description, severity, attackVector, attackComplexity, privilegesRequired, userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, openai_description, gpt_response, calc_score_based_on_ai=0):
+    def __init__(self, id, description, severity, attackVector, attackComplexity, privilegesRequired, userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, openai_description, gpt_response, calc_score_based_on_ai=0, base_score=0):
         self.id = id
         self.description = description
         self.severity = severity
@@ -27,6 +27,7 @@ class CVE:
         self.openai_description = openai_description
         self.gpt_response = gpt_response
         self.calc_score_based_on_ai = calc_score_based_on_ai
+        self.base_score = base_score
 
     def __str__(self):
         return "CVE(ID: {self.id}, Severity: {self.severity}, Description: {self.description})"
@@ -142,7 +143,7 @@ def check_nvd(hour_diff):
 
         # Initialize the CVE object with the new attributes
         cve_obj = CVE(cve_id, description, severity, vector_string, complexity, privileges_required, 
-                      user_interaction, confidentiality_impact, integrity_impact, availability_impact,openai_description="", gpt_response="", calc_score_based_on_ai=0)
+                      user_interaction, confidentiality_impact, integrity_impact, availability_impact,openai_description="", gpt_response="", calc_score_based_on_ai=0, base_score = base_score)
         cve_list.append(cve_obj)
 
     return cve_list
@@ -150,34 +151,31 @@ def check_nvd(hour_diff):
 
 def update_cves_table(new_cves, db):
     print("updating cves table")
+    threat_count = 0
     cursor = db.cursor()
     
     for cve in new_cves:
         current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        gpt_response = check_if_threat(cve)
-        calc_score_based_on_ai = calculate_cvss_score(gpt_response)
         
-        while calc_score_based_on_ai == "Failed":
-            print("Failed to calculate CVSS score, retrying...")
-            gpt_response = check_if_threat(cve)
-            calc_score_based_on_ai = calculate_cvss_score(gpt_response)
+
+        print("161 " + str(cve.base_score))
+        if cve.base_score != "UNKNOWN":
+            cve.calc_score_based_on_ai = cve.base_score
+            cve.openai_description = openai_generate_cve_description(cve)
+            gpt_response = cve.attackVector
+        else:
+            gpt_response = check_if_threat(cve) #returns attack vector and updates generated description
+            cve.calc_score_based_on_ai = calculate_cvss_score(gpt_response)
+            while cve.calc_score_based_on_ai == "Failed":
+                print("Failed to calculate CVSS score, retrying...")
+                gpt_response = check_if_threat(cve)
+                cve.calc_score_based_on_ai = calculate_cvss_score(gpt_response)
+
+
+        #Update the severity based on the calculated score if not present
+        if cve.severity == "UNKNOWN":
+            cve.severity = update_severity(cve.calc_score_based_on_ai)
     
-        
-        cve.calc_score_based_on_ai = calc_score_based_on_ai
-
-        # if cve.calc_score_based_on_ai == "Failed":
-        #     print(f"Skipping {cve.id} due to an error in the CVSS calculation.")
-        #     continue
-
-        #Update the severity based on the calculated score
-        if cve.calc_score_based_on_ai < 3.9:
-            cve.severity = "LOW"
-        elif cve.calc_score_based_on_ai < 7.0:
-            cve.severity = "MEDIUM"
-        elif cve.calc_score_based_on_ai < 9.0:
-            cve.severity = "HIGH"
-        elif cve.calc_score_based_on_ai <= 10.0:
-            cve.severity = "CRITICAL"
 
         # Escape single quotes in the string fields
         cve.id = cve.id.replace("'", "''")
@@ -188,8 +186,8 @@ def update_cves_table(new_cves, db):
         cursor.execute('''
             INSERT INTO cves (
                 id, description, severity, attackVector, attackComplexity, privilegesRequired,
-                userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified
-            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                userInteraction, confidentialityImpact, integrityImpact, availabilityImpact, gpt_response, openai_description, calc_score_based_on_ai, last_modified, base_score
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT(id) DO UPDATE SET
                 description=excluded.description,
                 severity=excluded.severity,
@@ -203,21 +201,36 @@ def update_cves_table(new_cves, db):
                 gpt_response=excluded.gpt_response,
                 openai_description=excluded.openai_description,
                 calc_score_based_on_ai=excluded.calc_score_based_on_ai,
-                last_modified=excluded.last_modified
+                last_modified=excluded.last_modified,
+                base_score=excluded.base_score
             ''', (
                 cve.id, cve.description, cve.severity, cve.attackVector, cve.attackComplexity, cve.privilegesRequired,
-                cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, calc_score_based_on_ai,current_time
+                cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, cve.calc_score_based_on_ai, current_time, cve.base_score
             ))
-
+        threat_count += 1
         send_threat_mail(cve)
     
     db.commit()
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
 
 
+def update_severity(cve_score):
+    if cve_score < 3.9:
+        cve_severity = "LOW"
+    elif cve_score < 7.0:
+        cve_severity = "MEDIUM"
+    elif cve_score < 9.0:
+        cve_severity = "HIGH"
+    elif cve_score <= 10.0:
+        cve_severity = "CRITICAL"
+    return cve_severity
+
 def check_if_threat(cve):
     print("check if threat 183")
-    global threat_count
+    
+
+    # Generate a description for the CVE
+    cve.openai_description = openai_generate_cve_description(cve)
 
     # Analyze with OpenAI
     openai.api_key = API_KEYS._OPENAI_KEY
@@ -242,12 +255,10 @@ def check_if_threat(cve):
     cve.gpt_response = openai_analysis.upper()  # Store the generated attack vector in the CVE object
     print("chatgpt returns: " + openai_analysis)
     
-    threat_count += 1
     # print(send_threat_mail(cve))
     # print(cve.id + " , " +cve.description + " , " + cve.severity + " , " + cve.attackVector + " , " + cve.attackComplexity + " , " + cve.privilegesRequired + " , " + cve.userInteraction + " , " + cve.confidentialityImpact + " , " + cve.integrityImpact + " , " + cve.availabilityImpact)
     print("cve id: " + cve.id + " gpt response: " + openai_analysis.upper())
 
-    cve.openai_description = openai_generate_cve_description(cve)
     
     # Return the openai response
     return openai_analysis
@@ -261,8 +272,9 @@ def openai_generate_cve_description(cve):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
-                Generate a complete description of this CVE, and possible solutions(separated by line breaks), as if I am a cybersecurity analyst\
-                notifying clients of this threat\
+                Generate a complete description of this CVE, a description of the company/vendor that owns this (including how many users have their products), why this would be a threat to general audiences based on previous information and company description, \
+                and possible solutions(numbered and separated by line breaks), as if I am a client for a cybersecurity firm. Refrain from using jargon and go into length to be descriptive and describe terms that would be unfamiliar to non technical people.\
+                and label each section with a bold header(ONLY BOLD THE SECTION TITLES IN HTML NOTHING ELSE)\
             "},
             {"role": "user", "content": cve.id + cve.description}
         ],
