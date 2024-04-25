@@ -4,9 +4,8 @@ CVE Monitoring Project
 Description
 -----------
 
-This project includes scripts for monitoring and reporting Common Vulnerabilities and Exposures (CVEs). It consists of two main Python scripts:
+This project includes a script for monitoring and reporting Common Vulnerabilities and Exposures (CVEs). It consists of two main Python scripts:
 
-*   `daily_report.py`: Generates a daily report of CVE accuracy and sends it via email.
 *   `threat_check.py`: Checks for new CVEs every hour and updates the database accordingly.
 
 Prerequisites
@@ -15,7 +14,7 @@ Prerequisites
 To run this project, you need to have the following installed:
 
 *   Python 3.x
-*   SQLite3
+*   postgresql Version 16
 *   Required Python packages: `requests`, `openai`, `tweepy`, `smtplib`
 
 Setup
@@ -41,7 +40,7 @@ Setup
     
     `pip install -r requirements.txt`
     
-5.  **Database Setup:** The project uses SQLite. Ensure SQLite3 is installed on your system.
+5.  **Database Setup:** The project uses postgresql version 16. Ensure postgresql version 16 is installed on your system (https://www.postgresql.org/download/). Also make sure that you change the "dbname", "password", and "host" to your corresponding values.
     
 6.  **Configuration:**
     
@@ -103,6 +102,30 @@ Usage
     `python3 daily_report.py python3 threat_check.py`
     
 *   **Automated Execution:** If you have set up crontab as per the setup instructions, the scripts will run automatically at the specified times.
+
+*   **Finding the Database** To find the database follow the following steps:
+
+    Go to the location you saved PostgreSQL (typically it is in "Programs Files") and open
+    -> Open the 16 file
+    -> Open pgAdmin 4
+    -> Open runtime
+    -> Open PgAdmin4 application
+    -> Click Object
+    -> Click Register
+    -> Click Server
+    -> Put the name of your database in the name section (default project_db)
+    -> Click Connection
+    -> Add your host address
+    -> Add the password
+    -> Click Save
+    -> Now the database should show up under your servers now that you are connected to the database the next steps will show you how to look at it
+        -> Double click the name you gave when setting up the connection
+        -> Double click Databases
+        -> Double click the actual database (default name project_db)
+        -> Double click Schemas
+        -> Double click Tables
+        -> Left click cve and select View
+        -> Click view all
     
 
 Notes
@@ -110,5 +133,7 @@ Notes
 
 *   Make sure the system where the scripts are running has internet access, as the scripts need to make API calls.
 *   If you face any permission issues while running the scripts, you may need to adjust file permissions or run the scripts with appropriate user permissions.
+
+*   When downloading postgresql make sure to download all the files from the installer, especially pgAdmin4
 
 *also maybe need a Twitter/API that is up to date
