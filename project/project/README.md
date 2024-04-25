@@ -92,6 +92,18 @@ Setup
 
 
 
+
+
+AWS Deployment
+-----
+
+Make sure your security group has access to your s3 bucket from ec2
+aws s3 sync s3://bucket-arn-link .
+
+
+
+
+
 Usage
 -----
 
@@ -137,3 +149,4 @@ Notes
 *   When downloading postgresql make sure to download all the files from the installer, especially pgAdmin4
 
 *also maybe need a NVD/OpenAI APIs are up to date
+
