@@ -40,7 +40,7 @@ Setup
     
     `pip install -r requirements.txt`
     
-5.  **Database Setup:** The project uses postgresql version 16. Ensure postgresql version 16 is installed on your system (https://www.postgresql.org/download/). Also make sure that you change the "dbname", "password", and "host" to your corresponding values.
+5.  **Database Setup:** The project uses postgresql version 16. Ensure postgresql version 16 is installed on your system (https://www.postgresql.org/download/). When on stack builder installation just click cancel. Also make sure that you change the "dbname", "password", and "host" to your corresponding values.
     
 6.  **Configuration:**
     
@@ -106,26 +106,27 @@ Usage
 *   **Finding the Database** To find the database follow the following steps:
 
     Go to the location you saved PostgreSQL (typically it is in "Programs Files") and open
-    -> Open the 16 file
+    -> Open the 16 folder
     -> Open pgAdmin 4
     -> Open runtime
     -> Open PgAdmin4 application
+    -> Click Server
     -> Click Object
     -> Click Register
     -> Click Server
-    -> Put the name of your database in the name section (default project_db)
+    -> Put the name of which you want your connection called
     -> Click Connection
     -> Add your host address
     -> Add the password
     -> Click Save
     -> Now the database should show up under your servers now that you are connected to the database the next steps will show you how to look at it
-        -> Double click the name you gave when setting up the connection
+        -> Double click the name you gave the connection
         -> Double click Databases
-        -> Double click the actual database (default name project_db)
+        -> Double click the database (default name project_db)
         -> Double click Schemas
         -> Double click Tables
-        -> Left click cve and select View
-        -> Click view all
+        -> Right click cve and select View
+        -> Click all rows
     
 
 Notes
