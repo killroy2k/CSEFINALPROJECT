@@ -106,27 +106,27 @@ Usage
 *   **Finding the Database** To find the database follow the following steps:
 
     Go to the location you saved PostgreSQL (typically it is in "Programs Files") and open
-    -> Open the 16 folder
-    -> Open pgAdmin 4
-    -> Open runtime
-    -> Open PgAdmin4 application
-    -> Click Server
-    -> Click Object
-    -> Click Register
-    -> Click Server
-    -> Put the name of which you want your connection called
-    -> Click Connection
-    -> Add your host address
-    -> Add the password
-    -> Click Save
-    -> Now the database should show up under your servers now that you are connected to the database the next steps will show you how to look at it
-        -> Double click the name you gave the connection
-        -> Double click Databases
-        -> Double click the database (default name project_db)
-        -> Double click Schemas
-        -> Double click Tables
-        -> Right click cve and select View
-        -> Click all rows
+    1.  Open the 16 folder
+    2.  Open pgAdmin 4
+    3.  Open runtime
+    4.  Open PgAdmin4 application
+    5.  Click Server
+    6.  Click Object
+    7.  Click Register
+    8.  Click Server
+    9.  Put the name of which you want your connection called
+    10. Click Connection
+    11. Add your host address
+    12. Add the password
+    13. Click Save
+    14. Now the database should show up under your servers now that you are connected to the database the next steps will show you how to look at it
+        1. Double click the name you gave the connection
+        2. Double click Databases
+        3. Double click the database (default name project_db)
+        4. Double click Schemas
+        5. Double click Tables
+        6. Right click cve and select View
+        7. Click all rows
     
 
 Notes
