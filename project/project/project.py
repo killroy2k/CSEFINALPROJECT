@@ -271,8 +271,9 @@ def openai_generate_cve_description(cve):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful CVSS assistant. Given the text input, determine the following about the text: \
-                Generate a complete description of this CVE, and possible solutions(separated by line breaks), as if I am a cybersecurity analyst\
-                notifying clients of this threat\
+                Generate a complete description of this CVE, a description of the company/vendor that owns this (including how many users have their products), why this would be a threat to general audiences based on previous information and company description, \
+                and possible solutions(numbered and separated by line breaks), as if I am a client for a cybersecurity firm. Refrain from using jargon and go into length to be descriptive and describe terms that would be unfamiliar to non technical people.\
+                and label each section with a bold header(ONLY BOLD THE SECTION TITLES IN HTML NOTHING ELSE)\
             "},
             {"role": "user", "content": cve.id + cve.description}
         ],
