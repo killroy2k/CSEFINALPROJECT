@@ -1,4 +1,4 @@
-CVE Monitoring Project
+CVE Automated Monitoring Project
 ======================
 
 Description
@@ -15,92 +15,83 @@ To run this project, you need to have the following installed:
 
 *   Python 3.x
 *   postgresql Version 16
-*   Required Python packages: `requests`, `openai`, `cvss`, `psycopg2`
+*   Required Python packages: `requests`, `openai`, `cvss`, `psycopg2`, `psycopg2.binary`
 
-Setup
+
+AWS Deployment
 -----
 
-1.  **Unzip code files:** Choose the location you want to unzip the code files and unzip the folder.
+1. First you would want to provision an AWS RDS Postgres database and create a table otherwise the app creates one itself, source: https://www.youtube.com/watch?v=I_fTQTsz2nQ
+
+    db = psycopg2.connect( dbname='project_db', user='postgres', password='USFFINALPROJ', host='database-2.crwmu0s8imjf.us-east-2.rds.amazonaws.com', port='5432')
+
+Above is line 37 of project.py which is the line that connects to the DB itself, and this can be moved to protected_info.py or updating the values here
+
+Get the necessary input data from RDS such as the DB name, the db user name and password, the host (or the host link from AWS), and the port (5432 is the default).
+
+2. Create an S3 bucket and push the folder that holds the application code there
+
+3. Provision an EC2 (Elastic Cloud Compute) instance and make sure the security group has access to the S3 bucket
+
+    Make sure your security group has access to your s3 bucket from ec2
+
+4. In EC2 update the instance:
+
+        `sudo yum update`
+
+    Also install the libraries mentioned above onto the EC2 instance
+
+    and then create a directory and navigate to it, once you are in it, get the s3 bucket link where you uploaded your application code to, and then run the following command to push the code to your ec2 instance:
+
+        `aws s3 sync s3://bucket-arn-link . `
+
+    this command gets objects from the s3 bucket and copies it to the current directory
+
+
+5. Follow the proceding steps `Local Setup` as a guide to running the application on ec2
+
+    Step 6 details making the project automatic
+
+
+
+Local Setup
+-----
+
+1.  **Unzip code files (if zipped):** Choose the location you want to unzip the code files and unzip the folder.
     
     bashCopy code
     
     `unzip project.zip`
     
 2.  **Install Python 3:** Ensure Python 3.x is installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
-    
-3.  **Set Up a Virtual Environment (Optional):** It's a good practice to use a virtual environment. Run the following commands to create and activate one:
-    
-    bashCopy code
-    
-    `` python3 -m venv venv source venv/bin/activate  # On Windows, use `venv\Scripts\activate` ``
-    
-4.  **Install Required Python Packages:** Install all required packages using pip:
+
+3.  **Install Required Python Packages:** Install all required packages using pip:
     
     bashCopy code
     
     `pip install -r requirements.txt`
+
+    or 
+
+    `pip install [packages]`
     
-5.  **Database Setup:** The project uses postgresql version 16. Ensure postgresql version 16 is installed on your system (https://www.postgresql.org/download/). Also make sure that you change the "dbname", "password", and "host" to your corresponding values.
+4.  **Database Setup:** The project uses postgresql version 16. Ensure postgresql version 16 is installed on your system (https://www.postgresql.org/download/). Also make sure that you change the "dbname", "password", and "host" to your corresponding values.
     
-6.  **Configuration:**
+5.  **Configuration:**
     
     *   Set up `protected_info.py` with your API keys and email information.
     *   Ensure `project.py` has the correct paths and configurations.
     
-7.  **Crontab Setup (Unix-based systems):** To schedule the scripts, set up cron jobs:
-    
+
+6.  **Crontab Setup (Unix-based systems):** To schedule the scripts, set up cron jobs:
+
+    *   Start the crontab service: `sudo service crond start`
     *   Edit your crontab: `crontab -e`
     *   Add the following lines, replacing `/path/to/script` with the actual paths:
         
-        rubyCopy code
-        
-        `# Run threat_check.py every hour 0 * * * * /usr/bin/python3 /path/to/threat_check.py`
-        
-8.  **Task Scheduler Setup (Windows-based systems):** To schedule the scripts, set up the task:
+        `0 * * * * python3 /path/to/threat_check.py`
 
-    # If device is not functional at all times, set start time ahead of current time. #
-       ## for example, if the device is functional during 3:55 pm, set start time to 4:00 pm ##
-
-    * Click "Create Task" to create a new task
-    * Add name to task such as "30 min threat check" and (optional) add a description
-    
-    # * Under more testing, Give it high priviledges * #
-
-    * Add trigger and set it to daily and set a time
-            ** Make sure that the option "Repeat task every:" is selected and set time to 30 minutes for a duration of indefinitely
-            ** Make sure that it is ENABLED
-    * Add an action
-            **IF PATH CONTAINS SPACES ENCLOSE PATH IN QUOTES ("")**
-            Under "Program/Script":
-                insert location of python.exe file
-                **IF UNSURE OF LOCATION**
-                    Open "Command Prompt" and type "where python"
-
-                    copy path of the most recent python version given and insert it to under Program/Scipt
-
-            Under "Add arguments"
-                insert the path to "threat_check.py"
-
-        
-    * Modify any conditions in the CONDITIONS tab if needed
-
-    * select ok and wait for the next day for full functionality (unconfirmed, testing rn)
-
-
-    # To manually run the task:
-        after creating the task following the steps above, click run on the right hand side of the task scheduler
-
-
-
-
-
-AWS Deployment
------
-
-Make sure your security group has access to your s3 bucket from ec2
-aws s3 sync s3://bucket-arn-link .
-
-
+    *   This current runs the program at the start of every hour
 
 
 
@@ -108,12 +99,11 @@ Usage
 -----
 
 *   **Running Scripts Manually:** To run the scripts manually, execute the following commands:
-    
-    bashCopy code
-    
+
     `python3 threat_check.py`
     
 *   **Automated Execution:** If you have set up crontab as per the setup instructions, the scripts will run automatically at the specified times.
+
 
 *   **Finding the Database** To find the database follow the following steps:
 
