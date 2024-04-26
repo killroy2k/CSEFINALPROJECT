@@ -208,7 +208,8 @@ def update_cves_table(new_cves, db):
                 cve.userInteraction, cve.confidentialityImpact, cve.integrityImpact, cve.availabilityImpact, gpt_response, cve.openai_description, cve.calc_score_based_on_ai, current_time, cve.base_score
             ))
         threat_count += 1
-        send_threat_mail(cve)
+        if cve.severity != "LOW":
+            send_threat_mail(cve)
     
     db.commit()
     print(f"{threat_count}/{len(new_cves)} CVEs found as threats.")
