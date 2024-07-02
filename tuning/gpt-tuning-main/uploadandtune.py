@@ -4,7 +4,7 @@ import openai
 from time import sleep
 
 # load_dotenv()
-openai.api_key = "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"
+openai.api_key = "insert here"
 
 res = openai.files.create(
   file=open("./dataset/NewTuningData.jsonl", "rb"),
